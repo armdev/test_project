@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">     
+
+    <f:view contracts="default" transient="false">
+      	
+        <ui:composition template="/template.xhtml"> 
+             <ui:define name="header">
+                   <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/pages/page_404_error.css"/>
+            </ui:define>
+            <ui:define name="content"> 
+                <!--=== Breadcrumbs ===-->
+                <div class="breadcrumbs">
+                    <div class="container">
+                        <h1 class="pull-left">Success</h1>
+                        <ul class="pull-right breadcrumb">
+                            <li><a href="#{request.contextPath}/index.jsf">Home</a></li>
+                            <li><a href="">Pages</a></li>
+                            <li class="active">Success</li>
+                        </ul>
+                    </div> 
+                </div><!--/breadcrumbs-->
+
+                <!--=== Content Part ===-->
+                <div class="container content">		
+                    <!--Error Block-->
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="error-v1">
+                                <span>Action was success</span>
+                                <span>You can sign in or navigate to main page</span>
+                                <p>Here is a links for navigate</p>
+                                <a class="btn-u btn-bordered" href="#{request.contextPath}/index.jsf">Back Home</a>
+                                <a class="btn-u btn-bordered btn-danger" href="#{request.contextPath}/pages/auth/signin.jsf">Sign in</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Error Block-->
+                </div>	
+
+            </ui:define>
+            <ui:define name="footer">
+
+
+            </ui:define>
+        </ui:composition>
+    </f:view>
+</html>

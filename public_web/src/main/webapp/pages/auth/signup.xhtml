@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">     
+
+    <f:view contracts="default" transient="false">      
+        <ui:composition template="/template.xhtml">              
+            <ui:define name="header">
+                <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/pages/page_log_reg_v1.css"/>  
+            </ui:define>
+            <ui:define name="content"> 
+                <div class="breadcrumbs">
+                    <div class="container">
+                        <h1 class="pull-left">Registration</h1>
+                        <ul class="pull-right breadcrumb">
+                            <li><a href="#{request.contextPath}/index.jsf">Home</a></li>
+                            <li><a href="">Pages</a></li>
+                            <li class="active">Registration</li>
+                        </ul>
+                    </div><!--/container-->
+                </div><!--/breadcrumbs-->
+                <!--=== End Breadcrumbs ===-->
+                <!--=== Content Part ===-->
+                <div class="container content">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                            <h:form id="register" styleClass="reg-page">     
+                                <p:growl/>
+                                <div class="reg-header">
+                                    <h2>Register a new account</h2>
+                                    <p>Already Signed Up? Click <a href="signin.jsf" class="color-green">Sign In</a> to login your account.</p>                    
+                                </div>
+
+                                <label>First Name</label>
+                                <input type="text" jsf:id="firstname" jsf:value="#{userRegister.user.firstname}" class="form-control margin-bottom-20">
+                                    <f:validateLength  maximum="50"/>       
+                                </input>
+
+                                <label>Last Name</label>
+                                <input type="text"  jsf:id="lastname" jsf:value="#{userRegister.user.lastname}" class="form-control margin-bottom-20">
+                                    <f:validateLength  maximum="50"/>   
+                                </input>
+
+                                <label>Email Address <span class="color-red">*</span></label>
+                                <input type="text" jsf:id="email" jsf:value="#{userRegister.user.email}"  class="form-control margin-bottom-20">
+                                    <f:validator validatorId="EmailValidator"/>
+                                </input>
+                                <div class="row">   
+                                    <div class="col-sm-6">
+                                        <label>Password <span class="color-red">*</span></label>
+                                        <input type="password" jsf:id="password" jsf:value="#{userRegister.user.passwd}"  class="form-control margin-bottom-20">
+                                            <f:validateLength minimum="6" maximum="20"/>     
+                                        </input>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>Confirm Password <span class="color-red">*</span></label>
+                                        <input type="password" jsf:id="confirm" jsf:required="true" class="form-control margin-bottom-20">                                            
+                                            <f:validator validatorId="PasswordValidator"/>
+                                            <f:attribute name="passwordId" value="register:password" />
+                                            <f:validateLength minimum="6" maximum="20"/>                               
+
+                                        </input>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-lg-6 checkbox">
+                                        <label for="agree">                                           
+                                            <h:selectBooleanCheckbox id="agree" value="#{userRegister.agree}" requiredMessage="You must agree!!!">
+                                                <f:validator validatorId="RequiredCheckboxValidator" />
+                                            </h:selectBooleanCheckbox>
+                                            I read <a href="terms.jsf" class="color-green">Terms and Conditions</a>
+                                        </label>                        
+                                    </div>
+                                    <div class="col-lg-6 text-right">
+                                        <button class="btn-u" jsf:action="#{userRegister.registerUser()}" type="submit">Register</button>                        
+                                    </div>
+                                </div>
+                            </h:form>
+                        </div>
+                    </div>
+                </div><!--/container-->		
+                <!--=== End Content Part ===-->
+
+            </ui:define>
+            <ui:define name="footer">
+
+            </ui:define>
+        </ui:composition>
+    </f:view>
+</html>

@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">     
+
+    <f:view contracts="default" transient="false">       
+        <ui:composition template="/template.xhtml">   
+            <ui:define name="header">
+                <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/pages/page_search_inner.css"/>
+            </ui:define>
+            <ui:define name="content"> 
+                <!--=== Breadcrumbs v3 ===-->
+                <div class="breadcrumbs-v3">
+                    <div class="container">
+                        <h1 class="pull-left">Search Results</h1>
+                        <ul class="pull-right breadcrumb">
+                            <li><a href="#{request.contextPath}/index.jsf">Home</a></li>
+                            <li><a href="">Page</a></li>
+                            <li class="active">Search results</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--=== Search Block Version 2 ===-->
+                <div class="search-block-v2">
+                    <div class="container">
+                        <div class="col-md-6 col-md-offset-3">
+                            <h2>Post a Link</h2>
+                            <div class="input-group">
+                                <h:form>
+                                    <input type="text" jsf:styleClass="form-control" style="width: 600px;" jsf:value="#{titleExtractor.inputUrl}"  placeholder="Post user news ..."/>
+                                    <span class="input-group-btn">
+                                        <button class="btn-u" type="submit" jsf:action="#{titleExtractor.doParse()}"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>    
+                </div><!--/container--> 
+                <!--=== Search Results ===-->				
+                <div class="container s-results margin-bottom-50">
+                    <div class="row">
+                        <div class="col-md-2 hidden-xs related-search">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-4">
+                                    <h3>Random news</h3>
+
+                                    <hr/>
+                                </div>    
+                                <div class="col-md-12 col-sm-4">    
+                                    <h3>Tutorials</h3>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Basic Concepts</a></li>     
+                                        <li><a href="#">‎Building your first web page</a></li>   
+                                        <li><a href="#">‎Advanced HTML</a></li>   
+                                    </ul>
+                                    <hr/>
+                                </div>    
+                                <div class="col-md-12 col-sm-4">
+                                    <h3>Trending topics</h3>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Bootstrap</a></li>     
+                                        <li><a href="#">Wrapbootstrap</a></li>     
+                                        <li><a href="#">Codrops</a></li>     
+                                    </ul>
+                                    <hr/>
+                                </div>    
+                                <div class="col-md-12 col-sm-4">                        
+                                    <h3>Search history</h3>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Web design articles</a></li>   
+                                        <li><a href="#">Tutorials for web design</a></li>     
+                                    </ul>
+                                    <a class="see-all" href="#">See all</a>
+                                    <hr/>
+                                </div>    
+                                <div class="col-md-12 col-sm-4">
+                                    <h3>Related pictures</h3>
+                                    <ul class="list-unstyled blog-photos margin-bottom-30">
+                                        <li><a href="#"><img src="#{request.contextPath}/resources/assets/img/sliders/elastislide/5.jpg" alt="" class="hover-effect"/></a></li>
+                                        <li><a href="#"><img src="#{request.contextPath}/resources/assets/img/sliders/elastislide/6.jpg" alt="" class="hover-effect"/></a></li>
+                                        <li><a href="#"><img src="#{request.contextPath}/resources/assets/img/sliders/elastislide/8.jpg" alt="" class="hover-effect"/></a></li>
+                                        <li><a href="#"><img src="#{request.contextPath}/resources/assets/img/sliders/elastislide/10.jpg" alt="" class="hover-effect"/></a></li>
+                                        <li><a href="#"><img src="#{request.contextPath}/resources/assets/img/sliders/elastislide/11.jpg" alt="" class="hover-effect"/></a></li>
+                                        <li><a href="#"><img src="#{request.contextPath}/resources/assets/img/sliders/elastislide/1.jpg" alt="" class="hover-effect"/></a></li>
+                                        <li><a href="#"><img src="#{request.contextPath}/resources/assets/img/sliders/elastislide/2.jpg" alt="" class="hover-effect"/></a></li>
+                                        <li><a href="#"><img src="#{request.contextPath}/resources/assets/img/sliders/elastislide/7.jpg" alt="" class="hover-effect"/></a></li>
+                                    </ul>
+                                </div>
+                            </div>        
+                        </div><!--/col-md-2-->
+
+                        <div class="col-md-10">
+                            <span class="results-number">About 384,907 results</span>
+                            <!-- Begin Inner Results -->
+                            <div class="inner-results">
+                                <h3><a href="#">Top News</a></h3>
+                                <ul class="list-inline up-ul">
+
+                                    <li class="btn-group">
+
+
+                                        <ui:repeat value="#{titleExtractor.postList}" var="list">
+                                            <ul class="list-unstyled">
+                                                <li><a href="#">#{list.title}</a></li>     
+                                                <li><a href="#{list.image}" target="#{list.image}"><img src="#{list.image}" alt="" class="hover-effect"/></a></li>
+                                                <li><a href="#{list.url}" target="_blank">Click to open</a></li>   
+                                                <ul class="list-inline star-vote">
+                                                    <li><i class="color-green fa fa-star"></i></li>
+                                                    <li><i class="color-green fa fa-star"></i></li>
+                                                    <li><i class="color-green fa fa-star"></i></li>
+                                                    <li><i class="color-green fa fa-star"></i></li>
+                                                    <li><i class="color-green fa fa-star-half-o"></i></li>
+                                                </ul>
+                                            </ul>
+                                        </ui:repeat>
+                                    </li>
+
+                                </ul>
+                                <p>A lot of information goes here....</p>
+                                <ul class="list-inline down-ul">
+                                    <li>
+                                        <ul class="list-inline star-vote">
+                                            <li><i class="color-green fa fa-star"></i></li>
+                                            <li><i class="color-green fa fa-star"></i></li>
+                                            <li><i class="color-green fa fa-star"></i></li>
+                                            <li><i class="color-green fa fa-star"></i></li>
+                                            <li><i class="color-green fa fa-star-half-o"></i></li>
+                                        </ul>
+                                    </li>
+                                    <li>3 years ago - By Anthon Brandley</li>
+                                    <li>234,034 views</li>
+                                    <li><a href="#">Web designer</a></li>
+                                </ul>    
+                            </div>
+                            <!-- Begin Inner Results -->
+                            <hr/>
+
+                            <!-- Begin Inner Results -->
+                            <div class="inner-results">
+                                <h3><a href="#">Web Design - 1 - Introduction to Web Design</a></h3>
+                                <ul class="list-inline up-ul">
+                                    <li>thenewboston.org‎/webdesign-tutorials</li>
+                                    <li class="btn-group">
+                                        <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
+                                            More<i class="fa fa-caret-down"></i>
+                                            <span class="sr-only">Toggle Dropdown</span>                            
+                                        </button>
+                                        <ul role="menu" class="dropdown-menu">
+                                            <li><a href="#">Share</a></li>
+                                            <li><a href="#">Similar</a></li>
+                                            <li><a href="#">Advanced search</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">HTML/CSS</a></li>
+                                    <li><a href="#">Javascript</a></li>
+                                    <li><a href="#">PHP</a></li>
+                                </ul>
+                                <p>Did not find any results?</p>
+                                <ul class="list-inline down-ul">
+                                    <li>
+                                        <ul class="list-inline star-vote">
+                                            <li><i class="color-green fa fa-star"></i></li>
+                                            <li><i class="color-green fa fa-star"></i></li>
+                                            <li><i class="color-green fa fa-star"></i></li>
+                                            <li><i class="color-green fa fa-star-o"></i></li>
+                                            <li><i class="color-green fa fa-star-o"></i></li>
+                                        </ul>
+                                    </li>
+                                    <li>2 years ago - By Bucky Roberts</li>
+                                    <li>594,184 views</li>
+                                    <li><a href="#">Videos &amp; Tutorials</a></li>
+                                </ul>   
+                            </div>
+                            <!-- Begin Inner Results -->
+
+                            <hr/>
+
+                            <!-- Begin Inner Results -->
+                            <div class="inner-results">
+                                <h3><a href="#">WrapBootstrap - Bootstrap Themes &amp; Templates</a></h3>
+                                <ul class="list-inline up-ul">
+                                    <li>https://wrapbootstrap.com/‎</li>
+                                    <li class="btn-group">
+                                        <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
+                                            More<i class="fa fa-caret-down"></i>
+                                            <span class="sr-only">Toggle Dropdown</span>                            
+                                        </button>
+                                        <ul role="menu" class="dropdown-menu">
+                                            <li><a href="#">Share</a></li>
+                                            <li><a href="#">Similar</a></li>
+                                            <li><a href="#">Advanced search</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Admin</a></li>
+                                    <li><a href="#">Template</a></li>
+                                    <li><a href="#">OnePage Template</a></li>
+                                    <li><a href="#">Joomla</a></li>
+                                </ul>
+                                <div class="overflow-h">
+                                    <img src="#{request.contextPath}/resources/assets/img/testimonials/img1.jpg" alt=""/>
+                                    <div class="overflow-a">
+                                        <p>Any new questions???</p>
+                                        <ul class="list-inline down-ul">
+                                            <li>
+                                                <ul class="list-inline star-vote">
+                                                    <li><i class="color-green fa fa-star"></i></li>
+                                                    <li><i class="color-green fa fa-star"></i></li>
+                                                    <li><i class="color-green fa fa-star"></i></li>
+                                                    <li><i class="color-green fa fa-star"></i></li>
+                                                    <li><i class="color-green fa fa-star-half-o"></i></li>
+                                                </ul>
+                                            </li>
+                                            <li>11 months ago - By WrapBootstrap</li>
+                                            <li>2,092,675 views</li>
+                                        </ul>
+                                    </div>       
+                                </div>    
+                            </div>
+                            <!-- Begin Inner Results -->
+
+                            <hr/>
+
+                            <!-- Begin Inner Results -->
+                            <div class="inner-results">
+                                <h3><a href="#">Web Design - Website Design Tutorials, Articles</a></h3>
+                                <ul class="list-inline up-ul">
+                                    <li>www.webdesign.org/</li>
+                                    <li class="btn-group">
+                                        <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
+                                            More<i class="fa fa-caret-down"></i>
+                                            <span class="sr-only">Toggle Dropdown</span>                            
+                                        </button>
+                                        <ul role="menu" class="dropdown-menu">
+                                            <li><a href="#">Share</a></li>
+                                            <li><a href="#">Similar</a></li>
+                                            <li><a href="#">Advanced search</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <p>Do did done?</p>
+                                <ul class="list-inline down-ul">
+                                    <li>By Alice Emilsson</li>
+                                    <li>98,298 views</li>
+                                </ul>
+                            </div>
+                            <!-- Begin Inner Results -->
+
+                            <div class="margin-bottom-30"></div>
+
+                            <div class="text-left">
+                                <ul class="pagination">
+                                    <li><a href="#">«</a></li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">...</a></li>
+                                    <li><a href="#">157</a></li>
+                                    <li><a href="#">158</a></li>
+                                    <li><a href="#">»</a></li>
+                                </ul>                                                            
+                            </div>
+                        </div><!--/col-md-10-->
+                    </div>        
+                </div><!--/container-->     
+                <!--=== End Search Results ===-->
+
+
+            </ui:define>
+            <ui:define name="footer">
+
+            </ui:define>
+        </ui:composition>
+    </f:view>
+</html>

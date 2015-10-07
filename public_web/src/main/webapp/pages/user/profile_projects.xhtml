@@ -1,0 +1,587 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">     
+
+    <f:view contracts="default" transient="false">       
+        <ui:composition template="/template.xhtml">   
+             <ui:define name="header">                 
+
+            <!-- CSS Page Style -->
+            <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/pages/profile.css"/>
+
+            <!-- CSS Theme -->    
+            <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/theme-colors/default.css"/>
+
+            <!-- CSS Customization -->
+            <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/custom.css"/>
+            </ui:define>
+            <ui:define name="content"> 
+                <div class="profile container content">
+                    <div class="row">
+                        <!--Left Sidebar-->
+                        <div class="col-md-3 md-margin-bottom-40">
+                            <img class="img-responsive profile-img margin-bottom-20" src="#{request.contextPath}/resources/assets/img/team/5.jpg" alt=""/>
+
+                                 <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+                                    <li class="list-group-item">
+                                        <a href="portfolio.jsf"><i class="fa fa-bar-chart-o"></i>Portfolio</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                         <a href="addportfolio.jsf"><i class="fa fa-bolt"></i>Update portfolio</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="profile.jsf"><i class="fa fa-group"></i> Users</a>
+                                    </li>                                        
+                                    <li class="list-group-item">
+                                        <a href="profile_projects.jsf"><i class="fa fa-cubes"></i> My Projects</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#"><i class="fa fa-comments"></i> Comments</a>
+                                    </li>                                        
+                                    <li class="list-group-item">
+                                        <a href="#"><i class="fa fa-history"></i> History</a>
+                                    </li>                                       
+                                    <li class="list-group-item active">
+                                        <a href="profile_settings.jsf"><i class="fa fa-cog"></i>Settings</a>
+                                    </li> 
+                                </ul>   
+
+                                <div class="panel-heading-v2 overflow-h">
+                                    <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> Task Progress</h2>
+                                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                                </div>
+                                <h3 class="heading-xs">Web Design <span class="pull-right">92%</span></h3>
+                                <div class="progress progress-u progress-xxs">
+                                    <div style="width: 92%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
+                                    </div>
+                                </div>
+                                <h3 class="heading-xs">Unify Project <span class="pull-right">85%</span></h3>
+                                <div class="progress progress-u progress-xxs">
+                                    <div style="width: 85%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-blue">
+                                    </div>
+                                </div>
+                                <h3 class="heading-xs">Sony Corporation <span class="pull-right">64%</span></h3>
+                                <div class="progress progress-u progress-xxs margin-bottom-40">
+                                    <div style="width: 64%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="64" role="progressbar" class="progress-bar progress-bar-dark">
+                                    </div>
+                                </div>
+
+                                <hr/>
+
+                                <!--Notification-->
+                                <div class="panel-heading-v2 overflow-h">
+                                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> Notification</h2>
+                                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                                </div>
+                                <ul id="scrollbar5" class="list-unstyled contentHolder margin-bottom-20">
+                                    <li class="notification">
+                                        <i class="icon-custom icon-sm rounded-x icon-bg-red icon-line icon-envelope"></i>
+                                        <div class="overflow-h">
+                                            <span><strong>Albert Heller</strong> has sent you email.</span>
+                                            <small>Two minutes ago</small>
+                                        </div>    
+                                    </li>
+                                    <li class="notification">
+                                        <img class="rounded-x" src="#{request.contextPath}/resources/assets/img/testimonials/img6.jpg" alt=""/>
+                                        <div class="overflow-h">
+                                            <span><strong>Taylor Lee</strong> started following you.</span>
+                                            <small>Today 18:25 pm</small>
+                                        </div>    
+                                    </li>
+                                    <li class="notification">
+                                        <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
+                                        <div class="overflow-h">
+                                            <span><strong>Natasha Kolnikova</strong> accepted your invitation.</span>
+                                            <small>Yesterday 1:07 pm</small>
+                                        </div>    
+                                    </li>
+                                    <li class="notification">
+                                        <img class="rounded-x" src="#{request.contextPath}/resources/assets/img/testimonials/img1.jpg" alt=""/>
+                                        <div class="overflow-h">
+                                            <span><strong>Mikel Andrews</strong> commented on your Timeline.</span>
+                                            <small>23/12 11:01 am</small>
+                                        </div>    
+                                    </li>
+                                    <li class="notification">
+                                        <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
+                                        <div class="overflow-h">
+                                            <span><strong>Bruno Js.</strong> added you to group chating.</span>
+                                            <small>Yesterday 1:07 pm</small>
+                                        </div>    
+                                    </li>
+                                    <li class="notification">
+                                        <img class="rounded-x" src="#{request.contextPath}/resources/assets/img/testimonials/img6.jpg" alt=""/>
+                                        <div class="overflow-h">
+                                            <span><strong>Taylor Lee</strong> changed profile picture.</span>
+                                            <small>23/12 15:15 pm</small>
+                                        </div>    
+                                    </li>
+                                </ul>    
+                                <button type="button" class="btn-u btn-u-default btn-u-sm btn-block">Load More</button>
+                                <!--End Notification-->
+
+                                <div class="margin-bottom-50"></div>
+
+                                <!--Datepicker-->
+                                <form action="" id="sky-form2" class="sky-form">
+                                    <div id="inline-start"></div>
+                                </form> 
+                                <!--End Datepicker-->
+                        </div>
+                        <!--End Left Sidebar-->
+
+                        <div class="col-md-9">
+                            <!--Profile Body-->
+                            <div class="profile-body">
+                                <!--Projects-->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="easy-block-v1">
+                                            <img class="img-responsive" src="#{request.contextPath}/resources/assets/img/main/15.jpg" alt=""/>
+                                            <div class="easy-block-v1-badge rgba-red">Web Design</div>
+                                        </div>    
+                                        <div class="projects">
+                                            <h2>Rigging in Autodesk 3Ds Max</h2>
+                                            <ul class="list-unstyled list-inline blog-info-v2">
+                                                <li>By: <a class="color-green" href="#">Edward Rooster</a></li>
+                                                <li><i class="fa fa-clock-o"></i> Jan 02, 2013</li>
+                                            </ul>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry printing. Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
+                                            <br/>
+                                                <h3 class="heading-xs">Project Completeness <span class="pull-right">77%</span></h3>
+                                                <div class="progress progress-u progress-xxs">
+                                                    <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
+                                                    </div>
+                                                </div>
+                                                <ul class="list-inline blog-info-v2">
+                                                    <li>
+                                                        <strong>12%</strong>
+                                                        <span>Funded</span>
+                                                    </li>
+                                                    <li>
+                                                        <strong>17%</strong>
+                                                        <span>Pludged</span>
+                                                    </li>
+                                                    <li>
+                                                        <strong>25</strong>
+                                                        <span>days to go</span>
+                                                    </li>
+                                                </ul>
+                                        </div>    
+                                        <div class="project-share">
+                                            <ul class="list-inline comment-list-v2 pull-left">
+                                                <li><i class="fa fa-eye"></i> <a href="#">25</a></li>
+                                                <li><i class="fa fa-comments"></i> <a href="#">32</a></li>
+                                                <li><i class="fa fa-retweet"></i> <a href="#">77</a></li>
+                                            </ul>    
+                                            <ul class="list-inline star-vote pull-right">
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star-half-o"></i></li>
+                                                <li><i class="color-green fa fa-star-o"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="service-or">
+                                            <img class="img-responsive" src="#{request.contextPath}/resources/assets/img/main/16.jpg" alt=""/>
+                                            <div class="easy-bg-v2 rgba-default">Unify</div>
+                                        </div>
+                                        <div class="projects">
+                                            <h2>Getting Started Photography</h2>
+                                            <ul class="list-unstyled list-inline blog-info-v2">
+                                                <li>By: <a class="color-green" href="#">Edward Rooster</a></li>
+                                                <li><i class="fa fa-clock-o"></i> Jan 07, 2013</li>
+                                            </ul>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry printing. Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
+                                            <br/>
+                                                <h3 class="heading-xs">Project Completeness <span class="pull-right">92%</span></h3>
+                                                <div class="progress progress-u progress-xxs">
+                                                    <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" style="width: 92%">
+                                                    </div>
+                                                </div>
+                                                <ul class="list-inline blog-info-v2">
+                                                    <li>
+                                                        <strong>45%</strong>
+                                                        <span>Funded</span>
+                                                    </li>
+                                                    <li>
+                                                        <strong>58%</strong>
+                                                        <span>Pludged</span>
+                                                    </li>
+                                                    <li>
+                                                        <strong>5</strong>
+                                                        <span>days to go</span>
+                                                    </li>
+                                                </ul>
+                                        </div>    
+                                        <div class="project-share">
+                                            <ul class="list-inline comment-list-v2 pull-left">
+                                                <li><i class="fa fa-eye"></i> <a href="#">45</a></li>
+                                                <li><i class="fa fa-comments"></i> <a href="#">90</a></li>
+                                                <li><i class="fa fa-retweet"></i> <a href="#">84</a></li>
+                                            </ul>    
+                                            <ul class="list-inline star-vote pull-right">
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star-half-o"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div><!--/end row-->
+                                <!--End Projects-->
+
+                                <hr/>
+
+                                <!--Projects-->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="easy-block-v1">
+                                            <img class="img-responsive" src="#{request.contextPath}/resources/assets/img/main/17.jpg" alt=""/>
+                                            <div class="easy-block-v1-badge rgba-purple">Graphic Design</div>
+                                        </div>    
+                                        <div class="projects">
+                                            <h2>Rigging in Autodesk 3Ds Max</h2>
+                                            <ul class="list-unstyled list-inline blog-info-v2">
+                                                <li>By: <a class="color-green" href="#">Edward Rooster</a></li>
+                                                <li><i class="fa fa-clock-o"></i> Jan 02, 2013</li>
+                                            </ul>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry printing. Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
+                                            <br/>
+                                                <h3 class="heading-xs">Project Completeness <span class="pull-right">77%</span></h3>
+                                                <div class="progress progress-u progress-xxs">
+                                                    <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
+                                                    </div>
+                                                </div>
+                                                <ul class="list-inline blog-info-v2">
+                                                    <li>
+                                                        <strong>12%</strong>
+                                                        <span>Funded</span>
+                                                    </li>
+                                                    <li>
+                                                        <strong>17%</strong>
+                                                        <span>Pludged</span>
+                                                    </li>
+                                                    <li>
+                                                        <strong>25</strong>
+                                                        <span>days to go</span>
+                                                    </li>
+                                                </ul>
+                                        </div>    
+                                        <div class="project-share">
+                                            <ul class="list-inline comment-list-v2 pull-left">
+                                                <li><i class="fa fa-eye"></i> <a href="#">25</a></li>
+                                                <li><i class="fa fa-comments"></i> <a href="#">32</a></li>
+                                                <li><i class="fa fa-retweet"></i> <a href="#">77</a></li>
+                                            </ul>    
+                                            <ul class="list-inline star-vote pull-right">
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star-half-o"></i></li>
+                                                <li><i class="color-green fa fa-star-o"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="service-or">
+                                            <img class="img-responsive" src="#{request.contextPath}/resources/assets/img/main/18.jpg" alt=""/>
+                                            <div class="easy-bg-v2 rgba-blue">Nokia</div>
+                                        </div>
+                                        <div class="projects">
+                                            <h2>Getting Started Photography</h2>
+                                            <ul class="list-unstyled list-inline blog-info-v2">
+                                                <li>By: <a class="color-green" href="#">Edward Rooster</a></li>
+                                                <li><i class="fa fa-clock-o"></i> Jan 07, 2013</li>
+                                            </ul>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry printing. Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
+                                            <br/>
+                                                <h3 class="heading-xs">Project Completeness <span class="pull-right">92%</span></h3>
+                                                <div class="progress progress-u progress-xxs">
+                                                    <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" style="width: 92%">
+                                                    </div>
+                                                </div>
+                                                <ul class="list-inline blog-info-v2">
+                                                    <li>
+                                                        <strong>45%</strong>
+                                                        <span>Funded</span>
+                                                    </li>
+                                                    <li>
+                                                        <strong>58%</strong>
+                                                        <span>Pludged</span>
+                                                    </li>
+                                                    <li>
+                                                        <strong>5</strong>
+                                                        <span>days to go</span>
+                                                    </li>
+                                                </ul>
+                                        </div>    
+                                        <div class="project-share">
+                                            <ul class="list-inline comment-list-v2 pull-left">
+                                                <li><i class="fa fa-eye"></i> <a href="#">45</a></li>
+                                                <li><i class="fa fa-comments"></i> <a href="#">90</a></li>
+                                                <li><i class="fa fa-retweet"></i> <a href="#">84</a></li>
+                                            </ul>    
+                                            <ul class="list-inline star-vote pull-right">
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star-half-o"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div><!--/end row-->
+                                <!--End Projects-->
+
+                                <hr/>
+
+                                <!--Projects-->
+                                <div class="row margin-bottom-30">
+                                    <div class="col-sm-6">
+                                        <div class="easy-block-v1">
+                                            <img class="img-responsive" src="#{request.contextPath}/resources/assets/img/main/19.jpg" alt=""/>
+                                            <div class="easy-block-v1-badge rgba-aqua">Unify Project</div>
+                                        </div>    
+                                        <div class="projects">
+                                            <h2>Rigging in Autodesk 3Ds Max</h2>
+                                            <ul class="list-unstyled list-inline blog-info-v2">
+                                                <li>By: <a class="color-green" href="#">Edward Rooster</a></li>
+                                                <li><i class="fa fa-clock-o"></i> Jan 02, 2013</li>
+                                            </ul>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry printing. Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
+                                            <br/>
+                                                <h3 class="heading-xs">Project Completeness <span class="pull-right">77%</span></h3>
+                                                <div class="progress progress-u progress-xxs">
+                                                    <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="77" aria-valuemin="0" aria-valuemax="100" style="width: 77%">
+                                                    </div>
+                                                </div>
+                                                <ul class="list-inline blog-info-v2">
+                                                    <li>
+                                                        <strong>12%</strong>
+                                                        <span>Funded</span>
+                                                    </li>
+                                                    <li>
+                                                        <strong>17%</strong>
+                                                        <span>Pludged</span>
+                                                    </li>
+                                                    <li>
+                                                        <strong>25</strong>
+                                                        <span>days to go</span>
+                                                    </li>
+                                                </ul>
+                                        </div>    
+                                        <div class="project-share">
+                                            <ul class="list-inline comment-list-v2 pull-left">
+                                                <li><i class="fa fa-eye"></i> <a href="#">25</a></li>
+                                                <li><i class="fa fa-comments"></i> <a href="#">32</a></li>
+                                                <li><i class="fa fa-retweet"></i> <a href="#">77</a></li>
+                                            </ul>    
+                                            <ul class="list-inline star-vote pull-right">
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star-half-o"></i></li>
+                                                <li><i class="color-green fa fa-star-o"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="service-or">
+                                            <img class="img-responsive" src="#{request.contextPath}/resources/assets/img/main/20.jpg" alt=""/>
+                                            <div class="easy-bg-v2 rgba-yellow">Sony</div>
+                                        </div>
+                                        <div class="projects">
+                                            <h2>Getting Started Photography</h2>
+                                            <ul class="list-unstyled list-inline blog-info-v2">
+                                                <li>By: <a class="color-green" href="#">Edward Rooster</a></li>
+                                                <li><i class="fa fa-clock-o"></i> Jan 07, 2013</li>
+                                            </ul>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry printing. Donec non dignissim eros. Mauris faucibus turpis volutpat sagittis rhoncus. Pellentesque et rhoncus sapien, sed ullamcorper justo.</p>
+                                            <br/>
+                                                <h3 class="heading-xs">Project Completeness <span class="pull-right">92%</span></h3>
+                                                <div class="progress progress-u progress-xxs">
+                                                    <div class="progress-bar progress-bar-u" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" style="width: 92%">
+                                                    </div>
+                                                </div>
+                                                <ul class="list-inline blog-info-v2">
+                                                    <li>
+                                                        <strong>45%</strong>
+                                                        <span>Funded</span>
+                                                    </li>
+                                                    <li>
+                                                        <strong>58%</strong>
+                                                        <span>Pludged</span>
+                                                    </li>
+                                                    <li>
+                                                        <strong>5</strong>
+                                                        <span>days to go</span>
+                                                    </li>
+                                                </ul>
+                                        </div>    
+                                        <div class="project-share">
+                                            <ul class="list-inline comment-list-v2 pull-left">
+                                                <li><i class="fa fa-eye"></i> <a href="#">45</a></li>
+                                                <li><i class="fa fa-comments"></i> <a href="#">90</a></li>
+                                                <li><i class="fa fa-retweet"></i> <a href="#">84</a></li>
+                                            </ul>    
+                                            <ul class="list-inline star-vote pull-right">
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star"></i></li>
+                                                <li><i class="color-green fa fa-star-half-o"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div><!--/end row-->
+                                <!--End Projects-->
+                                <button type="button" class="btn-u btn-u-default btn-u-sm btn-block">Load More</button>
+                            </div>
+                            <!--End Profile Body-->
+                        </div>
+                    </div><!--/end row-->
+                </div><!--/container-->    
+                <!--=== End Profile ===-->
+
+                <!--=== Footer Version 1 ===-->
+                <div class="footer-v1">
+                    <div class="footer">
+                        <div class="container">
+                            <div class="row">
+                                <!-- About -->
+                                <div class="col-md-3 md-margin-bottom-40">
+                                    <a href="index.html"><img id="logo-footer" class="footer-logo" src="#{request.contextPath}/resources/assets/img/logo2-default.png" alt=""/></a>
+                                    <p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>
+                                    <p>Duis eleifend fermentum ante ut aliquam. Cras mi risus, dignissim sed adipiscing ut, placerat non arcu.</p>    
+                                </div><!--/col-md-3-->
+                                <!-- End About -->
+
+                                <!-- Latest -->
+                                <div class="col-md-3 md-margin-bottom-40">
+                                    <div class="posts">
+                                        <div class="headline"><h2>Latest Posts</h2></div>
+                                        <ul class="list-unstyled latest-list">
+                                            <li>
+                                                <a href="#">Incredible content</a>
+                                                <small>May 8, 2014</small>
+                                            </li>
+                                            <li>
+                                                <a href="#">Best shoots</a>
+                                                <small>June 23, 2014</small>
+                                            </li>
+                                            <li>
+                                                <a href="#">New Terms and Conditions</a>
+                                                <small>September 15, 2014</small>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div><!--/col-md-3-->  
+                                <!-- End Latest --> 
+
+                                <!-- Link List -->
+                                <div class="col-md-3 md-margin-bottom-40">
+                                    <div class="headline"><h2>Useful Links</h2></div>
+                                    <ul class="list-unstyled link-list">
+                                        <li><a href="#">About us</a><i class="fa fa-angle-right"></i></li>
+                                        <li><a href="#">Portfolio</a><i class="fa fa-angle-right"></i></li>
+                                        <li><a href="#">Latest jobs</a><i class="fa fa-angle-right"></i></li>
+                                        <li><a href="#">Community</a><i class="fa fa-angle-right"></i></li>
+                                        <li><a href="#">Contact us</a><i class="fa fa-angle-right"></i></li>
+                                    </ul>
+                                </div><!--/col-md-3-->
+                                <!-- End Link List -->                    
+
+                                <!-- Address -->
+                                <div class="col-md-3 map-img md-margin-bottom-40">
+                                    <div class="headline"><h2>Contact Us</h2></div>                         
+                                    <address class="md-margin-bottom-40">
+                                        25, Lorem Lis Street, Orange <br />
+                                        California, US <br />
+                                        Phone: 800 123 3456 <br />
+                                        Fax: 800 123 3456 <br />
+                                        Email: <a href="mailto:info@anybiz.com" class="">info@anybiz.com</a>
+                                    </address>
+                                </div><!--/col-md-3-->
+                                <!-- End Address -->
+                            </div>
+                        </div> 
+                    </div><!--/footer-->
+
+                    <div class="copyright">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">                     
+                                    <p>
+                                        2014 &copy; All Rights Reserved.
+                                        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                                    </p>
+                                </div>
+
+                                <!-- Social Links -->
+                                <div class="col-md-6">
+                                    <ul class="footer-socials list-inline">
+                                        <li>
+                                            <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Skype">
+                                                <i class="fa fa-skype"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">
+                                                <i class="fa fa-google-plus"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
+                                                <i class="fa fa-linkedin"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest">
+                                                <i class="fa fa-pinterest"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Dribbble">
+                                                <i class="fa fa-dribbble"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- End Social Links -->
+                            </div>
+                        </div> 
+                    </div><!--/copyright-->
+                </div>     
+              
+
+            </ui:define>
+            <ui:define name="footer">
+
+            </ui:define>
+        </ui:composition>
+    </f:view>
+</html>

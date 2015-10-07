@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">     
+
+    <f:view contracts="default" transient="false">
+
+        <ui:composition template="/template.xhtml"> 
+            <ui:define name="header">
+                <!-- CSS Page Style -->    
+                <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/pages/page_contact.css"/>
+            
+            </ui:define>
+            <ui:define name="content"> 
+                <!--=== Breadcrumbs ===-->
+                <div class="breadcrumbs">
+                    <div class="container">
+                        <h1 class="pull-left">Contact us</h1>
+                        <ul class="pull-right breadcrumb">
+                            <li><a href="#{request.contextPath}/index.jsf">Home</a></li>
+                            <li><a href="">Page</a></li>
+                            <li class="active">Contact us</li>
+                        </ul>
+                    </div>
+                </div><!--/breadcrumbs-->
+                <!--=== Job Description ===-->
+                <div class="wrapper">
+
+                    <!--=== Content Part ===-->
+                    <div class="container content">
+                        <div class="row margin-bottom-30">
+                            <div class="col-md-9 mb-margin-bottom-30">
+                                <div class="headline"><h2>Contact Form</h2></div>
+                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas feugiat. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit landitiis.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas feugiat.</p><br/>
+                                <form  method="post" id="sky-form3" class="sky-form sky-changes-3">
+                                    <fieldset>                  
+                                        <div class="row">
+                                            <section class="col col-6">
+                                                <label class="label">Name</label>
+                                                <label class="input">
+                                                    <i class="icon-append fa fa-user"></i>
+                                                    <input type="text" name="name" id="name"/>
+                                                </label>
+                                            </section>
+                                            <section class="col col-6">
+                                                <label class="label">E-mail</label>
+                                                <label class="input">
+                                                    <i class="icon-append fa fa-envelope-o"></i>
+                                                    <input type="email" name="email" id="email"/>
+                                                </label>
+                                            </section>
+                                        </div>
+
+                                        <section>
+                                            <label class="label">Subject</label>
+                                            <label class="input">
+                                                <i class="icon-append fa fa-tag"></i>
+                                                <input type="text" name="subject" id="subject"/>
+                                            </label>
+                                        </section>
+
+                                        <section>
+                                            <label class="label">Message</label>
+                                            <label class="textarea">
+                                                <i class="icon-append fa fa-comment"></i>
+                                                <textarea rows="4" name="message" id="message"></textarea>
+                                            </label>
+                                        </section>
+
+                                        <section>
+                                            <label class="label">Enter characters below:</label>
+                                            <label class="input input-captcha">
+
+                                                <input type="text" maxlength="6" name="captcha" id="captcha"/>
+                                            </label>
+                                        </section>
+
+                                        <section>
+                                            <label class="checkbox"><input type="checkbox" name="copy"/><i></i>Send a copy to my e-mail address</label>
+                                        </section>
+                                    </fieldset>
+
+                                    <footer>
+                                        <button type="submit" class="btn-u">Send message</button>
+                                    </footer>
+
+                                    <div class="message">
+                                        <i class="rounded-x fa fa-check"></i>
+                                        <p>Your message was successfully sent!</p>
+                                    </div>
+                                </form>
+                            </div><!--/col-md-9-->
+
+                            <div class="col-md-3">
+                                <!-- Contacts -->
+                                <div class="headline"><h2>Contacts</h2></div>
+                                <ul class="list-unstyled who margin-bottom-30">
+                                    <li><a href="#"><i class="fa fa-home"></i>5B Streat, City 50987 New Town US</a></li>
+                                    <li><a href="#"><i class="fa fa-envelope"></i>info@example.com</a></li>
+                                    <li><a href="#"><i class="fa fa-phone"></i>1(222) 5x86 x97x</a></li>
+                                    <li><a href="#"><i class="fa fa-globe"></i>http://www.example.com</a></li>
+                                </ul>
+
+                                <!-- Business Hours -->
+                                <div class="headline"><h2>Business Hours</h2></div>
+                                <ul class="list-unstyled margin-bottom-30">
+                                    <li><strong>Monday-Friday:</strong> 10am to 8pm</li>
+                                    <li><strong>Saturday:</strong> 11am to 3pm</li>
+                                    <li><strong>Sunday:</strong> Closed</li>
+                                </ul>
+
+                                <!-- Why we are? -->
+                                <div class="headline"><h2>Why we are?</h2></div>
+                                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fa fa-check color-green"></i> Odio dignissimos ducimus</li>
+                                    <li><i class="fa fa-check color-green"></i> Blanditiis praesentium volup</li>
+                                    <li><i class="fa fa-check color-green"></i> Eos et accusamus</li>
+                                </ul>
+                            </div><!--/col-md-3-->
+                        </div><!--/row-->
+                    </div><!--/container-->     
+
+                </div>
+
+
+
+            </ui:define>
+            <ui:define name="footer">
+
+            </ui:define>
+        </ui:composition>
+    </f:view>
+</html>

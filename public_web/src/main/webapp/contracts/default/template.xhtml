@@ -5,24 +5,21 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">    
     <h:head>
-        <ui:include src="/WEB-INF/layout/header_main.xhtml"/> 
-        <ui:include src="/WEB-INF/layout/header.xhtml"/>     
+        <ui:include src="/WEB-INF/layout/header_main.xhtml"/>     
     </h:head>
-    <h:body>  
-        <div class="wrapper">
-            <ui:insert name="header">
-
-            </ui:insert> 
-
-            <ui:insert name="content"></ui:insert> 
-
-            <div class="container">
-                <ui:insert name="footer"></ui:insert> 
-                <hr/>
-                <ui:include src="/WEB-INF/layout/footer.xhtml"/> 
-            </div><!-- /.container -->
-            <ui:include src="/WEB-INF/layout/footer_includes.xhtml"/>   
-        </div>
+    <h:body>
+        <ui:insert name="nav"></ui:insert> 
+        <ui:include src="/WEB-INF/layout/menu_main.xhtml"/>  
+        <ui:insert name="content"></ui:insert> 
+       
+        <ui:insert name="portfolio"></ui:insert> 
+       
+        <div class="container">
+            <ui:insert name="footer"></ui:insert> 
+            <hr/>
+            <ui:include src="/WEB-INF/layout/footer.xhtml"/> 
+        </div><!-- /.container -->
+        <ui:include src="/WEB-INF/layout/footer_includes.xhtml"/>   
     </h:body>
 </html>
 

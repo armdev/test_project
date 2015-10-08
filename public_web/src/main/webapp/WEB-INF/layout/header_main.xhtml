@@ -5,45 +5,32 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">   
 
-    <title>Painters</title>
-    <!-- Meta -->
+    <title>JSF2 Frontend template</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-    <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/custom.css"/>
-    <h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
-    <h:outputScript library="primefaces" name="jquery/jquery-plugins.js" target="head" />
-       <script>
-            $.noConflict();
-            JQuery.noConflict();
-        </script>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="#{request.contextPath}/resources/favicon.ico"/>
-    <!-- CSS Global Compulsory -->
-    <link rel="stylesheet" href="#{request.contextPath}/resources/assets/plugins/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/style.css"/>
+    <meta name="description" content="Modern web"/>
+    <meta name="author" content="Armen Arzumanyan"/>
+    <!-- Bootstrap core CSS -->
+    <link href="#{request.contextPath}/resources/css/bootstrap.css" rel="stylesheet"/>
+    <!-- Do not change awesome location -->
+     <link href="#{request.contextPath}/resources/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+     <!-- http://fortawesome.github.io/Font-Awesome/icons/  examples
+          http://fortawesome.github.io/Font-Awesome/examples/
+     -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script>
+        $.noConflict();
+        JQuery.noConflict();
+    </script>
+    <!-- Add custom CSS here -->    
+    <link href="#{request.contextPath}/resources/css/modern-business.css" rel="stylesheet"/> 
+    
 
-    <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="#{request.contextPath}/resources/assets/plugins/line-icons/line-icons.css"/>
-    <link rel="stylesheet" href="#{request.contextPath}/resources/assets/plugins/font-awesome/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="#{request.contextPath}/resources/assets/plugins/flexslider/flexslider.css"/>  
-    <link rel="stylesheet" href="#{request.contextPath}/resources/assets/plugins/parallax-slider/css/parallax-slider.css"/>
-      <!-- CSS Implementing Plugins -->
-            
-            
-    <link rel="stylesheet" href="#{request.contextPath}/resources/assets/plugins/sky-forms/version-2.0.1/css/custom-sky-forms.css"/>
-            
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="#{request.contextPath}/resources/assets/js/html5shiv.js"></script>
+      <script src="#{request.contextPath}/resources/assets/js/respond.min.js"></script>
+   <![endif]-->
 
-    <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/theme-colors/default.css"/>
-       
-
-    <style type="text/css">
-        .ui-growl{
-            position:absolute;
-            top:120px;
-            left:70%;
-        }
-    </style>    
 </html>
 

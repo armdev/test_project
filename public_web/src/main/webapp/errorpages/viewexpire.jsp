@@ -1,2 +1,2 @@
 <%@ page isErrorPage="true"%>
-<% response.sendRedirect(request.getContextPath()+"/errorpages/error.jsf");%>
+<% response.sendRedirect(request.getContextPath()+"/errorpages/viewexpired.jsf");%>

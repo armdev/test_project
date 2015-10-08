@@ -5,9 +5,7 @@
             http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
               version="2.2">  
   
-<!--    <application>      
-        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>                  
-    </application>-->
+  
     <application>
         <locale-config>
             <default-locale>en</default-locale>
@@ -23,7 +21,13 @@
         </resource-bundle>
         <message-bundle>
             messages
-        </message-bundle>      
+        </message-bundle> 
+        <resource-library-contracts>
+            <contract-mapping>
+                <url-pattern>*</url-pattern>
+                <contracts>default</contracts>
+            </contract-mapping>
+        </resource-library-contracts>  
     </application>
     <navigation-rule>
         <from-view-id>*</from-view-id>        
@@ -33,8 +37,6 @@
             <redirect/>
         </navigation-case>                 
     </navigation-rule>     
-   
-    
     <navigation-rule>
         <from-view-id>*</from-view-id>
         <navigation-case>

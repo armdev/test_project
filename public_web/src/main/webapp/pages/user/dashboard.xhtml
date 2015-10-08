@@ -4,353 +4,60 @@
       xmlns:p="http://primefaces.org/ui"    
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://java.sun.com/jsp/jstl/core"     
-      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:jsf="http://xmlns.jcp.org/jsf"    
       xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">     
+      xmlns:h="http://xmlns.jcp.org/jsf/html"> 
 
-    <f:view contracts="default" transient="false">
-
-        <ui:composition template="/template.xhtml">    
-            <ui:define name="header">
-
-                <!-- CSS Page Style -->
-                <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/pages/profile.css"/>
-
-                <!-- CSS Theme -->    
-                <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/theme-colors/default.css"/>
-
-                <!-- CSS Customization -->
-                <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/custom.css"/>
-
-                <link rel="stylesheet" href="#{request.contextPath}/resources/assets/plugins/flexslider/flexslider.css" type="text/css" media="screen"/>
-
-                <!-- CSS Page Style -->    
-                <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/pages/page_search.css"/>      
-            </ui:define>
-            <ui:define name="content"> 
-                <div class="breadcrumbs">
+    <h:body>
+        <f:view contracts="default" transient="false">
+            <ui:composition template="/template.xhtml">      
+               
+                <ui:define name="content">
+                     <style>
+                    .ds-btn li{ list-style:none; float:left; padding:10px; }
+                    .ds-btn li a span{padding-left:15px;padding-right:5px;width:100%;display:inline-block; text-align:left;}
+                    .ds-btn li a span small{width:100%; display:inline-block; text-align:left;}
+                </style>
+                    <br/>
                     <div class="container">
-                        <h1 class="pull-left">Dashboard</h1>
-                        <ul class="pull-right breadcrumb">
-                            <li><a href="#{request.contextPath}/index.jsf">Home</a></li>
-                            <li><a href="">Pages</a></li>
-                            <li class="active">Dashboard</li>
-                        </ul>
-                    </div>
-                </div><!--/breadcrumbs-->
-                <!--=== Content Part ===-->
-                <div class="container content">		
-                    <!-- Service Blcoks -->
-                    <div class="row margin-bottom-10">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-block service-block-u">            
-                                <i class="icon-2x color-light fa fa-thumbs-o-up"></i>
-                                <h2 class="heading-md">Unify Box</h2>
-                                <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-block service-block-blue">
-                                <i class="icon-2x color-light icon-line icon-trophy"></i>
-                                <h2 class="heading-md">Blue Box</h2>
-                                <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine usce dapibus elit nondapibus</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-block service-block-dark">
-                                <i class="icon-2x color-light fa fa-bell-o"></i>
-                                <h2 class="heading-md">Dark Box</h2>
-                                <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>                        
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-block service-block-red">
-                                <i class="icon-2x color-light icon-line icon-fire"></i>
-                                <h2 class="heading-md">Red Box</h2>
-                                <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>                        
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Service Blcoks -->
+                        <div class="row">
+                            <h2>Stylish button list</h2>
+                            <ul class="ds-btn">
+                                <li>
+                                    <a class="btn btn-lg " href="http://dotstrap.com/">
+                                        <i class="glyphicon glyphicon-link pull-left"></i><span>User Profile<br/><small>Lorem ipsum dolor</small></span></a> 
 
-                    <!-- Service Blcoks -->
-                    <div class="row margin-bottom-10">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-block service-block-purple">
-                                <i class="icon-2x color-light icon-line icon-badge"></i>
-                                <h2 class="heading-md">Purple Box</h2>
-                                <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>                        
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-block service-block-grey">
-                                <i class="icon-2x color-light icon-line icon-support"></i>
-                                <h2 class="heading-md">Grey Box</h2>
-                                <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>                        
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-block service-block-yellow">
-                                <i class="icon-2x color-light icon-line icon-rocket"></i>
-                                <h2 class="heading-md">Yellow Box</h2>
-                                <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine usce dapibus elit nondapibus</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-block service-block-dark-blue">            
-                                <i class="icon-2x color-light icon-line icon-graduation"></i>
-                                <h2 class="heading-md">Dark Blue Box</h2>
-                                <p>Donec id elit non mi porta gravida at eget metus id elit mi egetine. Fusce dapibus</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Service Blcoks -->
+                                </li>
+                                <li>
+                                    <a class="btn btn-lg btn-primary" href="http://dotstrap.com/">
+                                        <i class="glyphicon glyphicon-user pull-left"></i><span>User Profile<br/><small>Lorem ipsum dolor</small></span></a> 
 
-                    <!-- Tabs and Carousel-->
-                    <div class="row margin-bottom-30">
-                        <!-- Accordion-->
-                        <div class="col-md-7">
-                            <div class="headline"><h2>Service Offers</h2></div>
-                            <div class="panel-group acc-v1" id="accordion">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                                Collapsible Group Item #1
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseOne" class="panel-collapse collapse in">
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <img class="img-responsive" src="#{request.contextPath}/resources/assets/img/new/img5.jpg" alt=""/>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </li>
+                                <li>
+                                    <a class="btn btn-lg btn-success " href="http://dotstrap.com/">
+                                        <i class="glyphicon glyphicon-dashboard pull-left"></i><span>Dashboard<br/><small>Lorem ipsum dolor</small></span></a> 
 
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                                Collapsible Group Item #2
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseTwo" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-md-8">
-                                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
-                                                    <ul class="list-unstyled">
-                                                        <li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida at eget metus..</li>
-                                                        <li><i class="fa fa-check color-green"></i> Fusce dapibus, tellus ac cursus comodo egetine..</li>
-                                                        <li><i class="fa fa-check color-green"></i> Food truck quinoa nesciunt laborum eiusmod runch..</li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <img class="img-responsive" src="#{request.contextPath}/resources/assets/img/main/6.jpg" alt=""/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </li>
+                                <li>
+                                    <a class="btn btn-lg btn-danger" href="http://dotstrap.com/">
+                                        <i class="glyphicon glyphicon-tasks pull-left"></i><span>Daily Tasks<br/><small>Lorem ipsum dolor</small></span></a> 
 
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                                Collapsible Group Item #3
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseThree" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Food truck quinoa nesciunt laborum eiusmodolf moon tempor, sunt aliqua put a bird. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title">
-                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                                                Collapsible Group Item #4
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseFour" class="panel-collapse collapse">
-                                        <div class="panel-body">
-                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!--/acc-v1-->
-                        </div><!--/col-md-7-->
-                        <!-- End Accordion-->
-
-                        <!-- Latest Shots -->
-                        <div class="col-md-5">
-                            <div class="headline"><h2>Latest Shots</h2></div>
-                            <div id="myCarousel" class="carousel slide carousel-v1">
-                                <div class="carousel-inner">
-                                    <div class="item active">
-                                        <img src="#{request.contextPath}/resources/assets/img/main/5.jpg" alt=""/>
-                                        <div class="carousel-caption">
-                                            <p>Facilisis odio, dapibus ac justo acilisis gestinas.</p>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <img src="#{request.contextPath}/resources/assets/img/main/4.jpg" alt=""/>
-                                        <div class="carousel-caption">
-                                            <p>Cras justo odio, dapibus ac facilisis into egestas.</p>
-                                        </div>
-                                    </div>
-                                    <div class="item">
-                                        <img src="#{request.contextPath}/resources/assets/img/main/3.jpg" alt=""/>
-                                        <div class="carousel-caption">
-                                            <p>Justo cras odio apibus ac afilisis lingestas de.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="carousel-arrow">
-                                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                        <i class="fa fa-angle-left"></i>
-                                    </a>
-                                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                        <i class="fa fa-angle-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div><!--/col-md-5-->
-                        <!-- End Latest Shots -->
-                    </div><!--/row-->
-                    <!-- End Tabs and Carousel -->
-
-                    <!-- Our Clients -->
-                    <div id="clients-flexslider" class="flexslider home clients">
-                        <div class="headline"><h2>Our Clients</h2></div>    
-                        <ul class="slides">
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/hp_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/hp.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/igneus_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/igneus.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/vadafone_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/vadafone.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/walmart_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/walmart.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/shell_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/shell.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/natural_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/natural.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/aztec_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/aztec.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/gamescast_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/gamescast.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/cisco_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/cisco.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/everyday_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/everyday.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/cocacola_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/cocacola.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/spinworkx_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/spinworkx.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/shell_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/shell.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/natural_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/natural.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/gamescast_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/gamescast.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/everyday_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/everyday.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/spinworkx_grey.png" alt="" /> 
-                                    <img src="#{request.contextPath}/resources/assets/img/clients/spinworkx.png" class="color-img" alt="" />
-                                </a>
-                            </li>
-                        </ul>
-                    </div><!--/flexslider-->
-                    <!-- End Our Clients -->
-                </div><!--/container-->		
-                <!--=== End Content Part ===-->
-
-
-            </ui:define>
-            <ui:define name="footer">
-
-            </ui:define>
-        </ui:composition>
-    </f:view>
+                                </li>
+                                <li>
+                                    <a class="btn btn-lg btn-warning" href="http://dotstrap.com/">
+                                        <i class="glyphicon glyphicon-search pull-left"></i><span>Search<br/><small>Lorem ipsum dolor</small></span></a> 
+                                </li>
+                                <li>
+                                    <a class="btn btn-lg btn-info" href="http://dotstrap.com/">
+                                        <i class="glyphicon glyphicon-list pull-left"></i><span>List Group<br/><small>Lorem ipsum dolor</small></span></a> 
+                                </li>                                   
+                            </ul>
+                        </div><!-- /.container -->
+                    </div><!-- /.container -->
+                </ui:define>
+            </ui:composition>
+        </f:view>
+    </h:body>
 </html>
+

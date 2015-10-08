@@ -7,7 +7,6 @@ import javax.faces.bean.SessionScoped;
 import org.apache.log4j.Logger;
 import org.brickred.socialauth.SocialAuthManager;
 
-
 @ManagedBean(name = "facebookAuthManagerBean")
 @SessionScoped
 public class FacebookAuthManagerBean implements Serializable {
@@ -17,7 +16,7 @@ public class FacebookAuthManagerBean implements Serializable {
     private String socialId;
     private SocialAuthManager manager = new SocialAuthManager();
     private SocialAuthManager googleManager = new SocialAuthManager();
-    private String avatar;
+ 
     private String userStatus;
 
     public FacebookAuthManagerBean() {
@@ -37,13 +36,6 @@ public class FacebookAuthManagerBean implements Serializable {
         this.userStatus = userStatus;
     }
 
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
 
     public String getSocialId() {
         return socialId;
@@ -68,7 +60,5 @@ public class FacebookAuthManagerBean implements Serializable {
     public void setGoogleManager(SocialAuthManager googleManager) {
         this.googleManager = googleManager;
     }
-    
-    
 
 }

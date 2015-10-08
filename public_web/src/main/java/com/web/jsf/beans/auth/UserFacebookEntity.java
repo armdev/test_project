@@ -2,31 +2,28 @@ package com.web.jsf.beans.auth;
 
 import java.io.Serializable;
 
-
-
 public class UserFacebookEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
-   
-   
+
     private Long id;
-   
+
     private Long userId;
-   
+
     private String language;
-   
+
     private String country;
-   
+
     private String location;
 
     private String gender;
-   
+
     private String birthday;
- 
+
     private String firstname;
-  
+
     private String lastname;
- 
+
     private String profileimageurl;
 
     public UserFacebookEntity() {

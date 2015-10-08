@@ -35,24 +35,20 @@ public class Authenticator implements Serializable {
   
     @ManagedProperty("#{facebookAuthManagerBean}")
     private FacebookAuthManagerBean facebookAuthManagerBean;
+    @ManagedProperty("#{userFacebookController}")
+    private UserFacebookController userFacebookController = null;
     @ManagedProperty("#{mailProps}")
     private ResourceBundle mailBundle = null;
     @ManagedProperty("#{i18n}")
     private ResourceBundle bundle = null;
-    @ManagedProperty("#{userFacebookController}")
-    private UserFacebookController userFacebookController = null;
-
-
+    private UserFacebookEntity userFacebook;
     private UserEntity user;
     private boolean checkEmail = false;
-    private boolean checkFileSize = false;
-    
-
-   
+    private boolean checkFileSize = false;   
     private FacesContext context = null;
     private ExternalContext ex = null;
     private Map<String, Object> sessionMap;
-  private UserFacebookEntity userFacebook;
+ 
     private Part uploadedFile;
     private UIComponent componentAvatar;
     private UIComponent componentEmail;
@@ -69,32 +65,7 @@ public class Authenticator implements Serializable {
         ex = context.getExternalContext();
         user = new UserEntity();
     }
-    
-     public void protectAvatar() {
-     if(facebookAuthManagerBean.getAvatar() == null){
-         try {
-             FacesContext.getCurrentInstance().getExternalContext().redirect("index.jsf?avatar=notset");
-         } catch (IOException ex) {
-             java.util.logging.Logger.getLogger(Authenticator.class.getName()).log(Level.SEVERE, null, ex);
-         }
-     }
-
-    }
-
-    public void clearUser() {
-        user = new UserEntity();
-        user.setEmail(null);
-        
-       // checkAvatar = false;
-        checkEmail = false;
-
-    }
-
-    public String initAvatar() {
-    
-        return "index";
-    }
-
+      
     public String facebookLogin() {
         log.info("Facebook login called");
         try {
@@ -112,13 +83,12 @@ public class Authenticator implements Serializable {
 
             log.info("put socialId facebook");
             log.info("url " + url);
-           // log.info("set avatar " + avatar);
-            //facebookAuthManagerBean.setAvatar(avatar);
+           
             facebookAuthManagerBean.setSocialId("facebook");
             log.info("FB LOGIN, GO TO FB.com ");
             FacesContext.getCurrentInstance().responseComplete();
             FacesContext.getCurrentInstance().getExternalContext().redirect(url);
-            //  return "back";
+            
         } catch (Exception e) {
             log.info("Error during FB login " + e.getLocalizedMessage());
             e.printStackTrace();
@@ -126,9 +96,6 @@ public class Authenticator implements Serializable {
         return null;
     }
 
- 
-
-   
 
     public String initFacebook() {
         if (user == null) {
@@ -156,10 +123,7 @@ public class Authenticator implements Serializable {
                 }
                 Map<String, String> paramsMap = SocialAuthUtil.getRequestParametersMap(request);
                 log.info("@facebook paramsMap size " + paramsMap.size());
-//                if (paramsMap == null) {
-//                    log.info("@paramsMap is null return " + paramsMap);
-//                    return null;
-//                }
+
                 log.info("@@@call provider ");
                 AuthProvider provider = facebookAuthManagerBean.getManager().connect(paramsMap);
                 if (provider == null) {
@@ -169,11 +133,7 @@ public class Authenticator implements Serializable {
                 Profile p = provider.getUserProfile();
                 log.info("@p profile  " + p);
                 log.info("@paramsMap " + paramsMap);
-
-                if (facebookAuthManagerBean.getAvatar() != null) {
-                    log.info("@GET AVATAR@@@@@@@@@@@ " + facebookAuthManagerBean.getAvatar());
-                  //  user.setAvatar(facebookAuthManagerBean.getAvatar());
-                }
+                
                 if (p.getEmail() != null) {
                     user.setEmail(p.getEmail());
                 }
@@ -210,6 +170,8 @@ public class Authenticator implements Serializable {
                 if (p.getProfileImageURL() != null) {
                     userFacebook.setProfileimageurl(p.getProfileImageURL());
                 }
+                
+                
                 
                  // FacesContext.getCurrentInstance().getExternalContext().redirect("pages/user/dashboard.jsf?success");
 

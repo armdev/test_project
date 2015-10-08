@@ -93,7 +93,7 @@ public class FileService extends DbInitBean implements Serializable {
 
     public GridFSDBFile getFile(String fileName) {
         try {
-            gfsPhoto = new GridFS(getDatabase(), "filestorage");
+            gfsPhoto = new GridFS(getDatabase(), "younetdb");
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -22,83 +22,32 @@ public class DbInitBean implements Serializable {
     private MongoConnectionFactory mongoFactory;
     private transient DB database = null;
     private transient DBCollection userCollection;
-    private transient DBCollection jobCollection;
+
     private transient DBCollection fileCollection;
-    private transient DBCollection portfolioFileCollection;
-    private transient DBCollection portfolioCollection;
-    private transient DBCollection tagCollection;
-    private transient DBCollection resumeCollection;
-    private transient DBCollection projectCollection;
-    private transient DBCollection messagesCollection;
 
     public DbInitBean() {
         Mongo mongo;
         try {
             mongoFactory = new MongoConnectionFactory();
             mongo = mongoFactory.createMongoInstance();
-            database = mongo.getDB("painters");
+            database = mongo.getDB("younetdb");
             userCollection = database.getCollection("users");
-            jobCollection = database.getCollection("job");
             fileCollection = database.getCollection("filestorage");
-            portfolioFileCollection = database.getCollection("portfoliofiles");
-            tagCollection = database.getCollection("tag");
-            resumeCollection = database.getCollection("resume");
-            projectCollection = database.getCollection("project");
-            messagesCollection = database.getCollection("messages");
-            portfolioCollection = database.getCollection("portfolio");
         } catch (MongoException ex) {
             ex.printStackTrace();
         }
-    }
-
-    public DBCollection getPortfolioCollection() {
-        return portfolioCollection;
-    }
-
-    
-    
-    public DBCollection getMessagesCollection() {
-        return messagesCollection;
-    }
-
-    public DBCollection getProjectCollection() {
-        return projectCollection;
-    }
-
-    public DBCollection getResumeCollection() {
-        return resumeCollection;
-    }
-
-    public void setResumeCollection(DBCollection resumeCollection) {
-        this.resumeCollection = resumeCollection;
     }
 
     public DBCollection getUserCollection() {
         return userCollection;
     }
 
-    public DBCollection getJobCollection() {
-        return jobCollection;
-    }
-
     public DBCollection getFileCollection() {
         return fileCollection;
     }
 
-    public DBCollection getTagCollection() {
-        return tagCollection;
-    }
-
     public DB getDatabase() {
         return database;
-    }
-
-    public DBCollection getPortfolioFileCollection() {
-        return portfolioFileCollection;
-    }
-
-    public void setPortfolioFileCollection(DBCollection portfolioFileCollection) {
-        this.portfolioFileCollection = portfolioFileCollection;
     }
 
     public static String getNextId(DB db, String seq_name) {

@@ -4,6 +4,7 @@ import com.mongodb.*;
 import com.progress.backend.connections.DbInitBean;
 
 import com.progress.backend.entities.UserEntity;
+import com.progress.backend.entities.UserFacebookEntity;
 import com.progress.backend.utils.CommonUtils;
 import com.progress.backend.utils.StatusTypeConstants;
 import java.io.Serializable;
@@ -27,30 +28,38 @@ public class UserService implements Serializable {
     private static final long serialVersionUID = 1L;
     @Autowired
     private DbInitBean initDatabase;
+    
+    @Autowired
+    private UserFacebookService userFacebookService;
 
-    public boolean save(UserEntity userEntity) {
+    public UserEntity save(UserEntity userEntity, UserFacebookEntity userFacebookEntity) {
         try {
             UUID profileId = UUID.randomUUID();
             userEntity.setId(CommonUtils.longValue(DbInitBean.getNextId(initDatabase.getDatabase(), "userSeqGen")));
             userEntity.setRegisteredDate(new Date(System.currentTimeMillis()));
-            userEntity.setPasswd(CommonUtils.hashPassword(userEntity.getPasswd().trim()));
+            //userEntity.setPasswd(CommonUtils.hashPassword(userEntity.getPasswd().trim()));
             userEntity.setStatus(StatusTypeConstants.ACTIVE);
             userEntity.setProfileId(profileId.toString());
             DBObject dbObject = Converter.toDBObject(userEntity);
             WriteResult result = initDatabase.getUserCollection().save(dbObject, WriteConcern.SAFE);
-            if (result.getError() == null) {
-                return true;
-            }
+           userFacebookService.save(userFacebookEntity, userEntity.getId());
+            System.out.println("Saving Facebook data from user Service");
+//            userFacebookEntity.setId(CommonUtils.longValue(DbInitBean.getNextId(initDatabase.getDatabase(), "fbSeqGen")));
+//            userFacebookEntity.setUserId(userEntity.getId());
+//            userFacebookEntity.setRegisteredDate(new Date(System.currentTimeMillis()));
+//            DBObject dbObjectnew = Converter.toDBObject(userFacebookEntity);
+//            WriteResult resultNew = initDatabase.getFacebookCollection().save(dbObjectnew, WriteConcern.SAFE);
+          
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+        return userEntity;
     }
 
     public boolean updateProfile(Long userId, UserEntity entity) {
         try {
             BasicDBObject document = new BasicDBObject();
-            //System.out.println("Skiil tags size " + entity.getSkillTags().size());
+           
             System.out.println("Update user, image id is " + entity.getImageId());
             document.append("$set",
                     new BasicDBObject()

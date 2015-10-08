@@ -22,7 +22,7 @@ public class DbInitBean implements Serializable {
     private MongoConnectionFactory mongoFactory;
     private transient DB database = null;
     private transient DBCollection userCollection;
-
+    private transient DBCollection facebookCollection;
     private transient DBCollection fileCollection;
 
     public DbInitBean() {
@@ -31,13 +31,19 @@ public class DbInitBean implements Serializable {
             mongoFactory = new MongoConnectionFactory();
             mongo = mongoFactory.createMongoInstance();
             database = mongo.getDB("younetdb");
-            userCollection = database.getCollection("users");
+            userCollection = database.getCollection("user");
+            facebookCollection = database.getCollection("facebook");
             fileCollection = database.getCollection("filestorage");
         } catch (MongoException ex) {
             ex.printStackTrace();
         }
     }
 
+    public DBCollection getFacebookCollection() {
+        return facebookCollection;
+    }
+
+    
     public DBCollection getUserCollection() {
         return userCollection;
     }

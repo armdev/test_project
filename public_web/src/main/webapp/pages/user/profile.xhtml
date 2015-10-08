@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"    
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"    
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"> 
+
+    <h:body>
+        <f:view contracts="default" transient="false">
+            <ui:composition template="/template.xhtml">               
+                <ui:define name="content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+                                <A href="#">Edit Profile</A>                              
+                                <br/>
+                                <p class="text-info">May 05,2014,03:00 pm </p>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">#{userProfile.user.firstname} #{userProfile.user.lastname}</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-3 col-lg-3 " align="center">
+                                                <img alt="User Pic" src="#{userProfile.userFacebookEntity.profileimageurl}"
+                                                     class="img-circle img-responsive"/> </div>
+
+                                            <div class=" col-md-9 col-lg-9 "> 
+                                                <table class="table table-user-information">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Department:</td>
+                                                            <td>Programming</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Hire date:</td>
+                                                            <td>06/23/2013</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Date of Birth</td>
+                                                            <td>01/24/1988</td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <tr>
+                                                                <td>Gender</td>
+                                                                <td>#{userProfile.userFacebookEntity.gender}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Country</td>
+                                                                <td>#{userProfile.userFacebookEntity.country}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>City</td>
+                                                                <td>#{userProfile.userFacebookEntity.location}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Email</td>
+                                                                <td>#{userProfile.user.email}</td>
+                                                            </tr>
+                                                            <td>Phone Number</td>
+                                                            <td>123-4567-890(Landline)<br/><br/>555-4567-890(Mobile)
+                                                            </td>
+
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                                <a href="#" class="btn btn-primary">My Sales Performance</a>
+                                                <a href="#" class="btn btn-primary">Team Sales Performance</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                                        <span class="pull-right">
+                                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ui:define>              
+            </ui:composition>
+        </f:view>
+    </h:body>
+</html>
+

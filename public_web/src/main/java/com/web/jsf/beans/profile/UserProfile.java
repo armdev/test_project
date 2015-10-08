@@ -3,7 +3,9 @@ package com.web.jsf.beans.profile;
 import com.progress.backend.entities.FileEntity;
 
 import com.progress.backend.entities.UserEntity;
+import com.progress.backend.entities.UserFacebookEntity;
 import com.progress.backend.services.file.FileService;
+import com.progress.backend.services.user.UserFacebookService;
 
 import com.progress.backend.services.user.UserService;
 import com.web.jsf.beans.handlers.SessionController;
@@ -28,7 +30,6 @@ import org.primefaces.event.SelectEvent;
  *
  * @author armena
  */
-
 @ManagedBean
 @ViewScoped
 public class UserProfile implements Serializable {
@@ -42,12 +43,14 @@ public class UserProfile implements Serializable {
     private FileService fileService = null;
     @ManagedProperty("#{sessionController}")
     private SessionController sessionController = null;
+    @ManagedProperty("#{userFacebookService}")
+    private UserFacebookService userFacebookService;
     @ManagedProperty("#{i18n}")
     private ResourceBundle bundle = null;
-  
 
     private Part uploadedFile = null;
     private UserEntity user = new UserEntity();
+    private UserFacebookEntity userFacebookEntity;
 
     public UserProfile() {
         System.out.println("Constructor called : user profile ");
@@ -56,10 +59,10 @@ public class UserProfile implements Serializable {
     @PostConstruct
     public void init() {
         System.out.println("called : init: ");
-
         if (sessionController.getUser() != null && sessionController.getUser().getId() != null) {
             user = userService.findById(sessionController.getUser().getId());
             System.out.println("image id!!!!  " + user.getImageId());
+            userFacebookEntity = userFacebookService.findByUserId(sessionController.getUser().getId());
         }
     }
 
@@ -126,9 +129,10 @@ public class UserProfile implements Serializable {
 
     }
 
-    
+    public void setUserFacebookService(UserFacebookService userFacebookService) {
+        this.userFacebookService = userFacebookService;
+    }
 
-   
     public void handleSelect(SelectEvent event) {
         Object selectedObject = event.getObject();
         //   MessageUtil.addInfoMessage("selected.object", selectedObject);
@@ -151,7 +155,6 @@ public class UserProfile implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
     }
-
 
     public UserEntity getUser() {
         return user;
@@ -176,5 +179,15 @@ public class UserProfile implements Serializable {
     public void setBundle(ResourceBundle bundle) {
         this.bundle = bundle;
     }
+
+    public UserFacebookEntity getUserFacebookEntity() {
+        return userFacebookEntity;
+    }
+
+    public void setUserFacebookEntity(UserFacebookEntity userFacebookEntity) {
+        this.userFacebookEntity = userFacebookEntity;
+    }
+    
+    
 
 }

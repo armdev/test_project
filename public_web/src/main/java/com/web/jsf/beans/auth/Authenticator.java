@@ -1,16 +1,15 @@
 package com.web.jsf.beans.auth;
 
-
 import com.progress.backend.entities.UserEntity;
+import com.progress.backend.entities.UserFacebookEntity;
+import com.progress.backend.services.user.UserFacebookService;
+import com.progress.backend.services.user.UserService;
+import com.web.jsf.beans.handlers.SessionController;
 import com.web.jsf.utils.HttpJSFUtil;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.Serializable;
 import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -26,33 +25,35 @@ import org.brickred.socialauth.SocialAuthConfig;
 import org.brickred.socialauth.SocialAuthManager;
 import org.brickred.socialauth.util.SocialAuthUtil;
 
-
 @ManagedBean(name = "socialauthenticator")
 @SessionScoped
 public class Authenticator implements Serializable {
 
     private static final Logger log = Logger.getLogger(Authenticator.class);
-  
+
+    @ManagedProperty("#{userService}")
+    private UserService userService;
+    @ManagedProperty("#{userFacebookService}")
+    private UserFacebookService userFacebookService;
+
     @ManagedProperty("#{facebookAuthManagerBean}")
     private FacebookAuthManagerBean facebookAuthManagerBean;
-    @ManagedProperty("#{userFacebookController}")
-    private UserFacebookController userFacebookController = null;
+
     @ManagedProperty("#{mailProps}")
     private ResourceBundle mailBundle = null;
+    @ManagedProperty("#{sessionController}")
+    private SessionController sessionController;
     @ManagedProperty("#{i18n}")
     private ResourceBundle bundle = null;
     private UserFacebookEntity userFacebook;
     private UserEntity user;
     private boolean checkEmail = false;
-    private boolean checkFileSize = false;   
+    private boolean checkFileSize = false;
     private FacesContext context = null;
     private ExternalContext ex = null;
     private Map<String, Object> sessionMap;
- 
+
     private Part uploadedFile;
-    private UIComponent componentAvatar;
-    private UIComponent componentEmail;
-    private String avatarStyle = "alert-danger";
 
     public Authenticator() {
 
@@ -65,7 +66,7 @@ public class Authenticator implements Serializable {
         ex = context.getExternalContext();
         user = new UserEntity();
     }
-      
+
     public String facebookLogin() {
         log.info("Facebook login called");
         try {
@@ -83,19 +84,18 @@ public class Authenticator implements Serializable {
 
             log.info("put socialId facebook");
             log.info("url " + url);
-           
+
             facebookAuthManagerBean.setSocialId("facebook");
             log.info("FB LOGIN, GO TO FB.com ");
             FacesContext.getCurrentInstance().responseComplete();
             FacesContext.getCurrentInstance().getExternalContext().redirect(url);
-            
+
         } catch (Exception e) {
             log.info("Error during FB login " + e.getLocalizedMessage());
             e.printStackTrace();
         }
         return null;
     }
-
 
     public String initFacebook() {
         if (user == null) {
@@ -133,7 +133,7 @@ public class Authenticator implements Serializable {
                 Profile p = provider.getUserProfile();
                 log.info("@p profile  " + p);
                 log.info("@paramsMap " + paramsMap);
-                
+
                 if (p.getEmail() != null) {
                     user.setEmail(p.getEmail());
                 }
@@ -170,39 +170,37 @@ public class Authenticator implements Serializable {
                 if (p.getProfileImageURL() != null) {
                     userFacebook.setProfileimageurl(p.getProfileImageURL());
                 }
-                
-                
-                
-                 // FacesContext.getCurrentInstance().getExternalContext().redirect("pages/user/dashboard.jsf?success");
-
-//                UserEntity u = controller.getAccountByAvatarAndByEmail(user.getEmail(), user.getAvatar());
-//                if (u != null) {
-//                    checkAvatar = false;
-//                    log.info("FB login, Existing user , making context, LINE 359 ");
-//                    this.makeContext(u);
-//                    FacesContext.getCurrentInstance().getExternalContext().redirect("pages/user/dashboard.jsf?success");
-//                    return "userpanel";
-//                } else {
-//                    checkAvatar = controller.checkUserAvatar(user.getAvatar().trim());
-//                    log.info("FB checkAvatar avatar " + checkAvatar);
-//                    if (!checkAvatar) {
-//                        //user.setSocialMediaProvider(CommonConstants.FACEBOOK_PROVIDER);
-//                        UserEntity retUser = null;
-//                        if (facebookAuthManagerBean.getSocialId().equals("facebook")) {
-//                            retUser = controller.registerNewUser(user, userFacebook, null);
-//                            log.info("FB checkAvatar end " + checkAvatar);
-//                            log.info("FB login, New user , making context, LINE 372 ");
-//                            this.makeContext(retUser);
-//                            FacesContext.getCurrentInstance().getExternalContext().redirect("pages/user/dashboard.jsf?success");
-//                            return "userpanel";
-//                        }
-//                    }
-//                }
+                System.out.println("user.getEmail() " + user.getEmail());
+                if (user.getEmail() != null) {
+                    UserEntity checkUser = userService.getUserByEmail(user.getEmail());
+                    System.out.println("checkUser " + checkUser);
+                    if (checkUser == null) {
+                        System.out.println("checkUser is null " + checkUser);
+                        checkUser = userService.save(user, userFacebook);
+                        //userFacebookService.save(userFacebook, checkUser.getId());                       
+                        System.out.println("New User created");
+                        sessionController.setUser(checkUser);
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("pages/user/dashboard.jsf?success");
+                    } else {
+                        System.out.println("Old user, just login");
+                        
+                        UserFacebookEntity uf = userFacebookService.findByUserId(checkUser.getId());
+                        System.out.println("uf " + uf);
+                        userFacebook.set_id(uf.get_id());
+                        System.out.println("uf update " + uf.get_id());
+                        userFacebookService.save(userFacebook, checkUser.getId());
+                        sessionController.setUser(checkUser);
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("pages/user/dashboard.jsf?success");
+                    }
+                }else {
+                     System.out.println("STOP : user.getEmail() is null ? " +user.getEmail());
+                }
 
             }
         } catch (Exception e) {
+             e.getLocalizedMessage();
             log.info("Error during facebook init " + e.getLocalizedMessage());
-            return "failalert";
+           
         }
         return null;
     }
@@ -337,7 +335,6 @@ public class Authenticator implements Serializable {
 //        }
 //        return navigation;
 //    }
-
 //    public void handleKeyEvent() {
 //        if (user.getAvatar() != null && user.getAvatar().length() > 3) {
 //            //S/ystem.out.println("avatar call " + user.getAvatar());
@@ -358,7 +355,6 @@ public class Authenticator implements Serializable {
 //            }
 //        }
 //    }
-
 //    public String registerUser() {
 //        String navigation = null;
 //        if (user == null || user.getEmail() == null) {
@@ -427,7 +423,6 @@ public class Authenticator implements Serializable {
 //        }
 //        return navigation;
 //    }
-
     public String makeContext(UserEntity u) {
 //        ExternalContext facesContext = FacesContext.getCurrentInstance().getExternalContext();
 //        Map<String, Object> sessionMap = facesContext.getSessionMap();
@@ -472,10 +467,6 @@ public class Authenticator implements Serializable {
         this.userFacebook = userFacebook;
     }
 
-    public void setUserFacebookController(UserFacebookController userFacebookController) {
-        this.userFacebookController = userFacebookController;
-    }
-
     public void setBundle(ResourceBundle bundle) {
         this.bundle = bundle;
     }
@@ -492,35 +483,20 @@ public class Authenticator implements Serializable {
         this.checkEmail = checkEmail;
     }
 
- 
-
     public void setFacebookAuthManagerBean(FacebookAuthManagerBean facebookAuthManagerBean) {
         this.facebookAuthManagerBean = facebookAuthManagerBean;
     }
 
-
-    public UIComponent getComponentAvatar() {
-        return componentAvatar;
+    public void setUserService(UserService userService) {
+        this.userService = userService;
     }
 
-    public void setComponentAvatar(UIComponent componentAvatar) {
-        this.componentAvatar = componentAvatar;
+    public void setUserFacebookService(UserFacebookService userFacebookService) {
+        this.userFacebookService = userFacebookService;
     }
 
-    public String getAvatarStyle() {
-        return avatarStyle;
-    }
-
-    public void setAvatarStyle(String avatarStyle) {
-        this.avatarStyle = avatarStyle;
-    }
-
-    public UIComponent getComponentEmail() {
-        return componentEmail;
-    }
-
-    public void setComponentEmail(UIComponent componentEmail) {
-        this.componentEmail = componentEmail;
+    public void setSessionController(SessionController sessionController) {
+        this.sessionController = sessionController;
     }
 
     public UserEntity getUser() {
@@ -538,7 +514,5 @@ public class Authenticator implements Serializable {
     public void setSessionMap(Map<String, Object> sessionMap) {
         this.sessionMap = sessionMap;
     }
-
-  
 
 }

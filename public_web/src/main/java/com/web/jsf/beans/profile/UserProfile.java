@@ -1,7 +1,7 @@
 package com.web.jsf.beans.profile;
 
 import com.progress.backend.entities.FileEntity;
-import com.progress.backend.entities.Tag;
+
 import com.progress.backend.entities.UserEntity;
 import com.progress.backend.services.file.FileService;
 

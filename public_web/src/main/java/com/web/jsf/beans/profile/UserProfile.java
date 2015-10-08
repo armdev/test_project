@@ -4,7 +4,7 @@ import com.progress.backend.entities.FileEntity;
 import com.progress.backend.entities.Tag;
 import com.progress.backend.entities.UserEntity;
 import com.progress.backend.services.file.FileService;
-import com.progress.backend.services.tag.TagService;
+
 import com.progress.backend.services.user.UserService;
 import com.web.jsf.beans.handlers.SessionController;
 import java.io.InputStream;
@@ -44,8 +44,7 @@ public class UserProfile implements Serializable {
     private SessionController sessionController = null;
     @ManagedProperty("#{i18n}")
     private ResourceBundle bundle = null;
-    @ManagedProperty("#{tagService}")
-    private TagService tagService = null;
+  
 
     private Part uploadedFile = null;
     private UserEntity user = new UserEntity();
@@ -127,30 +126,9 @@ public class UserProfile implements Serializable {
 
     }
 
-    public List<String> completeTags(String query) {
-        List<Tag> fountTags = new ArrayList<Tag>();
-        List<String> suggestions = new ArrayList<String>();
-        try {
-            fountTags = tagService.getTagList(query);
-            for (Tag tag : fountTags) {
-                suggestions.add(tag.getTag());
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        System.out.println("suggestions list size " + suggestions.size());
-        return suggestions;
-    }
+    
 
-    public List<String> complete(String input) {
-        List<String> result = new ArrayList<String>();
-        for (int i = 0; i < 10; i++) {
-            System.out.print("input + i " + input + i);
-            result.add(input + i);
-        }
-        return result;
-    }
-
+   
     public void handleSelect(SelectEvent event) {
         Object selectedObject = event.getObject();
         //   MessageUtil.addInfoMessage("selected.object", selectedObject);
@@ -174,13 +152,6 @@ public class UserProfile implements Serializable {
                 new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
     }
 
-//    public PropertyResourceBundle getBundle() {
-//        FacesContext context = FacesContext.getCurrentInstance();
-//        return context.getApplication().evaluateExpressionGet(context, "#{i18n}", PropertyResourceBundle.class);
-//    }
-    public void setTagService(TagService tagService) {
-        this.tagService = tagService;
-    }
 
     public UserEntity getUser() {
         return user;

@@ -33,8 +33,17 @@ public class UserEntity implements Serializable {
     private Integer status;//disabled//enabled   
     private Integer userType;//company/regular  
     private Date registeredDate;
+    private String language;
 
     public UserEntity() {
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
     
     

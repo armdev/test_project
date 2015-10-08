@@ -9,22 +9,67 @@
       xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html">     
-    
+
 
     <f:view contracts="default" transient="false">
         <ui:composition template="/template.xhtml">              
-            <ui:define name="content">                                 
-                <div class="container">
-                    <br/>
-                    <div class="jumbotron">
-                        <h1>Navbar example</h1>
-                        <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-                        <p>To see the difference between static and fixed top navbars, just scroll.</p>
-                        <p>
-                            <a class="btn btn-lg btn-primary" href="#" role="button">View navbar docs &raquo;</a>
-                        </p>
+            <ui:define name="content">   
+                <style>
+                    body {
+                        padding-top: 15px;
+                        font-size: 12px
+                    }
+                    .main {
+                        max-width: 320px;
+                        margin: 0 auto;
+                    }
+                    .login-or {
+                        position: relative;
+                        font-size: 18px;
+                        color: #aaa;
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                    }
+                    .span-or {
+                        display: block;
+                        position: absolute;
+                        left: 50%;
+                        top: -2px;
+                        margin-left: -25px;
+                        background-color: #fff;
+                        width: 50px;
+                        text-align: center;
+                    }
+                    .hr-or {
+                        background-color: #cdcdcd;
+                        height: 1px;
+                        margin-top: 0px !important;
+                        margin-bottom: 0px !important;
+                    }
+                    h3 {
+                        text-align: center;
+                        line-height: 300%;
+                    }
+
+                </style>
+                <h:form>
+                    <div class="container">
+                        <div class="row">
+                            <div class="main">
+                                <h3>You Net</h3>
+                                <div class="row">
+                                    <h:commandLink id="facebook"  styleClass="btn btn-facebook btn-info btn-block" 
+                                                   action="#{socialauthenticator.facebookLogin}">
+                                        <i class="fa fa-facebook"></i>
+                                        Join via Facebook
+                                    </h:commandLink>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </h:form>
             </ui:define>
         </ui:composition>
     </f:view>

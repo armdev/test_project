@@ -24,6 +24,10 @@
         <message-bundle>
             messages
         </message-bundle> 
+          <resource-bundle>
+            <base-name>mail</base-name>
+            <var>mailProps</var>
+        </resource-bundle>
         <resource-library-contracts>
             <contract-mapping>
                 <url-pattern>*</url-pattern>

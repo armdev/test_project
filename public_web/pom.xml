@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.neo</groupId>
-    <artifactId>public_web</artifactId>
+    <artifactId>public</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>public_web</name>
+    <name>public</name>
     <url>http://maven.apache.org</url>
     <properties>
        
@@ -28,6 +28,25 @@
     </properties>
     
     <dependencies>
+        <dependency>
+            <groupId>org.brickred</groupId>
+            <artifactId>socialauth-cdi</artifactId>
+            <version>2.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.faces</groupId>
+                    <artifactId>jsf-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>xml-apis</groupId>
+                    <artifactId>xml-apis</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>xerces</groupId>
+                    <artifactId>xercesImpl</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>        
         <dependency>
             <groupId>rome</groupId>
             <artifactId>rome</artifactId>
@@ -117,7 +136,7 @@
     </dependencies>
 
     <build>
-        <finalName>public_web</finalName>
+        <finalName>public</finalName>
         <plugins>
 
             <plugin>

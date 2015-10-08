@@ -24,16 +24,16 @@
                     <li><a href="#{request.contextPath}/pages/general/services.jsf">Services</a></li>
                     <li><a href="#{request.contextPath}/pages/general/contact.jsf">Contact</a></li>              
                     <li><a href="#{request.contextPath}/pages/general/price.jsf">Pricing</a></li>                  
-                    <h:panelGroup  rendered="#{sessionController.userContext != null}">
+                    <h:panelGroup  rendered="#{sessionController.user != null}">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">#{i18n.settings}<b class="caret"></b></a>
                             <ul class="dropdown-menu">                            
 
-                                <h:form rendered="#{sessionController.userContext != null}"> 
+                                <h:form rendered="#{sessionController.user != null}"> 
                                     <li>
                                         <center>
                                             <h:commandLink value="#{i18n.logout}" action="#{userLogout.doLogout}"
-                                                           immediate="true" rendered="#{sessionController.userContext != null}"/>
+                                                           immediate="true" rendered="#{sessionController.user != null}"/>
                                         </center>
                                     </li>                
                                 </h:form>

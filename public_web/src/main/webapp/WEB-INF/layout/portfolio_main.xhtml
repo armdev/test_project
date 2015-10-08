@@ -12,10 +12,10 @@
               <h2>
                   Join US and make your bookmarks
                    <p>
-                    <h:panelGroup rendered="#{sessionController.userContext == null}">
+                    <h:panelGroup rendered="#{sessionController.user == null}">
                      <a class="btn btn-lg btn-info" href="#{request.contextPath}/pages/auth/signin.jsf">#{i18n.login}</a>
                     </h:panelGroup>
-                   <h:panelGroup rendered="#{sessionController.userContext == null}">
+                   <h:panelGroup rendered="#{sessionController.user == null}">
                      <a class="btn btn-lg btn-danger" href="#">#{i18n.createaccount}</a>
                    </h:panelGroup>
                      <h:form>

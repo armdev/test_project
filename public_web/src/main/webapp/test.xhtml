@@ -8,59 +8,88 @@
       xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html">     
-
-    <f:view contracts="default" transient="false">
-        <ui:composition template="/template.xhtml">              
-            <ui:define name="content">   
-                <h:form id="mainFormId">        
-                    <hr/>
-                    <div class="row">
-                        <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4">
-                            <!-- TWEET WRAPPER START -->
-                            <div class="twt-wrapper">
-                                <div class="panel panel-info">
-                                    <div class="panel-heading">
-                                        Twitter Feed Example
-                                    </div>
-                                    <div class="panel-body">
-                                        <textarea class="form-control"  jsf:value="#{titleExtractor.inputUrl}"  placeholder="Enter here for tweet..." rows="3"></textarea>
-                                        <br />
-                                        <a href="#" jsf:action="#{titleExtractor.doParse()}" class="btn btn-primary btn-sm pull-right">Tweet</a>
-                                        <div class="clearfix"></div>
-                                        <hr/>
-                                        <ul class="media-list">
-                                            <ui:repeat value="#{titleExtractor.postList}" var="list">
-                                                <li class="media">
-                                                    <a href="#" class="pull-left">
-                                                        <a href="#{list.image}" target="#{list.image}"><img src="#{list.image}" alt="" class="hover-effect"/></a>
-                                                    </a>
-                                                    <div class="media-body">
-                                                        <span class="text-muted pull-right">
-                                                            <small class="text-muted">30 min ago</small>
-                                                        </span>
-                                                        <strong class="text-success">@ Rexona Kumi</strong>
-                                                        <p>
-                                                            <a href="#">#{list.title}</a>    
-                                                            <a href="#{list.url}" target="_blank">Click to open</a>
-                                                            <br/>
-                                                            #{list.description}
-                                                            <hr/>
-                                                            #{list.keywords}
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                            </ui:repeat>
-                                     
-                                        </ul>
-                                        <span class="text-danger">237K users active</span>
+    <h:body>
+        <f:view contracts="default" transient="false">
+            <ui:composition template="/template.xhtml">              
+                <ui:define name="content">   
+                    <h:form id="mainFormId">        
+                        <hr/>
+                        <div class="row">
+                            <div class="row show-grid">
+                                <div class="col-lg-2 col-lg-offset-1"> 
+                                    <div class="span1">                                        
+                                            <a href="#aboutModal" data-toggle="modal" data-target="#myModal">
+                                                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme"
+                                                     width="140" height="140" class="img-circle"/></a>
+                                                     
+                                            <hr/>
+                                            <em>Joe Sixpack</em>   
+                                            <em>Profile</em>
+                                            <em>Recent Posts</em>
+                                            <em>Top Posts</em>
+                                            <em>Favorites</em>   
+                                            
+                                                <span class="label label-warning">HTML5/CSS</span>
+                                                <span class="label label-info">Adobe CS 5.5</span>
+                                                <span class="label label-info">Microsoft Office</span>
+                                                <span class="label label-success">Windows XP, Vista, 7</span>
                                     </div>
                                 </div>
+                                <div class="span3">
+                                    <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-4 ">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                Twitter Feed Example
+                                            </div>
+                                            <div class="panel-body">
+                                                <textarea class="form-control"  jsf:value="#{titleExtractor.inputUrl}"  placeholder="Enter here for tweet..." rows="3"></textarea>
+                                                <br />
+                                                <a href="#" jsf:action="#{titleExtractor.doParse()}" class="btn btn-primary btn-sm pull-right">Tweet</a>
+                                                <div class="clearfix"></div>
+                                                <hr/>
+                                                <ul class="media-list">
+                                                    <ui:repeat value="#{titleExtractor.postList}" var="list">
+                                                        <li class="media">
+                                                            <a href="#" class="pull-left">
+                                                                <a href="#{list.image}" target="#{list.image}"><img src="#{list.image}" alt="" class="hover-effect"/></a>
+                                                            </a>
+                                                            <div class="media-body">
+                                                                <span class="text-muted pull-right">
+                                                                    <small class="text-muted">30 min ago</small>
+                                                                </span>
+                                                                <strong class="text-success">@ Rexona Kumi</strong>
+                                                                <p>
+                                                                    <a href="#">#{list.title}</a>    
+                                                                    <a href="#{list.url}" target="_blank">Click to open</a>
+                                                                    <br/>
+                                                                    #{list.description}
+                                                                    <hr/>
+                                                                    #{list.keywords}
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                    </ui:repeat>                                     
+                                                </ul>
+                                                <span class="text-danger">237K users active</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-lg-2 col-lg-offset-1"> <div class="panel-heading">
+                                       <span><strong>Skills: </strong></span>
+                                                <span class="label label-warning">HTML5/CSS</span>
+                                                <span class="label label-info">Adobe CS 5.5</span>
+                                                <span class="label label-info">Microsoft Office</span>
+                                                <span class="label label-success">Windows XP, Vista, 7</span>
+                                    </div></div>
                             </div>
-                            <!-- TWEET WRAPPER END -->
+
                         </div>
-                    </div>
-                </h:form>
-            </ui:define>
-        </ui:composition>
-    </f:view>
+                    </h:form>
+                </ui:define>
+            </ui:composition>
+        </f:view>
+    </h:body>
 </html>

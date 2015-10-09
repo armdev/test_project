@@ -6,6 +6,8 @@
 package com.web.jsf.beans.parsers;
 
 import com.progress.backend.entities.PostBody;
+import com.progress.backend.services.user.PostService;
+import com.web.jsf.beans.handlers.SessionController;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,13 +23,12 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
-
 
 @ManagedBean
 @ViewScoped
@@ -37,6 +38,10 @@ public class TitleExtractor implements Serializable {
 
     private String inputUrl;
     private List<PostBody> postList = new ArrayList();
+    @ManagedProperty("#{sessionController}")
+    private SessionController sessionController = null;
+    @ManagedProperty("#{postService}")
+    private PostService postService = null;
 
     public void doParse() {
         try {
@@ -50,25 +55,27 @@ public class TitleExtractor implements Serializable {
 
                 String image = singlemeta.attr("content");
                 postBody.setImage(image);
-                System.out.println("image " + image);
+                //System.out.println("image " + image);
 
             }
-           metalinks = doc.select("meta[name=keywords]");
-            
+            metalinks = doc.select("meta[name=keywords]");
+
             System.out.println("keywords " + metalinks);
             if (metalinks != null) {
                 String data = metalinks.attr("content");
-                System.out.println("Data Keyword " + data);
+                //System.out.println("Data Keyword " + data);
                 postBody.setKeywords(data);
             }
             metalinks = doc.select("meta[name=description]");
-            
+
             if (metalinks != null) {
                 String data = metalinks.attr("content");
-                System.out.println(" description " + data);
+               // System.out.println(" description " + data);
                 postBody.setKeywords(data);
             }
-            getPostList().add(postBody);
+            postBody.setUserId(sessionController.getUser().getId());
+            postService.save(postBody);
+            //getPostList().add(postBody);
             inputUrl = null;
         } catch (IOException ex) {
             Logger.getLogger(TitleExtractor.class.getName()).log(Level.SEVERE, null, ex);
@@ -210,6 +217,7 @@ public class TitleExtractor implements Serializable {
     }
 
     public List<PostBody> getPostList() {
+        postList = postService.findAll();
         return postList;
     }
 
@@ -217,6 +225,14 @@ public class TitleExtractor implements Serializable {
         this.postList = postList;
     }
 
+    public void setSessionController(SessionController sessionController) {
+        this.sessionController = sessionController;
+    }
+
+    public void setPostService(PostService postService) {
+        this.postService = postService;
+    }
+    
     public String getInputUrl() {
         return inputUrl;
     }

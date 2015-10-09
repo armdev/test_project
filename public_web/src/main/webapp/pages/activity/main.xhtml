@@ -50,6 +50,7 @@
                                                 <ul class="media-list">
                                                     <ui:repeat value="#{titleExtractor.postList}" var="list">
                                                         <li class="media">
+                                                            <a href="#{list.url}"  target="_blank">#{list.title}</a> 
                                                             <a href="#" class="pull-left">
                                                                 <a href="#{list.image}" target="#{list.image}"><img src="#{list.image}" alt="" class="hover-effect"/></a>
                                                             </a>
@@ -59,8 +60,7 @@
                                                                 </span>
                                                                 <strong class="text-success">@ Rexona Kumi</strong>
                                                                 <p>
-                                                                    <a href="#">#{list.title}</a>    
-                                                                    <a href="#{list.url}" target="_blank">Click to open</a>
+                                                                   
                                                                     <br/>
                                                                     #{list.description}
                                                                     <hr/>

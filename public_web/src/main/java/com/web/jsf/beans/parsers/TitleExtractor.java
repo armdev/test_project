@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.web.jsf.utils;
+package com.web.jsf.beans.parsers;
 
+import com.progress.backend.entities.PostBody;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,10 +27,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-/**
- *
- * @author Home
- */
+
+
 @ManagedBean
 @ViewScoped
 public class TitleExtractor implements Serializable {

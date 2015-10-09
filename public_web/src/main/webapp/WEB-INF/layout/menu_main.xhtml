@@ -5,6 +5,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">   
 
+    <h:form>
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">     
             <div class="navbar-header">
@@ -25,18 +26,20 @@
                     <li><a href="#{request.contextPath}/pages/general/contact.jsf">Contact</a></li>              
                     <li><a href="#{request.contextPath}/pages/general/price.jsf">Pricing</a></li>                  
                     <h:panelGroup  rendered="#{sessionController.user != null}">
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">#{i18n.settings}<b class="caret"></b></a>
-                            <ul class="dropdown-menu">                            
+                            <ul class="dropdown-menu">           
+                                <li><a href="#{request.contextPath}/pages/activity/main.jsf">Activity</a></li>
+                                <li><a href="#{request.contextPath}/pages/user/dashboard.jsf">Dashboards</a></li>
+                                <li><a href="#{request.contextPath}/pages/user/profile.jsf">Profile</a></li>
+                                <li>
 
-                                <h:form rendered="#{sessionController.user != null}"> 
-                                    <li>
-                                        <center>
-                                            <h:commandLink value="#{i18n.logout}" action="#{userLogout.doLogout}"
-                                                           immediate="true" rendered="#{sessionController.user != null}"/>
-                                        </center>
-                                    </li>                
-                                </h:form>
+                                    <h:commandLink value="#{i18n.logout}" action="#{userLogout.doLogout}"
+                                                   immediate="true" rendered="#{sessionController.user != null}"/>
+
+                                </li>                
+
                             </ul>
                         </li>    
                     </h:panelGroup>                   
@@ -52,13 +55,13 @@
                             <li><a href="#{request.contextPath}/pages/user/tags.jsf">Tags</a></li>
                             <li><a href="#{request.contextPath}/pages/user/userprofile.jsf">User profile</a></li>
                             <li><a href="#{request.contextPath}/pages/user/blogpost.jsf">Blog post</a></li>
-                             <li><a href="#{request.contextPath}/pages/user/bloghome.jsf">Blog home</a></li>
-                              <li><a href="#{request.contextPath}/pages/user/blog_home.jsf">Blog home 2</a></li>
-                          
+                            <li><a href="#{request.contextPath}/pages/user/bloghome.jsf">Blog home</a></li>
+                            <li><a href="#{request.contextPath}/pages/user/blog_home.jsf">Blog home 2</a></li>
+
                         </ul>
                     </li>
-                    
-                     <li class="dropdown">
+
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Form Pages <b class="caret"></b></a>
                         <ul class="dropdown-menu">                           
                             <li><a href="#{request.contextPath}/pages/general/faq.jsf">FAQ</a></li>
@@ -78,7 +81,7 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
     </div><!-- /.container -->
-
+</h:form>
 
 </html>
 

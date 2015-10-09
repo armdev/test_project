@@ -25,7 +25,9 @@ import org.springframework.stereotype.Service;
 @Service("userService")
 @Component
 public class UserService implements Serializable {
+    
     private static final long serialVersionUID = 1L;
+    
     @Autowired
     private DbInitBean initDatabase;
     

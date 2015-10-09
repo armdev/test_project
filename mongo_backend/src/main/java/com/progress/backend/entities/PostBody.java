@@ -1,23 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.progress.backend.entities;
+
+import java.io.Serializable;
+import java.util.Date;
+import org.bson.types.ObjectId;
 
 /**
  *
  * @author IEUser
  */
-public class PostBody {
+public class PostBody implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    
+    private ObjectId _id;
+    private Long id;
+    private Long userId;
+    
     private String title;
     private String url;
     private String image;
     private String keywords;
     private String description;
-
+    private Date postDate;
+    
     public PostBody() {
+    }
+    
+    
+    public ObjectId get_id() {
+        return _id;
+    }
+
+    public void set_id(ObjectId _id) {
+        this._id = _id;
     }
 
     public String getDescription() {
@@ -59,5 +75,32 @@ public class PostBody {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Date getPostDate() {
+        return postDate;
+    }
+
+    public void setPostDate(Date postDate) {
+        this.postDate = postDate;
+    }
+    
+    
+    
 
 }

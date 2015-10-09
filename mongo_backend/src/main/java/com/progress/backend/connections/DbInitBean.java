@@ -24,6 +24,7 @@ public class DbInitBean implements Serializable {
     private transient DBCollection userCollection;
     private transient DBCollection facebookCollection;
     private transient DBCollection fileCollection;
+    private transient DBCollection postCollection;
 
     public DbInitBean() {
         Mongo mongo;
@@ -34,16 +35,20 @@ public class DbInitBean implements Serializable {
             userCollection = database.getCollection("user");
             facebookCollection = database.getCollection("facebook");
             fileCollection = database.getCollection("filestorage");
+            postCollection = database.getCollection("posts");
         } catch (MongoException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public DBCollection getPostCollection() {
+        return postCollection;
     }
 
     public DBCollection getFacebookCollection() {
         return facebookCollection;
     }
 
-    
     public DBCollection getUserCollection() {
         return userCollection;
     }

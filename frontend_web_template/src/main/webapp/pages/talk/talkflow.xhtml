@@ -9,21 +9,13 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">     
 
     <f:view contracts="default" transient="true">
-        <ui:composition template="/template.xhtml">    
-            <ui:define name="top">
-
-            </ui:define>
-            <ui:define name="toplinks">
-
+        <ui:composition template="/template.xhtml">
+            <ui:define name="content">
+                <ui:include src="/WEB-INF/layout/talkflow.xhtml"/> 
             </ui:define>
             <ui:define name="left">
-
+                <ui:include src="/WEB-INF/layout/latesttalks.xhtml"/> 
             </ui:define>
-            <ui:define name="content">
-                <ui:include src="/WEB-INF/layout/content.xhtml"/> 
-            </ui:define>
-
-
         </ui:composition>
     </f:view>
 </html>

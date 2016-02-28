@@ -10,23 +10,20 @@
         <div id="fb-root"></div>
         <div id="wrap" class="lang-en">
             <ui:insert name="top"></ui:insert> 
-            <ui:include src="/WEB-INF/layout/top.xhtml"/>   
+            <ui:include src="/WEB-INF/layout/topauth.xhtml"/>   
             <span id="page-content" class="offscreen">&nbsp;</span>
             <div class="main-content-wrap main-content-wrap--full">
                 <div id="super-container" class="content-container">
                     <div class="container ytype">
                         <div id="alert-container">
                         </div>
-                        <ui:insert name="toplinks"></ui:insert> 
-                        <ui:include src="/WEB-INF/layout/toplinks.xhtml"/> 
+                        <ui:insert name="auth"></ui:insert> 
+                       
                         <div class="clearfix layout-block layout-n row--responsive">
                             <div class="column column-alpha column--responsive">
-                                <ui:include src="/WEB-INF/layout/search.xhtml"/> 
-                                <ui:insert name="left"></ui:insert> 
-                                <ui:include src="/WEB-INF/layout/left.xhtml"/> 
+                              
                             </div>
-                            <ui:insert name="content"></ui:insert> 
-                           
+                            
                         </div>
                     </div>
                 </div>

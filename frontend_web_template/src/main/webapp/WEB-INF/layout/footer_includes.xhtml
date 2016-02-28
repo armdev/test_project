@@ -2,15 +2,449 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">   
-   
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-      <h:outputScript library="primefaces" name="jquery/jquery.js"  target="head"/>   
-    <script src="#{request.contextPath}/resources/js/bootstrap.js"></script>
-    <script src="#{request.contextPath}/resources/js/modern-business.js"></script>  
-   
+
+       <!-- Start footer -->
+                        <div class="main-content-wrap main-content-wrap--separated">
+                            <div class="content-container">
+                                <div class="main-footer">
+                                    <div class="main-footer_section main-footer_menu clearfix">
+                                        <div class="main-footer_item">
+                                            <div class="footer-menu">
+                                                <h3 class="footer-menu_header">About</h3>
+                                                <ul class="footer-menu_list">
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/about">About Yelp</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://eat24.com/">Order Food on Eat24</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/careers?country=US">Careers</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/press">Press</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://yelp-ir.com/">Investor Relations</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/guidelines">Content Guidelines</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/static?country=US&amp;p=tos">Terms of Service</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/tos/privacy_policy">Privacy Policy</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/static?locale=en_US&amp;p=privacy#third-parties">Ad Choices</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="main-footer_item">
+                                            <div class="footer-menu">
+                                                <h3 class="footer-menu_header">Discover</h3>
+                                                <ul class="footer-menu_list">
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/weekly_yelp">The Weekly Yelp</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://officialblog.yelp.com/">Yelp Blog</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp-support.com/?l=en_US">Support</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/yelpmobile?source=footer">Yelp Mobile</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/developers?country=US">Developers</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/rss">RSS</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="main-footer_item">
+                                            <div class="footer-menu">
+                                                <h3 class="footer-menu_header">Yelp for Business Owners</h3>
+                                                <ul class="footer-menu_list">
+                                                    <li class="footer-menu_item">
+                                                        <a href="https://biz.yelp.com/">Claim your Business Page</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/advertise">Advertise on Yelp</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://eat24.com/join">Online Ordering from Eat24</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="https://www.seatme.yelp.com/">Yelp SeatMe</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="https://biz.yelp.com/support/case_studies">Business Success Stories</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp-support.com/Yelp_for_Business_Owners?l=en_US">Business Support</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="https://biz.yelp.com/blog">Yelp Blog for Business Owners</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="main-footer_item">
+                                            <div class="footer-menu languages-menu">
+                                                <div class="footer-menu_section footer-language">
+                                                    <h3 class="footer-menu_header">Languages</h3>
+                                                    <div id="language-selector-wrap" class="drop-menu-origin">
+                                                        <a href="javascript:;" id="language-selector-anchor" class="drop-menu-link drop-menu-link--dark embossed-text-white">
+                                                            <span  class="i-wrap ig-wrap-common_sprite i-dropdown-arrow-common_sprite-wrap dropdown-arrow ig-wrap-common_sprite-r"><i  class="i ig-common_sprite i-dropdown-arrow-common_sprite"></i> English</span>
+                                                        </a>
+                                                        <div id="language-selector-menu" class="drop-menu drop-menu-left drop-menu-restricted">
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://ms.yelp.my/talk/nyc">Bahasa Malaysia (Malaysia)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.cz/talk/nyc">Čeština (Česká republika)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.dk/talk/nyc">Dansk (Danmark)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.de/talk/nyc">Deutsch (Deutschland)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://de.yelp.ch/talk/nyc">Deutsch (Schweiz)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.at/talk/nyc">Deutsch (Österreich)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.au/talk/nyc">English (Australia)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.be/talk/nyc">English (Belgium)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.ca/talk/nyc">English (Canada)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.com.hk/talk/nyc">English (Hong Kong)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.my/talk/nyc">English (Malaysia)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://nz.yelp.com/talk/nyc">English (New Zealand)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.com.ph/talk/nyc">English (Philippines)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.ie/talk/nyc">English (Republic of Ireland)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.sg/talk/nyc">English (Singapore)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.ch/talk/nyc">English (Switzerland)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.co.uk/talk/nyc">English (United Kingdom)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    English (United States)
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.ar/talk/nyc">Español (Argentina)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.cl/talk/nyc">Español (Chile)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.es/talk/nyc">Español (España)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.mx/talk/nyc">Español (México)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://fil.yelp.com.ph/talk/nyc">Filipino (Pilipinas)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://fr.yelp.be/talk/nyc">Français (Belgique)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://fr.yelp.ca/talk/nyc">Français (Canada)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.fr/talk/nyc">Français (France)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://fr.yelp.ch/talk/nyc">Français (Suisse)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.it/talk/nyc">Italiano (Italia)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://it.yelp.ch/talk/nyc">Italiano (Svizzera)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://nl.yelp.be/talk/nyc">Nederlands (België)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.nl/talk/nyc">Nederlands (Nederland)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.no/talk/nyc">Norsk (Norge)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.pl/talk/nyc">Polski (Polska)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.br/talk/nyc">Português (Brasil)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.pt/talk/nyc">Português (Portugal)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://fi.yelp.fi/talk/nyc">Suomi (Suomi)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://sv.yelp.fi/talk/nyc">Svenska (Finland)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.se/talk/nyc">Svenska (Sverige)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.tr/talk/nyc">Türkçe (Türkiye)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.co.jp/talk/nyc">日本語 (日本)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.tw/talk/nyc">繁體中文 (台灣)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://zh.yelp.com.hk/talk/nyc">繁體中文 (香港)</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="footer-menu_section footer-country">
+                                                    <h3 class="footer-menu_header">Countries</h3>
+                                                    <div id="country-selector-wrap" class="drop-menu-origin">
+                                                        <a href="javascript:;" id="country-selector-anchor" class="drop-menu-link drop-menu-link--dark embossed-text-white">
+                                                            <span  class="i-wrap ig-wrap-common_sprite i-dropdown-arrow-common_sprite-wrap dropdown-arrow ig-wrap-common_sprite-r"><i  class="i ig-common_sprite i-dropdown-arrow-common_sprite"></i> United States</span>
+                                                        </a>
+                                                        <div id="country-selector-menu" class="drop-menu drop-menu-left drop-menu-restricted">
+                                                            <ul>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.ar/">Argentina</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.au/">Australia</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.at/">Austria</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.be/">Belgium</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.br/">Brazil</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.ca/">Canada</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.cl/">Chile</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.cz/">Czech Republic</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.dk/">Denmark</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://fi.yelp.fi/">Finland</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.fr/">France</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.de/">Germany</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.com.hk/">Hong Kong</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.it/">Italy</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.co.jp/">Japan</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.my/">Malaysia</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.mx/">Mexico</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://nz.yelp.com/">New Zealand</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.no/">Norway</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.com.ph/">Philippines</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.pl/">Poland</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.pt/">Portugal</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.ie/">Republic of Ireland</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.sg/">Singapore</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.es/">Spain</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.se/">Sweden</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://de.yelp.ch/">Switzerland</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.tw/">Taiwan</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.nl/">The Netherlands</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.tr/">Turkey</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.co.uk/">United Kingdom</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com/">United States</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+                                    <div class="main-footer_section lesser-text">
+                                        <div class="footer-menu footer-menu--inline footer-menu--bordered footer-menu--separated footer-menu--directory">
+                                            <span class="footer-menu_header">Site Map</span>
+                                            <ul class="footer-menu_list">
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/atlanta">Atlanta</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/austin">Austin</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/boston">Boston</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/chicago">Chicago</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/dallas">Dallas</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/denver">Denver</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/detroit">Detroit</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/honolulu">Honolulu</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/houston">Houston</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/la">Los Angeles</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/miami">Miami</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/minneapolis">Minneapolis</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/nyc">New York</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/philadelphia">Philadelphia</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/portland">Portland</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/sacramento">Sacramento</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/san-diego">San Diego</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/sf">San Francisco</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/san-jose">San Jose</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/seattle">Seattle</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/dc">Washington, DC</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/locations">More Cities</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="main-footer_city-landscape-img responsive-hidden-small" role="presentation"></div>
+
+                                    <div class="main-footer_copyright">
+                                        Copyright © 2004–2016 Yelp Inc. Yelp, <img src="#{request.contextPath}/resources/img/logo_tiny.png" alt="Yelp logo"
+                                                                                   class="main-footer_logo-copyright"/>,
+                                        <img src="#{request.contextPath}/resources/img/burst_tiny.png" alt="Yelp burst" class="main-footer_logo-burst"/> 
+                                        and related marks are registered trademarks of Yelp.
+                                    </div>
+
+                                    <!--Source: Freebase (http://www.freebase.com/), licensed under CC-BY (http://creativecommons.org/licenses/by/2.5/)-->
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- google_ad_section_end -->
+                        <!-- End footer -->
+
+
 
 </html>
 

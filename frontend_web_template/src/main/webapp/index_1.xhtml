@@ -1,0 +1,1963 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">     
+
+    <f:view contracts="default" transient="true">
+        <ui:composition template="/template.xhtml">              
+            <ui:define name="content">
+                <body id="yelp_main_body" class="country-us logged-out jquery">
+                    <div id="fb-root"></div>
+                    <div id="wrap" class="lang-en">
+                        <!-- top start -->
+                        <div>
+                            <ul class="offscreen">
+                                <li>
+                                    <a href="#header_find_form" rel="nofollow">
+                                        Skip to Search Form
+                                    </a><a href="http://www.yelp.com/talk" style="display: none;" rel="file" id="xavdruxrddytuxsudc">wurtbtfuvqux</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.yelp.com/#header-nav" rel="nofollow">
+                                        Skip to Navigation
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#page-content" rel="nofollow">
+                                        Skip to Page Content
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="main-header main-content-wrap js-main-header">
+                                <div class="content-container clearfix">
+                                    <div class="arrange arrange--18 main-header_arrange">
+
+                                        <div class="arrange_unit main-header--full_arrange_unit">
+                                            <div class="main-header_logo" id="logo">
+                                                <a href="http://www.yelp.com/">Yelp</a>
+                                            </div>
+                                        </div>
+                                        <div class="arrange_unit arrange_unit--fill align-middle main-header--full_arrange_unit">
+                                            <div class="main-header_search responsive-hidden-medium-only">
+                                                <form method="get" action="http://www.yelp.com/search" id="header_find_form" class="main-search yform" role="search">
+                                                    <div class="arrange arrange--middle arrange--6 arrange--stack">
+                                                        <div class="arrange_unit  main-search_search-field-arrange"> 
+                                                            <div class="main-search_suggestions-field search-field-container find-decorator">
+                                                                <label class="main-search_pseudo-input pseudo-input">
+                                                                    <span class="pseudo-input_text">Find</span>
+                                                                    <span class="pseudo-input_field-holder">
+                                                                        <input autocomplete="off" id="find_desc" maxlength="64" name="find_desc" placeholder="tacos, cheap dinner, Max’s" value="" class="main-search_field pseudo-input_field" aria-autocomplete="list" tabindex="1"/>
+                                                                    </span>
+                                                                </label>
+                                                                <div class="main-search_suggestions suggestions-list-container search-suggestions-list-container hidden">
+                                                                    <ul class="suggestions-list" role="listbox" aria-label="Search results"></ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="arrange_unit main-search_near-field-arrange  main-search_search-field-arrange arrange_unit--stack-12">  
+                                                            <div class="main-search_suggestions-field search-field-container near-decorator">
+                                                                <label class="main-search_pseudo-input pseudo-input">
+                                                                    <span class="pseudo-input_text">Near</span>
+                                                                    <span class="main-search_field-holder pseudo-input_field-holder">
+                                                                        <input autocomplete="off" id="dropperText_Mast" maxlength="80" name="find_loc" placeholder="address, neighborhood, city, state or zip" value="New York, NY" class="main-search_field pseudo-input_field" aria-autocomplete="list" tabindex="2"/>
+                                                                        <input type="hidden" name="ns" value="1"/>
+                                                                    </span>
+
+                                                                </label>
+                                                                <div class="main-search_suggestions suggestions-list-container location-suggestions-list-container hidden">
+                                                                    <ul class="suggestions-list" role="listbox" aria-label="Search results"></ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--...-->
+                                                        <div class="arrange_unit main-search_actions arrange_unit--stack-12">
+                                                            <div class="arrange  arrange--wrap arrange--6">
+                                                                <div class="arrange_unit hidden-non-responsive-inline-block responsive-visible-small-inline-block main-search_action">
+                                                                    <a  class="ybtn ybtn-primary main-header_button js-search-close main-search_close">Cancel</a>
+                                                                </div>
+                                                                <div class="arrange_unit main-search_action arrange_unit--stack-12">
+
+                                                                    <button class="ybtn ybtn-primary main-search_submit main-header_button" id="header-search-submit" tabindex="3" title="Search" type="submit" value="submit">
+                                                                        <span class="main-search_action-icon-wrap js-search-icon-wrap">
+                                                                            <i  class="i ig-common_sprite i-search-common_sprite"></i>
+                                                                            <span class="main-search_action-text">Search</span>
+                                                                        </span>
+                                                                        <div class="spinner hidden">
+                                                                            <div class="spinner-container container1">
+                                                                                <div class="circle1"></div>
+                                                                                <div class="circle2"></div>
+                                                                                <div class="circle3"></div>
+                                                                                <div class="circle4"></div>
+                                                                            </div>
+                                                                            <div class="spinner-container container2">
+                                                                                <div class="circle1"></div>
+                                                                                <div class="circle2"></div>
+                                                                                <div class="circle3"></div>
+                                                                                <div class="circle4"></div>
+                                                                            </div>
+                                                                            <div class="spinner-container container3">
+                                                                                <div class="circle1"></div>
+                                                                                <div class="circle2"></div>
+                                                                                <div class="circle3"></div>
+                                                                                <div class="circle4"></div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--...-->
+                                                    </div>
+
+
+                                                </form>
+                                            </div>
+
+                                            <div class="main-header_nav nowrap responsive-hidden-medium">
+                                                <ul class="header-nav" id="header-nav">
+                                                    <li id="home-link" class="header-nav_item">
+                                                        <a class="header-nav_link" href="http://www.yelp.com/">
+                                                            Home
+                                                        </a>
+                                                    </li>
+                                                    <li id="about-me" class="header-nav_item">
+                                                        <a class="header-nav_link" href="http://www.yelp.com/user_details">
+                                                            About Me
+                                                        </a>
+                                                    </li>
+                                                    <li id="write-review" class="header-nav_item">
+                                                        <a class="header-nav_link" href="http://www.yelp.com/writeareview">
+                                                            Write a Review
+                                                        </a>
+                                                    </li>
+                                                    <li id="find-friends" class="header-nav_item">
+                                                        <a class="header-nav_link" href="http://www.yelp.com/find_friends">
+                                                            Find Friends
+                                                        </a>
+                                                    </li>
+                                                    <li id="messaging" class="header-nav_item">
+                                                        <a class="header-nav_link" href="http://www.yelp.com/mail">
+                                                            Messages
+                                                        </a>
+                                                    </li>
+                                                    <li id="talk" class="header-nav_item">
+                                                        <!-- active -->
+                                                        <a class="header-nav_link tabon" href="http://www.yelp.com/talk">
+                                                            Talk
+                                                        </a>
+                                                    </li>
+                                                    <li id="events" class="header-nav_item">
+                                                        <a class="header-nav_link" href="http://www.yelp.com/events">
+                                                            Events
+                                                        </a>
+                                                    </li>
+                                                </ul>
+
+
+                                            </div>
+                                            <!--...-->
+                                        </div>
+                                        <!--...-->
+
+                                        <div class="arrange_unit main-header--full_arrange_unit">
+                                            <div class="arrange arrange--6">
+                                                <div class="arrange_unit nowrap">
+                                                    <div class="main-header_account webview-hidden">
+                                                        <ul class="header-nav">
+                                                            <li class="header-nav_item responsive-hidden-small">
+                                                                <a href="http://www.yelp.com/signup" id="header-sign-up" class="ybtn ybtn-primary main-header_button header-nav_button--sign-up">Sign Up</a>
+                                                            </li>
+                                                            <li class="header-nav_item text-centered">
+                                                                <a class="header-nav_link header-nav_link--log-in" href="https://www.yelp.com/login?return_url=%2Ftalk%2Fnyc">
+                                                                    Log In
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+
+                                                        <div id="topbar-account-item" class="user-account clearfix drop-menu-origin hidden-non-responsive-block responsive-visible-small-block">
+
+                                                            <a href="javascript:;" id="topbar-account-link" class="drop-menu-link inline-block clearfix user-account_button">
+                                                                <i  class="i ig-common_sprite i-dropdown-arrow-light-common_sprite user-account_button-arrow responsive-visible-large-inline-block"></i>
+                                                                <i  class="i ig-common_sprite i-28x28_more_nav-common_sprite drop-menu-link_open"></i>
+                                                                <i  class="i ig-common_sprite i-28x28_close_nav-common_sprite drop-menu-link_close"></i>
+                                                            </a>
+                                                            <div id="topbar-account-wrap" class="drop-menu drop-menu-has-arrow">
+                                                                <div class="drop-menu-arrow responsive-hidden-small"></div>
+
+                                                                <div class="arrange arrange--6 arrange--equal drop-menu_auth-buttons">
+                                                                    <div class="arrange_unit">
+                                                                        <a href="https://www.yelp.com/login?return_url=%2Ftalk%2Fnyc" class="ybtn ybtn-full">Login</a>
+                                                                    </div>
+                                                                    <div class="arrange_unit">
+                                                                        <a href="http://www.yelp.com/signup" class="ybtn ybtn-primary ybtn-full">Sign Up</a>
+                                                                    </div>
+                                                                </div>
+
+                                                                <ul class="drop-menu-group--nav drop-menu-group">
+                                                                    <li class="drop-down-menu-link">
+                                                                        <div class="arrange arrange--middle arrange--6">
+                                                                            <strong class="arrange_unit arrange_unit--fill">
+                                                                                <a href="http://www.yelp.com/user_details">
+                                                                                    <span  class="i-wrap ig-wrap-common_sprite i-24x24_aboutme-common_sprite-wrap"><i  class="i ig-common_sprite i-24x24_aboutme-common_sprite"></i> About Me</span>
+                                                                                </a>
+                                                                            </strong>
+                                                                            <span class="arrange_unit">
+                                                                                <i  class="i ig-common_sprite i-24x24_ios_chevron-common_sprite hidden-non-responsive-block responsive-visible-medium-block"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                    </li>
+
+
+
+                                                                    <li class="drop-down-menu-link hidden-non-responsive-block responsive-visible-medium-block">
+                                                                        <div class="arrange arrange--middle arrange--6">
+                                                                            <strong class="arrange_unit arrange_unit--fill">
+                                                                                <a href="http://www.yelp.com/talk">
+                                                                                    <span  class="i-wrap ig-wrap-common_sprite i-24x24_talk-common_sprite-wrap"><i  class="i ig-common_sprite i-24x24_talk-common_sprite"></i> Talk</span>
+                                                                                </a>
+                                                                            </strong>
+                                                                            <span class="arrange_unit">
+                                                                                <i  class="i ig-common_sprite i-24x24_ios_chevron-common_sprite hidden-non-responsive-block responsive-visible-medium-block"></i>
+                                                                            </span>
+                                                                        </div>
+                                                                    </li>
+
+                                                                </ul>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--...-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="print-masthead">
+                            <img src="#{request.contextPath}/resources/img/header_print.gif" class="print-bkg-img" alt="Yelp"/>
+                        </div>
+                          <!-- top end -->
+                        <!--...-->
+                        <span id="page-content" class="offscreen">&nbsp;</span>
+                        <div class="main-content-wrap main-content-wrap--full">
+                            <div id="super-container" class="content-container">
+                                <div id="alert-container">
+                                </div>
+                                <div class="container ytype">
+                                    <div class="section-header responsive-visible-large-block">
+                                        <div id="loc-bar" class="js-loc-bar loc-bar">
+                                            <div class="arrange arrange--12 arrange--middle">
+                                                <div class="arrange_unit arrange_unit--fill">
+                                                    <h1 class="h3 alternate">Yelp New York</h1>
+                                                </div>
+                                                <div class="arrange_unit nowrap">
+                                                    <a href="http://www.yelp.com/talk">San Francisco</a>
+                                                </div>
+                                                <div class="arrange_unit nowrap">
+                                                    <a href="san-jose.html">San Jose</a>
+                                                </div>
+                                                <div class="arrange_unit nowrap">
+                                                    <a href="la.html">Los Angeles</a>
+                                                </div>
+                                                <div class="arrange_unit nowrap">
+                                                    <a href="chicago.html">Chicago</a>
+                                                </div>
+                                                <div class="arrange_unit nowrap">
+                                                    <a href="palo-alto.html">Palo Alto</a>
+                                                </div>
+                                                <div class="arrange_unit nowrap">
+                                                    <a href="oakland.html">Oakland</a>
+                                                </div>
+                                                <div class="arrange_unit nowrap">
+                                                    <a class="u-cursor-pointer loc-city-list-item main-box-toggle" href="http://www.yelp.com/locations" id="loc-box-toggle"
+                                                       ><i  class="i ig-common i-9x9_toggle_arrow-common"></i> More Cities</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--...-->
+
+                                    <div class="clearfix layout-block layout-n row--responsive">
+                                        <div class="column column-alpha column--responsive">
+                                            <div class="ywidget">
+                                                <div class="talk-search-bar">
+                                                    <form class="yform yform--continuous yform--small arrange" name="talk_form" action="http://www.yelp.com/message_board_search" method="GET">
+                                                        <label for="talk_form" class="offscreen">Search Talk</label>
+                                                        <div class="arrange_unit arrange_unit--fill">
+                                                            <input type="text" placeholder="Search Talk" name="talk_query" value="" autocomplete="on"/>
+                                                        </div>
+                                                        <div class="arrange_unit">
+                                                            <button type="submit" value="submit" class="ybtn ybtn-primary ybtn-small"><span><i  class="i ig-common_sprite i-search-common_sprite"></i></span></button>
+                                                        </div>
+
+                                                        <input name="location" type="hidden" value="New York, NY"/>
+                                                    </form>
+
+                                                    <fieldset class="hr-line"></fieldset>
+                                                    <a href="#" class="ybtn ybtn-primary ybtn-small ybtn-full">New Conversation</a>
+                                                </div>
+
+
+
+                                            </div>
+                                            <!--...aaaaaaaaaaaleft menu start aaaaaaaaaaaaaaaaaaaaaa-->        
+
+                                            <div class="ywidget">
+
+
+                                                <div class="titled-nav js-titled-nav">
+
+                                                    <input id="titled-nav-15335f11-517a-44ef-b840-55fe788b9722" class="titled-nav-dropdown_handler" type="checkbox" role="presentation"/>
+
+                                                    <div class="titled-nav-dropdown hidden-non-responsive-block responsive-hidden-large">
+                                                        <label for="titled-nav-15335f11-517a-44ef-b840-55fe788b9722" class="titled-nav-dropdown_trigger">
+                                                            <span class="arrange arrange--middle titled-nav-dropdown_content">
+                                                                <span class="arrange_unit arrange_unit--fill titled-nav-dropdown_shadow">
+                                                                    <span class="titled-nav-dropdown_faded-title">
+                                                                        <strong>Talk</strong>
+
+                                                                        All Conversations
+
+                                                                    </span>
+                                                                </span>
+
+                                                                <span class="arrange_unit titled-nav-dropdown_icon">
+                                                                    <i  class="i ig-common_sprite i-24x24_ios_chevron_down-common_sprite titled-nav-dropdown_expand"></i>
+                                                                    <i  class="i ig-common_sprite i-24x24_ios_chevron_up-common_sprite titled-nav-dropdown_collapse"></i>
+                                                                </span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+
+
+                                                    <div class="titled-nav_menus">
+
+
+                                                        <div class="titled-nav_menu">
+                                                            <div class="titled-nav-header">
+                                                                <div class="arrange arrange--top">
+
+                                                                    <div class="arrange_unit arrange_unit--fill">
+                                                                        <div class="titled-nav-header_content">
+                                                                            <h3>Talk</h3>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="arrange_unit">
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                            <ul class="titled-nav_items">
+
+
+                                                                <li class="titled-nav_item">
+                                                                    <a class="titled-nav_link is-active" href="nyc.html">
+                                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                                <span class="titled-nav_link-label">All Conversations</span>
+
+
+
+
+                                                                                <br/>
+                                                                                <small class="subtle-text titled-nav_link-subtext">6 minutes ago</small>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </a>
+
+                                                                </li>
+
+
+
+                                                                <li class="titled-nav_item">
+                                                                    <a class="titled-nav_link" href="nyc/category/Local-Questions-and-Answers.html">
+                                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                                <span class="titled-nav_link-label">Local Questions &amp; Answers</span>
+
+
+
+
+                                                                                <br/>
+                                                                                <small class="subtle-text titled-nav_link-subtext">22 minutes ago</small>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </a>
+
+                                                                </li>
+
+
+
+                                                                <li class="titled-nav_item">
+                                                                    <a class="titled-nav_link" href="nyc/category/Events.html">
+                                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                                <span class="titled-nav_link-label">Events</span>
+
+
+
+
+                                                                                <br/>
+                                                                                <small class="subtle-text titled-nav_link-subtext">One hour ago</small>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </a>
+
+                                                                </li>
+
+
+
+                                                                <li class="titled-nav_item">
+                                                                    <a class="titled-nav_link" href="nyc/category/Food.html">
+                                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                                <span class="titled-nav_link-label">Food</span>
+
+
+
+
+                                                                                <br/>
+                                                                                <small class="subtle-text titled-nav_link-subtext">2 hours ago</small>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </a>
+
+                                                                </li>
+
+
+
+                                                                <li class="titled-nav_item">
+                                                                    <a class="titled-nav_link" href="nyc/category/Shopping-and-Products.html">
+                                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                                <span class="titled-nav_link-label">Shopping &amp; Products</span>
+
+
+
+
+                                                                                <br/>
+                                                                                <small class="subtle-text titled-nav_link-subtext">6 hours ago</small>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </a>
+
+                                                                </li>
+
+
+
+                                                                <li class="titled-nav_item">
+                                                                    <a class="titled-nav_link" href="nyc/category/Travel.html">
+                                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                                <span class="titled-nav_link-label">Travel</span>
+
+
+
+
+                                                                                <br/>
+                                                                                <small class="subtle-text titled-nav_link-subtext">16 hours ago</small>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </a>
+
+                                                                </li>
+
+
+
+                                                                <li class="titled-nav_item">
+                                                                    <a class="titled-nav_link" href="nyc/category/Relationships-and-Dating.html">
+                                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                                <span class="titled-nav_link-label">Relationships &amp; Dating</span>
+
+
+
+
+                                                                                <br/>
+                                                                                <small class="subtle-text titled-nav_link-subtext">One hour ago</small>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </a>
+
+                                                                </li>
+
+
+
+                                                                <li class="titled-nav_item">
+                                                                    <a class="titled-nav_link" href="nyc/category/Humor-and-Offbeat.html">
+                                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                                <span class="titled-nav_link-label">Humor &amp; Offbeat</span>
+
+
+
+
+                                                                                <br/>
+                                                                                <small class="subtle-text titled-nav_link-subtext">6 minutes ago</small>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </a>
+
+                                                                </li>
+
+
+
+                                                                <li class="titled-nav_item">
+                                                                    <a class="titled-nav_link" href="nyc/category/Pop-Culture.html">
+                                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                                <span class="titled-nav_link-label">Entertainment &amp; Pop Culture</span>
+
+
+
+
+                                                                                <br/>
+                                                                                <small class="subtle-text titled-nav_link-subtext">One hour ago</small>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </a>
+
+                                                                </li>
+
+
+
+                                                                <li class="titled-nav_item">
+                                                                    <a class="titled-nav_link" href="nyc/category/Sports.html">
+                                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                                <span class="titled-nav_link-label">Sports</span>
+
+
+
+
+                                                                                <br/>
+                                                                                <small class="subtle-text titled-nav_link-subtext">2/25/2016</small>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </a>
+
+                                                                </li>
+
+
+
+                                                                <li class="titled-nav_item">
+                                                                    <a class="titled-nav_link" href="nyc/category/News-and-Politics.html">
+                                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                                <span class="titled-nav_link-label">News &amp; Politics</span>
+
+
+
+
+                                                                                <br/>
+                                                                                <small class="subtle-text titled-nav_link-subtext">13 hours ago</small>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </a>
+
+                                                                </li>
+
+
+
+                                                                <li class="titled-nav_item">
+                                                                    <a class="titled-nav_link" href="nyc/category/Family-and-Parenting.html">
+                                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                                <span class="titled-nav_link-label">Family &amp; Parenting</span>
+
+
+
+
+                                                                                <br/>
+                                                                                <small class="subtle-text titled-nav_link-subtext">2/25/2016</small>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </a>
+
+                                                                </li>
+
+
+
+                                                                <li class="titled-nav_item">
+                                                                    <a class="titled-nav_link" href="nyc/category/Yelper-Shout-Outs.html">
+                                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                                <span class="titled-nav_link-label">Yelper Shout-Outs</span>
+
+
+
+
+                                                                                <br/>
+                                                                                <small class="subtle-text titled-nav_link-subtext">59 minutes ago</small>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </a>
+
+                                                                </li>
+
+
+
+                                                                <li class="titled-nav_item">
+                                                                    <a class="titled-nav_link" href="nyc/category/Site-Questions-and-Updates.html">
+                                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                                <span class="titled-nav_link-label">Site Questions &amp; Updates</span>
+
+
+
+
+                                                                                <br/>
+                                                                                <small class="subtle-text titled-nav_link-subtext">17 hours ago</small>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </a>
+
+                                                                </li>
+
+
+
+                                                                <li class="titled-nav_item">
+                                                                    <a class="titled-nav_link" href="nyc/category/Other.html">
+                                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                                <span class="titled-nav_link-label">Other</span>
+
+
+
+
+                                                                                <br/>
+                                                                                <small class="subtle-text titled-nav_link-subtext">One hour ago</small>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </a>
+
+                                                                </li>
+
+                                                            </ul>
+                                                        </div>
+
+                                                        <div class="titled-nav-header responsive-hidden-large" role="presentation"></div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!--...eeeeeeeeeeeeeeeeeleft menu endeeeeeeeeeeeeeeeeee-->  
+
+
+
+
+
+
+
+                                        </div>
+
+                                        <!--.aaaaaaaaaaaaaStart content endaaaaaa..--> 
+                                        <div class="column column-beta column--responsive talk-conversations">
+
+                                            <div class="ysection talk-ad-top">
+
+
+                                            </div>
+
+                                            <div class="topics-list js-hovercards">
+                                                <ul class="ylist ylist-bordered">
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="0QnsnljxpaFdMMEM4y80gg">
+                                                                <a href="http://www.yelp.com/user_details?userid=hg71CGHy9bwpgY8cGVVg4w" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/syosset-use-the-last-letter">use the last letter</a>
+                                                                    <small class="topic-title_info subtle-text">by Alan W.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Humor &amp; Offbeat</span>
+
+                                                                        4411 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                Eventually
+                                                                <div><small class="subtle-text">6 minutes ago by Lynn S.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="gAyxEUv7t6wn90vy_qI24A">
+                                                                <a href="http://www.yelp.com/user_details?userid=FutVPQi9gTJsh5KKNjxrzA" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/bronx-ask-the-next-person-a-question-game">Ask the next person a question game.</a>
+                                                                    <small class="topic-title_info subtle-text">by Miranda L.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Local Questions &amp; Answers</span>
+
+                                                                        9994 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                Jennifer Lopez I guess  What&#39;s your favorite restaurant?
+                                                                <div><small class="subtle-text">22 minutes ago by Shelly J.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="EQRaFQ1WCiUuZ9JyCYj-9w">
+                                                                <a href="http://www.yelp.com/user_details?userid=uMn7wkivl82sjv0-H6wlpw" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/new-york-im-currently-completely-obsessed-with">I&#39;m currently completely obsessed with _______</a>
+                                                                    <small class="topic-title_info subtle-text">by Vicki L.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Humor &amp; Offbeat</span>
+
+                                                                        626 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                Hercules
+                                                                <div><small class="subtle-text">45 minutes ago by Gustavo Z.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="WA9HvlweUeiGWxAAMNIUvQ">
+                                                                <a href="http://www.yelp.com/user_details?userid=fkzDDUW5TYHhnX_lCtkhOw" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/manhattan-favorite-quote">Favorite Quote</a>
+                                                                    <small class="topic-title_info subtle-text">by Mardory V.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Local Questions &amp; Answers</span>
+
+                                                                        1952 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                &#34;One thousand broken sticks and swords won&#39;t teach as much as the one that bends to your will&#34;
+                                                                <div><small class="subtle-text">49 minutes ago by Bryan W.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="valgqF3RaXYCb-dCubw0VA">
+                                                                <a href="http://www.yelp.com/user_details?userid=pZulGR9BH6JUHEZYXegD9A" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/new-york-new-yelper-3">New Yelper</a>
+                                                                    <small class="topic-title_info subtle-text">by Nicole A.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Yelper Shout-Outs</span>
+
+                                                                        58 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                yes Matteo, did u met him?
+                                                                <div><small class="subtle-text">59 minutes ago by I Am B.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="IugAwDH9pEjAsWeYerp_Mg">
+                                                                <a href="http://www.yelp.com/user_details?userid=FHhIKqPc0vaOSK_gwy167g" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/new-york-what-r-u-doing-now">What r u doing now ?</a>
+                                                                    <small class="topic-title_info subtle-text">by Manny M.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Events</span>
+
+                                                                        9894 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                Wash n&#39; set
+                                                                <div><small class="subtle-text">One hour ago by Laura C.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="-dIX7f9uMfKWdC3EPBNYnA">
+                                                                <a href="http://www.yelp.com/user_details?userid=7v8uEp-BHXqpwSju9P6ujQ" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/new-york-new-to-town-need-good-bar-or-club">New to town need good bar or club</a>
+                                                                    <small class="topic-title_info subtle-text">by Johnny T.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Local Questions &amp; Answers</span>
+
+                                                                        9 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                Sup? Hahahha! Anywho...bathroom hookups? Ru trying to get a disease? LoL
+                                                                <div><small class="subtle-text">One hour ago by Laura C.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="R-m0MeHtOGs1Jya-JJ7_1w">
+                                                                <a href="http://www.yelp.com/user_details?userid=33Izk048MTOBBoZOmUiqBQ" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/manhattan-breast-augmentation-yea-or-nay">Breast augmentation yea or nay?</a>
+                                                                    <small class="topic-title_info subtle-text">by Barbara S.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Other</span>
+
+                                                                        27 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                My portrait is very life-like! LoL
+                                                                <div><small class="subtle-text">One hour ago by Laura C.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="upPHosJLuDU-6TkV-AtOFQ">
+                                                                <a href="http://www.yelp.com/user_details?userid=lhaMqw9evH_D3SDVdI9s8Q" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/brooklyn-tol-2">TOL 2</a>
+                                                                    <small class="topic-title_info subtle-text">by I Am B.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Humor &amp; Offbeat</span>
+
+                                                                        2797 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                This is all your fault, Tina. LOL
+                                                                <div><small class="subtle-text">One hour ago by Mad A.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="Xw46STvJ_5M-nI6K381UWA">
+                                                                <a href="http://www.yelp.com/user_details?userid=yC4ip7AO4vRGetklvJJv1Q" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/woodside-you-ever">You ever...</a>
+                                                                    <small class="topic-title_info subtle-text">by Matt C.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Humor &amp; Offbeat</span>
+
+                                                                        7 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                Is this thread about me and that compliment I sent you yesterday?????   Lol..I&#39;m jk...partially..
+                                                                <div><small class="subtle-text">One hour ago by Ming T.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="BSiMFLjVJwLNdXfSOvPcQQ">
+                                                                <a href="http://www.yelp.com/user_details?userid=spDS7HPrOUc3wCNRyfSUnA" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/new-york-congrotdulations-karen-2">CongROTDulations Karen!</a>
+                                                                    <small class="topic-title_info subtle-text">by Michael W.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Other</span>
+
+                                                                        85 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                ^^^^random rant..
+                                                                <div><small class="subtle-text">One hour ago by Ming T.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="AwgMrrCL8vDP-aDTV912Rg">
+                                                                <a href="http://www.yelp.com/user_details?userid=LbWI5SNxvrZ45dBNNRMm9A" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/brooklyn-turn-ons-about-sexy-men">Turn Ons about sexy men</a>
+                                                                    <small class="topic-title_info subtle-text">by Carissa P.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Relationships &amp; Dating</span>
+
+                                                                        189 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                Big hands
+                                                                <div><small class="subtle-text">One hour ago by Evelin C.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="w81CQB_umgjZar2DqjzVyg">
+                                                                <a href="http://www.yelp.com/user_details?userid=Xqo1ru1F7srvbUJaCNHkvQ" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/new-york-stupid-things-that-you-love">Stupid Things That You Love</a>
+                                                                    <small class="topic-title_info subtle-text">by Karen S.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Entertainment &amp; Pop Culture</span>
+
+                                                                        516 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                ^That almost goes without saying.  Comp tickets to circa 80s mime shows Trader Joe Sandwich bread…
+                                                                <div><small class="subtle-text">One hour ago by Karen S.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="wMjVu6b2HCffgtkDePtguQ">
+                                                                <a href="http://www.yelp.com/user_details?userid=GDAGCkS0itUX32ac1-RCBA" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/new-york-cunningham-park-mountain-bike-trail">Cunningham Park Mountain Bike Trail</a>
+                                                                    <small class="topic-title_info subtle-text">by Marvin H.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Local Questions &amp; Answers</span>
+
+                                                                        5 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                Paging Kevin...
+                                                                <div><small class="subtle-text">2 hours ago by Karen S.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="Xw46STvJ_5M-nI6K381UWA">
+                                                                <a href="http://www.yelp.com/user_details?userid=yC4ip7AO4vRGetklvJJv1Q" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/woodside-creep-in-death">Creep in&amp;#39; Death</a>
+                                                                    <small class="topic-title_info subtle-text">by Matt C.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Humor &amp; Offbeat</span>
+
+                                                                        18 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                But they&#39;re opening another motel above the YMCA? It&#39;s not going to be a hot sheet motel like the…
+                                                                <div><small class="subtle-text">2 hours ago by Karen S.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="qsODrIwCCA98U--ycCazLQ">
+                                                                <a href="http://www.yelp.com/user_details?userid=rm92EiaA7h5lLbAK5dJKcw" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/new-york-recommend-a-food-item-for-the-person-above-you">Recommend a food item for the person above you</a>
+                                                                    <small class="topic-title_info subtle-text">by Kevin W.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Food</span>
+
+                                                                        238 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                Cowboy caviar
+                                                                <div><small class="subtle-text">2 hours ago by Sir K.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="in99DYK8NkreZ58SDdoiNA">
+                                                                <a href="http://www.yelp.com/user_details?userid=YttDgOC9AlM4HcAlDsbB2A" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/new-york-breaking-news-ny-edition">breaking news: (ny edition)</a>
+                                                                    <small class="topic-title_info subtle-text">by Phil H.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Humor &amp; Offbeat</span>
+
+                                                                        3782 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                Only until Kpbe and Queen Lebron retire.
+                                                                <div><small class="subtle-text">2 hours ago by Bryan W.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="IugAwDH9pEjAsWeYerp_Mg">
+                                                                <a href="http://www.yelp.com/user_details?userid=FHhIKqPc0vaOSK_gwy167g" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/new-york-im-in-the-mood-for">I&#39;M in the mood for -----------------</a>
+                                                                    <small class="topic-title_info subtle-text">by Manny M.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Food</span>
+
+                                                                        3649 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                Crack pie
+                                                                <div><small class="subtle-text">2 hours ago by Bryan W.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="IObAjUc8vd2eO1nf6uXHdw">
+                                                                <a href="http://www.yelp.com/user_details?userid=4viOlb1jGDJUHmv8C5o2GQ" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/staten-island-three-word-story-everyone-add-three-words-to-this-story">Three word story - everyone add three words to this story...</a>
+                                                                    <small class="topic-title_info subtle-text">by Sir K.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Humor &amp; Offbeat</span>
+
+                                                                        9 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                to have it
+                                                                <div><small class="subtle-text">2 hours ago by Evelin C.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                    <li class="media-block media-block--12">
+                                                        <div class="media-avatar">
+                                                            <div class="photo-box pb-60s" data-hovercard-id="CDs1nX9fwYTKFm-aRpaMbw">
+                                                                <a href="http://www.yelp.com/user_details?userid=SJK2IrWZ-DaLwx74CeDgFg" >
+                                                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+
+                                                                </a>
+
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="media-story">
+                                                            <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
+                                                                <h3 class="arrange_unit arrange_unit--fill topic-title">
+                                                                    <a href="http://www.yelp.com/topic/bloomfield-bars-for-metal-bands-to-perform">bars for metal bands to perform</a>
+                                                                    <small class="topic-title_info subtle-text">by Christine S.</small>
+                                                                </h3>
+                                                                <div class="arrange_unit nowrap">
+                                                                    <small>
+                                                                        <span class="bullet-after">Entertainment &amp; Pop Culture</span>
+
+                                                                        12 replies
+                                                                    </small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="talk-display-message" title="Latest Reply">
+                                                                You don&#39;t need a a stage dawg , up da punx
+                                                                <div><small class="subtle-text">2 hours ago by Matt C.</small></div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+
+                                            </div>
+
+
+
+
+                                            <div class="pagination-block">
+                                                <div class="arrange arrange--stack arrange--middle arrange--6">
+                                                    <div class="page-of-pages arrange_unit arrange_unit--fill">
+                                                        Page 1 of 3564
+                                                    </div>
+
+                                                    <div class="pagination-links arrange_unit">
+                                                        <div class="arrange arrange--middle">
+
+                                                            <div class="arrange_unit page-option current">
+                                                                <span class="pagination-links_anchor">1</span>
+                                                            </div>
+                                                            <div class="arrange_unit page-option">
+                                                                <a class="available-number pagination-links_anchor" href="nyc80df.html?results_pagestart=20">
+                                                                    2
+                                                                </a>
+                                                            </div>
+                                                            <div class="arrange_unit page-option">
+                                                                <a class="available-number pagination-links_anchor" href="nyc609e.html?results_pagestart=40">
+                                                                    3
+                                                                </a>
+                                                            </div>
+                                                            <div class="arrange_unit page-option">
+                                                                <a class="available-number pagination-links_anchor" href="nyce08a.html?results_pagestart=60">
+                                                                    4
+                                                                </a>
+                                                            </div>
+                                                            <div class="arrange_unit page-option">
+                                                                <a class="available-number pagination-links_anchor" href="nyca119.html?results_pagestart=80">
+                                                                    5
+                                                                </a>
+                                                            </div>
+                                                            <div class="arrange_unit page-option">
+                                                                <a class="available-number pagination-links_anchor" href="nycc299.html?results_pagestart=100">
+                                                                    6
+                                                                </a>
+                                                            </div>
+                                                            <div class="arrange_unit page-option">
+                                                                <a class="available-number pagination-links_anchor" href="nyc8cf8.html?results_pagestart=120">
+                                                                    7
+                                                                </a>
+                                                            </div>
+                                                            <div class="arrange_unit page-option">
+                                                                <a class="available-number pagination-links_anchor" href="nyce267.html?results_pagestart=140">
+                                                                    8
+                                                                </a>
+                                                            </div>
+                                                            <div class="arrange_unit page-option">
+                                                                <a class="available-number pagination-links_anchor" href="nyc7206.html?results_pagestart=160">
+                                                                    9
+                                                                </a>
+                                                            </div>
+
+                                                            <div class="arrange_unit u-inline-block">
+                                                                <a class="u-decoration-none next pagination-links_anchor" href="nyc80df.html?results_pagestart=20">
+                                                                    <span class="pagination-label u-align-middle responsive-hidden-small pagination-links_anchor">Next</span>
+                                                                    <i  class="i ig-common_sprite i-24x24_chevron_right-linked-common_sprite u-align-middle"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <!--.aaaaaaaaaaaaa End  content endaaaaaa..--> 
+
+
+
+
+                                </div>
+
+
+
+
+
+
+
+                            </div>
+
+                        </div>
+
+                        <!-- Start footer -->
+                        <div class="main-content-wrap main-content-wrap--separated">
+                            <div class="content-container">
+                                <div class="main-footer">
+                                    <div class="main-footer_section main-footer_menu clearfix">
+                                        <div class="main-footer_item">
+                                            <div class="footer-menu">
+                                                <h3 class="footer-menu_header">About</h3>
+                                                <ul class="footer-menu_list">
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/about">About Yelp</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://eat24.com/">Order Food on Eat24</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/careers?country=US">Careers</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/press">Press</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://yelp-ir.com/">Investor Relations</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/guidelines">Content Guidelines</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/static?country=US&amp;p=tos">Terms of Service</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/tos/privacy_policy">Privacy Policy</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/static?locale=en_US&amp;p=privacy#third-parties">Ad Choices</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="main-footer_item">
+                                            <div class="footer-menu">
+                                                <h3 class="footer-menu_header">Discover</h3>
+                                                <ul class="footer-menu_list">
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/weekly_yelp">The Weekly Yelp</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://officialblog.yelp.com/">Yelp Blog</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp-support.com/?l=en_US">Support</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/yelpmobile?source=footer">Yelp Mobile</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/developers?country=US">Developers</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/rss">RSS</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="main-footer_item">
+                                            <div class="footer-menu">
+                                                <h3 class="footer-menu_header">Yelp for Business Owners</h3>
+                                                <ul class="footer-menu_list">
+                                                    <li class="footer-menu_item">
+                                                        <a href="https://biz.yelp.com/">Claim your Business Page</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp.com/advertise">Advertise on Yelp</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://eat24.com/join">Online Ordering from Eat24</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="https://www.seatme.yelp.com/">Yelp SeatMe</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="https://biz.yelp.com/support/case_studies">Business Success Stories</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="http://www.yelp-support.com/Yelp_for_Business_Owners?l=en_US">Business Support</a>
+                                                    </li>
+                                                    <li class="footer-menu_item">
+                                                        <a href="https://biz.yelp.com/blog">Yelp Blog for Business Owners</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="main-footer_item">
+                                            <div class="footer-menu languages-menu">
+                                                <div class="footer-menu_section footer-language">
+                                                    <h3 class="footer-menu_header">Languages</h3>
+                                                    <div id="language-selector-wrap" class="drop-menu-origin">
+                                                        <a href="javascript:;" id="language-selector-anchor" class="drop-menu-link drop-menu-link--dark embossed-text-white">
+                                                            <span  class="i-wrap ig-wrap-common_sprite i-dropdown-arrow-common_sprite-wrap dropdown-arrow ig-wrap-common_sprite-r"><i  class="i ig-common_sprite i-dropdown-arrow-common_sprite"></i> English</span>
+                                                        </a>
+                                                        <div id="language-selector-menu" class="drop-menu drop-menu-left drop-menu-restricted">
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://ms.yelp.my/talk/nyc">Bahasa Malaysia (Malaysia)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.cz/talk/nyc">Čeština (Česká republika)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.dk/talk/nyc">Dansk (Danmark)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.de/talk/nyc">Deutsch (Deutschland)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://de.yelp.ch/talk/nyc">Deutsch (Schweiz)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.at/talk/nyc">Deutsch (Österreich)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.au/talk/nyc">English (Australia)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.be/talk/nyc">English (Belgium)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.ca/talk/nyc">English (Canada)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.com.hk/talk/nyc">English (Hong Kong)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.my/talk/nyc">English (Malaysia)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://nz.yelp.com/talk/nyc">English (New Zealand)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.com.ph/talk/nyc">English (Philippines)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.ie/talk/nyc">English (Republic of Ireland)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.sg/talk/nyc">English (Singapore)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.ch/talk/nyc">English (Switzerland)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.co.uk/talk/nyc">English (United Kingdom)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    English (United States)
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.ar/talk/nyc">Español (Argentina)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.cl/talk/nyc">Español (Chile)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.es/talk/nyc">Español (España)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.mx/talk/nyc">Español (México)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://fil.yelp.com.ph/talk/nyc">Filipino (Pilipinas)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://fr.yelp.be/talk/nyc">Français (Belgique)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://fr.yelp.ca/talk/nyc">Français (Canada)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.fr/talk/nyc">Français (France)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://fr.yelp.ch/talk/nyc">Français (Suisse)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.it/talk/nyc">Italiano (Italia)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://it.yelp.ch/talk/nyc">Italiano (Svizzera)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://nl.yelp.be/talk/nyc">Nederlands (België)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.nl/talk/nyc">Nederlands (Nederland)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.no/talk/nyc">Norsk (Norge)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.pl/talk/nyc">Polski (Polska)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.br/talk/nyc">Português (Brasil)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.pt/talk/nyc">Português (Portugal)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://fi.yelp.fi/talk/nyc">Suomi (Suomi)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://sv.yelp.fi/talk/nyc">Svenska (Finland)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.se/talk/nyc">Svenska (Sverige)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.tr/talk/nyc">Türkçe (Türkiye)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.co.jp/talk/nyc">日本語 (日本)</a>
+                                                                </li>
+                                                            </ul>
+                                                            <ul class="drop-menu-group">
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.tw/talk/nyc">繁體中文 (台灣)</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://zh.yelp.com.hk/talk/nyc">繁體中文 (香港)</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="footer-menu_section footer-country">
+                                                    <h3 class="footer-menu_header">Countries</h3>
+                                                    <div id="country-selector-wrap" class="drop-menu-origin">
+                                                        <a href="javascript:;" id="country-selector-anchor" class="drop-menu-link drop-menu-link--dark embossed-text-white">
+                                                            <span  class="i-wrap ig-wrap-common_sprite i-dropdown-arrow-common_sprite-wrap dropdown-arrow ig-wrap-common_sprite-r"><i  class="i ig-common_sprite i-dropdown-arrow-common_sprite"></i> United States</span>
+                                                        </a>
+                                                        <div id="country-selector-menu" class="drop-menu drop-menu-left drop-menu-restricted">
+                                                            <ul>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.ar/">Argentina</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.au/">Australia</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.at/">Austria</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.be/">Belgium</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.br/">Brazil</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.ca/">Canada</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.cl/">Chile</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.cz/">Czech Republic</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.dk/">Denmark</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://fi.yelp.fi/">Finland</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.fr/">France</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.de/">Germany</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.com.hk/">Hong Kong</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.it/">Italy</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.co.jp/">Japan</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.my/">Malaysia</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.mx/">Mexico</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://nz.yelp.com/">New Zealand</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.no/">Norway</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://en.yelp.com.ph/">Philippines</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.pl/">Poland</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.pt/">Portugal</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.ie/">Republic of Ireland</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.sg/">Singapore</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.es/">Spain</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.se/">Sweden</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://de.yelp.ch/">Switzerland</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.tw/">Taiwan</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.nl/">The Netherlands</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com.tr/">Turkey</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.co.uk/">United Kingdom</a>
+                                                                </li>
+                                                                <li class="drop-down-menu-link">
+                                                                    <a href="http://www.yelp.com/">United States</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+
+                                    <div class="main-footer_section lesser-text">
+                                        <div class="footer-menu footer-menu--inline footer-menu--bordered footer-menu--separated footer-menu--directory">
+                                            <span class="footer-menu_header">Site Map</span>
+                                            <ul class="footer-menu_list">
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/atlanta">Atlanta</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/austin">Austin</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/boston">Boston</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/chicago">Chicago</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/dallas">Dallas</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/denver">Denver</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/detroit">Detroit</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/honolulu">Honolulu</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/houston">Houston</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/la">Los Angeles</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/miami">Miami</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/minneapolis">Minneapolis</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/nyc">New York</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/philadelphia">Philadelphia</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/portland">Portland</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/sacramento">Sacramento</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/san-diego">San Diego</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/sf">San Francisco</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/san-jose">San Jose</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/seattle">Seattle</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/dc">Washington, DC</a></li>
+                                                <li class="footer-menu_item"><a href="http://www.yelp.com/locations">More Cities</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="main-footer_city-landscape-img responsive-hidden-small" role="presentation"></div>
+
+                                    <div class="main-footer_copyright">
+                                        Copyright © 2004–2016 Yelp Inc. Yelp, <img src="#{request.contextPath}/resources/img/logo_tiny.png" alt="Yelp logo"
+                                                                                   class="main-footer_logo-copyright"/>,
+                                        <img src="#{request.contextPath}/resources/img/burst_tiny.png" alt="Yelp burst" class="main-footer_logo-burst"/> 
+                                        and related marks are registered trademarks of Yelp.
+                                    </div>
+
+                                    <!--Source: Freebase (http://www.freebase.com/), licensed under CC-BY (http://creativecommons.org/licenses/by/2.5/)-->
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- google_ad_section_end -->
+                        <!-- End footer -->
+
+                        <div style="display: none;" id="page-popups">
+                        </div>
+
+
+                        <div id="qype-ghost-user-hovercard" class="hidden">
+                            <div class="whatsthis-hovercard">
+                                <h3>What's This?</h3>
+                                <p>This user has arrived from Qype, a company acquired by Yelp in 2012. We have integrated the two sites to bring you one great local experience.</p>
+                            </div>
+                        </div>
+
+                        <div id="rk-ghost-user-hovercard" class="hidden">
+                            <div class="whatsthis-hovercard">
+                                <h3>What's This?</h3>
+                                <p>This user has arrived from Restaurant-Kritik.de, a company acquired by Yelp in 2014. We have integrated the two sites to bring you one great local experience.</p>
+                            </div>
+                        </div>
+
+                        <div id="cityvox-ghost-user-hovercard" class="hidden">
+                            <div class="whatsthis-hovercard">
+                                <h3>What's This?</h3>
+                                <p>This user has arrived from Cityvox, a company acquired by Yelp in 2014. We have integrated the two sites to bring you one great local experience.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </body>
+            </ui:define>
+        </ui:composition>
+    </f:view>
+</html>

@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">     
+
+    <f:view contracts="static" transient="true">
+        <ui:composition template="/template.xhtml">
+
+            <ui:define name="left">
+                <div id="print-masthead">
+                    <img src="#{request.contextPath}/resources/img/header_print.gif" class="print-bkg-img" alt="Yelp"/>
+                </div>
+                <span id="page-content" class="offscreen">&nbsp;</span>
+                <div class="main-content-wrap main-content-wrap--full">
+                    <div class="top-shelf top-shelf-grey">
+                        <div class="content-container">
+                            <div class="user-profile_container">
+                                <div class="user-profile_avatar">                                       
+                                        <img src="#{request.contextPath}/resources/img/ls_002.jpg" width="160px"  alt="Maria B." />                                                                       
+                                </div>
+                                <!-- start -->
+                                <div class="user-profile_content-wrapper arrange arrange--bottom arrange--30">
+                                    <div class="user-profile_avatar-dummy arrange_unit" aria-hidden="true"></div>
+                                    <div class="user-profile_info arrange_unit">
+                                        <h1>User "UserUser" B.</h1>
+                                        <h3 class="user-location alternate">Brooklyn, NY</h3>
+                                        <div class="clearfix">
+                                            <ul class="user-passport-stats">
+                                                <li class="friend-count">
+                                                    <span class="i-wrap ig-wrap-common_sprite i-24x24_friends_c-common_sprite-wrap"><i class="i ig-common_sprite i-24x24_friends_c-common_sprite"></i> <strong>295</strong> Friends</span>
+                                                </li>
+                                                <li class="review-count">
+                                                    <span class="i-wrap ig-wrap-common_sprite i-24x24_review_c-common_sprite-wrap"><i class="i ig-common_sprite i-24x24_review_c-common_sprite"></i> <strong>79</strong> Reviews</span>
+                                                </li>
+                                                <li class="photo-count">
+                                                    <span class="i-wrap ig-wrap-common_sprite i-24x24_photo_c-common_sprite-wrap"><i class="i ig-common_sprite i-24x24_photo_c-common_sprite"></i> <strong>460</strong> Photos</span>
+                                                </li>
+                                            </ul>
+
+                                        </div>     
+                                        <div class="clearfix">
+                                            <a class="badge-bar" href="https://www.yelp.com/elite">
+
+
+                                                <span class="elite-badge">Elite 2015</span>
+
+                                            </a>
+                                        </div>    
+                                        <p class="user-tagline">“Hey, Bear!”</p>
+
+                                    </div>
+                                    <div data-component-bound="true" class="user-profile_actions arrange_unit">
+                                        <ul class="action-link-list">
+
+                                            <li>
+                                                <a data-component-bound="true" class="arrange arrange--middle add-friend" href="https://www.yelp.com/user_add_friend?return_url=/user_details?userid=_RsUtTnDvTwWN4FzWJUbdA&amp;userid=_RsUtTnDvTwWN4FzWJUbdA" rel="">
+                                                    <div class="action-link_icon arrange_unit">
+                                                        <i class="i ig-common_sprite i-18x18_addfriends_link-common_sprite align-middle"></i>
+                                                    </div>
+                                                    <div class="action-link_label arrange_unit arrange_unit--fill">
+                                                        Add friend
+                                                    </div>
+                                                </a>
+
+                                            </li>
+
+                                            <li>
+                                                <a class="arrange arrange--middle send-compliment" href="https://www.yelp.com/thanx?previous_url=/user_details?userid=_RsUtTnDvTwWN4FzWJUbdA&amp;user_id=_RsUtTnDvTwWN4FzWJUbdA" rel="">
+                                                    <div class="action-link_icon arrange_unit">
+                                                        <i class="i ig-common_sprite i-18x18_compliment_link-common_sprite align-middle"></i>
+                                                    </div>
+                                                    <div class="action-link_label arrange_unit arrange_unit--fill">
+                                                        Compliment
+                                                    </div>
+                                                </a>
+
+                                            </li>
+
+                                            <li>
+                                                <a data-component-bound="true" class="arrange arrange--middle send-pm" href="https://www.yelp.com/mail?action_send_form=1&amp;dst=_RsUtTnDvTwWN4FzWJUbdA&amp;return_url=/user_details?userid=_RsUtTnDvTwWN4FzWJUbdA" rel="Maria B.">
+                                                    <div class="action-link_icon arrange_unit">
+                                                        <i class="i ig-common_sprite i-18x18_message_link-common_sprite align-middle"></i>
+                                                    </div>
+                                                    <div class="action-link_label arrange_unit arrange_unit--fill">
+                                                        Send message
+                                                    </div>
+                                                </a>
+
+                                            </li>
+
+                                            <li>
+                                                <a class="arrange arrange--middle manage-following manage-following-add" data-csrf-token="3113aa2061a168ebc19278634c1d5afd1242c0dda298df98eac574bdbb81cb45" href="https://www.yelp.com/following_user/add?dst_user_id=_RsUtTnDvTwWN4FzWJUbdA&amp;previous_url=/user_details?userid=_RsUtTnDvTwWN4FzWJUbdA" rel="_RsUtTnDvTwWN4FzWJUbdA">
+                                                    <div class="action-link_icon arrange_unit">
+                                                        <i class="i ig-common_sprite i-18x18_following_link-common_sprite align-middle"></i>
+                                                    </div>
+                                                    <div class="action-link_label arrange_unit arrange_unit--fill">
+                                                        Follow Maria B.
+                                                    </div>
+                                                </a><div class="saving-msg" data-component-bound="true"></div>
+
+                                            </li>
+                                            <li>
+                                                <a class="arrange arrange--middle manage-following manage-following-remove hidden" data-csrf-token="3113aa2061a168ebc19278634c1d5afd1242c0dda298df98eac574bdbb81cb45" href="https://www.yelp.com/following_user/remove?dst_user_id=_RsUtTnDvTwWN4FzWJUbdA&amp;previous_url=/user_details?userid=_RsUtTnDvTwWN4FzWJUbdA" rel="_RsUtTnDvTwWN4FzWJUbdA">
+                                                    <div class="action-link_icon arrange_unit">
+                                                        <i class="i ig-common_sprite i-18x18_unfollow_link-common_sprite align-middle"></i>
+                                                    </div>
+                                                    <div class="action-link_label arrange_unit arrange_unit--fill">
+                                                        Stop following Maria B.
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="arrange arrange--middle" href="https://www.yelp.com/user_details_reviews_self?review_filter=shared&amp;userid=_RsUtTnDvTwWN4FzWJUbdA" rel="">
+                                                    <div class="action-link_icon arrange_unit">
+                                                        <i class="i ig-common_sprite i-18x18_similar_link-common_sprite align-middle"></i>
+                                                    </div>
+                                                    <div class="action-link_label arrange_unit arrange_unit--fill">
+                                                        Similar Reviews
+                                                    </div>
+                                                </a>
+
+                                            </li>
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!--End  -->
+                            </div>
+
+                        </div>
+                    </div>  
+
+
+                </div>
+
+            </ui:define>
+        </ui:composition>
+    </f:view>
+</html>

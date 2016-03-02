@@ -25,6 +25,9 @@ public class DbInitBean implements Serializable {
     private transient DBCollection facebookCollection;
     private transient DBCollection fileCollection;
     private transient DBCollection postCollection;
+    private transient DBCollection talkCategoryCollection;
+    private transient DBCollection talkCollection;
+    private transient DBCollection talkFlowCollection;
 
     public DbInitBean() {
         Mongo mongo;
@@ -36,9 +39,30 @@ public class DbInitBean implements Serializable {
             facebookCollection = database.getCollection("facebook");
             fileCollection = database.getCollection("filestorage");
             postCollection = database.getCollection("posts");
+            talkCategoryCollection = database.getCollection("talkcategory");
+            talkCollection = database.getCollection("talk");
+            talkFlowCollection = database.getCollection("talkflow");
         } catch (MongoException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public DBCollection getTalkFlowCollection() {
+        return talkFlowCollection;
+    }
+
+    
+    
+    public DBCollection getTalkCollection() {
+        return talkCollection;
+    }
+
+    public void setTalkCollection(DBCollection talkCollection) {
+        this.talkCollection = talkCollection;
+    }
+
+    public DBCollection getTalkCategoryCollection() {
+        return talkCategoryCollection;
     }
 
     public DBCollection getPostCollection() {

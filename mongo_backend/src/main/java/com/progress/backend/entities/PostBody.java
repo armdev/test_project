@@ -23,6 +23,7 @@ public class PostBody implements Serializable {
     private String keywords;
     private String description;
     private Date postDate;
+    private Integer rate;
     
     public PostBody() {
     }
@@ -35,6 +36,15 @@ public class PostBody implements Serializable {
     public void set_id(ObjectId _id) {
         this._id = _id;
     }
+
+    public Integer getRate() {
+        return rate;
+    }
+
+    public void setRate(Integer rate) {
+        this.rate = rate;
+    }   
+    
 
     public String getDescription() {
         return description;

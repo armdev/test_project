@@ -26,13 +26,13 @@ public class MemoryTest {
             @Override
             public void memoryUsageLow(long usedMemory, long maxMemory) {
                 long MB = 1048576L;
-                System.out.println("low:MEMORY " + usedMemory / MB + " MB " + " / " + maxMemory / MB + " MB ");
-                System.gc();
-                System.out.println("low:after1 " + usedMemory / MB + " MB " + " / " + maxMemory / MB + " MB ");
+               // System.out.println("low:MEMORY " + usedMemory / MB + " MB " + " / " + maxMemory / MB + " MB ");
+               // System.gc();
+                //System.out.println("low:after1 " + usedMemory / MB + " MB " + " / " + maxMemory / MB + " MB ");
                 try {
                     Thread.sleep(1000);
                     System.gc();
-                    System.out.println("low:after " + usedMemory + " / " + maxMemory);
+                    //System.out.println("low:after " + usedMemory + " / " + maxMemory);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(MemoryTest.class.getName()).log(Level.SEVERE, null, ex);
                 }

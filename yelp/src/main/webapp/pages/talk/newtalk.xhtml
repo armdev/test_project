@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">     
+
+    <f:view contracts="static" transient="true">
+        <ui:composition template="/template.xhtml">    
+            <ui:define name="toplinks">
+                <div class="container talk">
+                    <div class="clearfix layout-block layout-a row--responsive">
+                        <div class="column column-alpha column--responsive" id="new_talk_topic">
+                            <div class="topic-header arrange arrange--baseline arrange--stack arrange--6">
+                                <h2 class="arrange_unit arrange_unit--fill">Start a New Conversation</h2>
+                                <a data-component-bound="true" href="#{request.contextPath}/pages/static/guidelines.jsf" class="arrange_unit nowrap guidelines-pop-link talk-pop">Read our Talk Guidelines</a>
+                            </div>
+                            <form data-component-bound="true" action="#{request.contextPath}/index.jsf" class="yform clearfix js-captcha-form" method="POST" name="new_talk_topic">
+                                <input name="csrftok" class="csrftok" value="41b1e54bed61a2c95962e3f4917b96e6135e949ebbfb49c06273a76ba6988ba3" type="hidden"/>
+                                <input name="context" value="" type="hidden"/>
+                                <input name="previous_url" value="/talk/new_topic" type="hidden"/>
+
+                                <label for="new-conversation-topic">    Topic Name</label>
+                                <input id="new-conversation-topic" name="topic" maxlength="128" type="text"/>
+
+                                <label>    Category</label>
+                                <span class="help-inline">Help others find your Talk Thread faster - categorize it!</span>
+                                <div class="category-lists">
+                                    <fieldset>
+                                        <label>
+                                            <input id="category_1" name="category" value="1" type="radio"/>
+                                            <span for="category_1">Local Questions &amp; Answers</span>
+                                        </label>
+                                        <label>
+                                            <input id="category_2" name="category" value="2" type="radio"/>
+                                            <span for="category_2">Events</span>
+                                        </label>
+                                        <label>
+                                            <input id="category_10" name="category" value="10" type="radio"/>
+                                            <span for="category_10">Food</span>
+                                        </label>
+                                        <label>
+                                            <input id="category_11" name="category" value="11" type="radio"/>
+                                            <span for="category_11">Shopping &amp; Products</span>
+                                        </label>
+                                        <label>
+                                            <input id="category_13" name="category" value="13" type="radio"/>
+                                            <span for="category_13">Travel</span>
+                                        </label>
+                                        <label>
+                                            <input id="category_12" name="category" value="12" type="radio"/>
+                                            <span for="category_12">Relationships &amp; Dating</span>
+                                        </label>
+                                        <label>
+                                            <input id="category_3" name="category" value="3" type="radio"/>
+                                            <span for="category_3">Humor &amp; Offbeat</span>
+                                        </label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <label>
+                                            <input id="category_4" name="category" value="4" type="radio"/>
+                                            <span for="category_4">Entertainment &amp; Pop Culture</span>
+                                        </label>
+                                        <label>
+                                            <input id="category_5" name="category" value="5" type="radio"/>
+                                            <span for="category_5">Sports</span>
+                                        </label>
+                                        <label>
+                                            <input id="category_6" name="category" value="6" type="radio"/>
+                                            <span for="category_6">News &amp; Politics</span>
+                                        </label>
+                                        <label>
+                                            <input id="category_14" name="category" value="14" type="radio"/>
+                                            <span for="category_14">Family &amp; Parenting</span>
+                                        </label>
+                                        <label>
+                                            <input id="category_7" name="category" value="7" type="radio"/>
+                                            <span for="category_7">Yelper Shout-Outs</span>
+                                        </label>
+                                        <label>
+                                            <input id="category_8" name="category" value="8" type="radio"/>
+                                            <span for="category_8">Site Questions &amp; Updates</span>
+                                        </label>
+                                        <label>
+                                            <input id="category_9" name="category" value="9" type="radio"/>
+                                            <span for="category_9">Other</span>
+                                        </label>
+                                    </fieldset>
+                                </div>
+                                <label for="dropperText_ABS">    Location</label>
+                                <div class="input-with-dropper">
+                                    <input autocomplete="off" id="js-dropper-text" name="location" value="New York, NY" type="text"/>
+                                    <a href="#" id="js-dropper-btn" class="i-wrap ig-wrap-common i-location-picker-arrow-common-wrap location-dropper"><i class="i ig-common i-location-picker-arrow-common"></i> Select Location</a>
+                                </div>
+                                <div data-component-bound="true" class="char-counted-field clearfix">
+                                    <label for="new-conversation-message">    Message</label>
+                                    <textarea id="new-conversation-message" name="message"></textarea>
+                                    <fieldset class="pull-left">
+                                        <label>
+                                            <input name="subscribe" id="subscribe_cb" class="alignmid" value="1" checked="checked" type="checkbox"/>
+                                            <span>Send me email updates when others reply</span>
+                                        </label>
+                                    </fieldset>
+                                    <span class="info-field pull-right"></span>
+                                </div>
+                                <div class="form-footer topic-footer arrange arrange--middle arrange--stack arrange--12">
+                                    <input name="action_create_topic" value="submit" type="hidden"/>
+                                    <div class="arrange_unit arrange_unit--fill">
+                                        <button id="action_create_topic" type="submit" class="ybtn ybtn-primary disable-on-submit ytype topic-post-action" value="Submit"><span>Post</span></button>
+                                        <a href="#{request.contextPath}/pages/static/index.jsf">Cancel</a>
+                                    </div>
+                                    <div class="arrange_unit nowrap">
+                                        <a data-component-bound="true" href="#{request.contextPath}/pages/static/guidelines.jsf" class="guidelines-pop-link talk-pop">Read our Talk Guidelines</a>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </ui:define>
+
+
+        </ui:composition>
+    </f:view>
+</html>

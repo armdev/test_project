@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"       
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"    
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"> 
+
+    <f:view contracts="static" transient="false">
+        <ui:composition template="/template.xhtml">  
+            <ui:define name="toplinks">
+                <div class="container guidelines">
+                    <div class="clearfix layout-block layout-n">
+                        <div class="column column-alpha ">
+                            <div class="ysection">
+                                <div class="titled-nav js-titled-nav">
+                                    <div class="titled-nav-dropdown hidden-non-responsive-block responsive-hidden-large">
+                                        <label for="titled-nav-5bfe79b4-0997-40c0-ad3b-16ef68445f63" class="titled-nav-dropdown_trigger">
+                                            <span class="arrange arrange--middle titled-nav-dropdown_content">
+                                                <span class="arrange_unit arrange_unit--fill titled-nav-dropdown_shadow">
+                                                    <span class="titled-nav-dropdown_faded-title">
+                                                        <strong>About Yelp</strong>
+
+                                                        About us
+
+                                                    </span>
+                                                </span>
+
+                                                <span class="arrange_unit titled-nav-dropdown_icon">
+                                                    <i class="i ig-common_sprite i-24x24_ios_chevron_down-common_sprite titled-nav-dropdown_expand"></i>
+                                                    <i class="i ig-common_sprite i-24x24_ios_chevron_up-common_sprite titled-nav-dropdown_collapse"></i>
+                                                </span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="titled-nav_menus">
+
+
+                                        <div class="titled-nav_menu">
+                                            <div class="titled-nav-header">
+                                                <div class="arrange arrange--top">
+
+                                                    <div class="arrange_unit arrange_unit--fill">
+                                                        <div class="titled-nav-header_content">
+                                                            <h3>About US</h3>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="arrange_unit">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <ul class="titled-nav_items">
+
+
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link  is-active" href="#{request.contextPath}/pages/static/about.jsf">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label">About Us</span>
+
+
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </a>
+
+                                                </li>
+
+
+
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="http://www.yelp.com/management">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label">Management</span>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </a>
+
+                                                </li>
+
+
+
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="http://www.yelp.com/advertiser_faq">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label">Advertiser FAQ</span>
+
+
+
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </a>
+
+                                                </li>
+
+
+
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="http://www.yelp.com/careers">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label">Careers</span>
+
+
+
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </a>
+
+                                                </li>
+
+
+
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="http://www.yelp.com/press">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label">Press</span>
+
+
+
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </a>
+
+                                                </li>
+
+
+
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="http://www.yelp-ir.com/">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label">Investor Relations</span>
+
+
+
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </a>
+
+                                                </li>
+
+
+
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="#{request.contextPath}/pages/static/guidelines.jsf">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label">Content Guidelines</span>
+
+
+
+
+                                                            </div>
+
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="titled-nav_item">
+                                                    <a class="titled-nav_link" href="http://www.yelp-support.com/?l=en_US">
+                                                        <div class="titled-nav_link-content arrange arrange--middle">
+
+                                                            <div class="arrange_unit arrange_unit--fill">
+                                                                <span class="titled-nav_link-label">Support</span>
+
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </a>
+
+                                                </li>
+
+                                            </ul>
+                                        </div>
+
+                                        <div class="titled-nav-header responsive-hidden-large" role="presentation"></div>
+                                    </div>
+                                    <!-- end left menu -->
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- start text -->
+                      <div class="column column-beta ">
+            <div class="section-header">
+                <h1>About Us</h1>
+            </div>
+
+            <div class="intro-text">
+                <p>Our purpose: <strong>To connect people with great local businesses</strong></p>
+            </div>
+            <h2>
+                <span class="number">10</span> <span class="inner-text">Things You Should Know About Yelp</span>
+            </h2>
+            <ol class="numeric-list">
+                <li>Yelp was founded in <em>2004</em> to help people find great local businesses like dentists, hair stylists and mechanics.</li>
+                <li>Yelp had a monthly average of 86 million unique visitors who visited Yelp via their mobile device in Q4 2015*</li>
+                <li>Yelpers have written more than 95 million reviews by the end of Q4 2015</li>
+                <li>
+                        In addition to reviews, you can use Yelp to find <a href="http://www.yelp.com/events">events</a>, <a href="http://www.yelp.com/list_search">lists</a> and to <a href="http://www.yelp.com/talk">talk</a> with other Yelpers.
+                </li>
+                <li>Every business owner (or manager) can setup a <a href="https://biz.yelp.com/">free account</a> to post photos and message their customers.</li>
+                <li>Yelp makes money by <strong>selling ads</strong> to local businesses - you’ll see these clearly labeled "Yelp Ads" around the site.</li>
+                <li>Paying advertisers can never change or re-order their reviews.</li>
+                <li>Yelp uses <a href="http://officialblog.yelp.com/2013/11/yelp-recommended-reviews.html">automated software</a>
+ to recommend the most helpful and reliable reviews for the Yelp 
+community among the millions we get. The software looks at dozens of 
+different signals, including various measures of quality, reliability, 
+and activity on Yelp. The process has nothing to do with whether a 
+business advertises on Yelp or not. <a href="http://www.yelp.com/faq#recommended_reviews">Learn more here.</a></li>
+                <li>You can access Yelp via <a href="http://itunes.apple.com/us/app/yelp/id284910350?mt=8&amp;uo=8">iPhone</a>, <a href="https://play.google.com/store/apps/details?id=com.yelp.android&amp;referrer=utm_source%3Dyelp-web%26utm_medium%3Dabout%26utm_campaign%3Dyelpmobile&amp;hl=en">Android</a>, and more - see the full list of mobile apps <a href="http://www.yelp.com/mobile">here</a>.</li>
+                <li class="weekly">The <a href="http://www.yelp.com/weekly_yelp">Weekly Yelp</a> brings locals updates on the latest and greatest business openings &amp; other happenings.</li>
+            </ol>
+            <small>* Source: “Users” as measured by Google Analytics</small>
+</div> 
+                  
+
+                        <!-- end text -->
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </f:view>
+</html>
+

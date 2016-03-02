@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"       
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"    
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"> 
+
+    <f:view contracts="auth" transient="false">
+        <ui:composition template="/template.xhtml">  
+            <ui:define name="auth">
+                <div class="clearfix layout-block layout-h">
+                    <div class="column column-alpha ">
+                        <h2>Forgot Password</h2>
+
+                        <p>
+                            Please enter your email address and we will send you an email about how to reset your password.
+                        </p>
+                        <label for="email">Email Address</label>
+                        <input class="" id="email" maxlength="64" name="email" type="text" value=""/>
+                        <input class="hidden"/>
+                        <p>
+                            <button type="submit" class="ybtn ybtn-primary" value="Submit"><span>Reset Password</span></button>
+                            <a href="#{request.contextPath}/pages/auth/login.jsf">Return to Login</a>
+                        </p>
+
+                    </div>
+                </div>
+
+            </ui:define>
+
+
+        </ui:composition>
+    </f:view>
+</html>
+

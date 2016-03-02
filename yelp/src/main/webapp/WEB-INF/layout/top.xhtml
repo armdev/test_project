@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <!-- top start -->
+    <div>
+        <ul class="offscreen">
+            <li>
+                <a href="#header_find_form" rel="nofollow">
+                    Skip to Search Form
+                </a><a href="http://www.yelp.com/talk" style="display: none;" rel="file" id="xavdruxrddytuxsudc">wurtbtfuvqux</a>
+            </li>
+            <li>
+                <a href="http://www.yelp.com/#header-nav" rel="nofollow">
+                    Skip to Navigation
+                </a>
+            </li>
+            <li>
+                <a href="#page-content" rel="nofollow">
+                    Skip to Page Content
+                </a>
+            </li>
+        </ul>
+        <div class="main-header main-content-wrap js-main-header">
+            <div class="content-container clearfix">
+                <div class="arrange arrange--18 main-header_arrange">
+
+                    <div class="arrange_unit main-header--full_arrange_unit">
+                        <div class="main-header_logo" id="logo">
+                            <a href="#{request.contextPath}/index.jsf">Yelp</a>
+                        </div>
+                    </div>
+                    <div class="arrange_unit arrange_unit--fill align-middle main-header--full_arrange_unit">
+                        <div class="main-header_search responsive-hidden-medium-only">
+                            <form method="get" action="http://www.yelp.com/search" id="header_find_form" class="main-search yform" role="search">
+                                <div class="arrange arrange--middle arrange--6 arrange--stack">
+                                    <div class="arrange_unit  main-search_search-field-arrange"> 
+                                        <div class="main-search_suggestions-field search-field-container find-decorator">
+                                            <label class="main-search_pseudo-input pseudo-input">
+                                                <span class="pseudo-input_text">Find</span>
+                                                <span class="pseudo-input_field-holder">
+                                                    <input autocomplete="off" id="find_desc" maxlength="64" name="find_desc" placeholder="tacos, cheap dinner, Max’s" value="" class="main-search_field pseudo-input_field" aria-autocomplete="list" tabindex="1"/>
+                                                </span>
+                                            </label>
+                                            <div class="main-search_suggestions suggestions-list-container search-suggestions-list-container hidden">
+                                                <ul class="suggestions-list" role="listbox" aria-label="Search results"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="arrange_unit main-search_near-field-arrange  main-search_search-field-arrange arrange_unit--stack-12">  
+                                        <div class="main-search_suggestions-field search-field-container near-decorator">
+                                            <label class="main-search_pseudo-input pseudo-input">
+                                                <span class="pseudo-input_text">Near</span>
+                                                <span class="main-search_field-holder pseudo-input_field-holder">
+                                                    <input autocomplete="off" id="dropperText_Mast" maxlength="80" name="find_loc" placeholder="address, neighborhood, city, state or zip" value="New York, NY" class="main-search_field pseudo-input_field" aria-autocomplete="list" tabindex="2"/>
+                                                    <input type="hidden" name="ns" value="1"/>
+                                                </span>
+
+                                            </label>
+                                            <div class="main-search_suggestions suggestions-list-container location-suggestions-list-container hidden">
+                                                <ul class="suggestions-list" role="listbox" aria-label="Search results"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--...-->
+                                    <div class="arrange_unit main-search_actions arrange_unit--stack-12">
+                                        <div class="arrange  arrange--wrap arrange--6">
+                                            <div class="arrange_unit hidden-non-responsive-inline-block responsive-visible-small-inline-block main-search_action">
+                                                <a  class="ybtn ybtn-primary main-header_button js-search-close main-search_close">Cancel</a>
+                                            </div>
+                                            <div class="arrange_unit main-search_action arrange_unit--stack-12">
+
+                                                <button class="ybtn ybtn-primary main-search_submit main-header_button" id="header-search-submit" tabindex="3" title="Search" type="submit" value="submit">
+                                                    <span class="main-search_action-icon-wrap js-search-icon-wrap">
+                                                        <i  class="i ig-common_sprite i-search-common_sprite"></i>
+                                                        <span class="main-search_action-text">Search</span>
+                                                    </span>
+                                                    <div class="spinner hidden">
+                                                        <div class="spinner-container container1">
+                                                            <div class="circle1"></div>
+                                                            <div class="circle2"></div>
+                                                            <div class="circle3"></div>
+                                                            <div class="circle4"></div>
+                                                        </div>
+                                                        <div class="spinner-container container2">
+                                                            <div class="circle1"></div>
+                                                            <div class="circle2"></div>
+                                                            <div class="circle3"></div>
+                                                            <div class="circle4"></div>
+                                                        </div>
+                                                        <div class="spinner-container container3">
+                                                            <div class="circle1"></div>
+                                                            <div class="circle2"></div>
+                                                            <div class="circle3"></div>
+                                                            <div class="circle4"></div>
+                                                        </div>
+                                                    </div>
+
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--...-->
+                                </div>
+
+
+                            </form>
+                        </div>
+
+                        <div class="main-header_nav nowrap responsive-hidden-medium">
+                            <ul class="header-nav" id="header-nav">
+                                <li id="home-link" class="header-nav_item">
+                                    <a class="header-nav_link" href="#{request.contextPath}/index.jsf">
+                                        Home
+                                    </a>
+                                </li>
+                                <li id="about-me" class="header-nav_item">
+                                    <a class="header-nav_link" href="http://www.yelp.com/user_details">
+                                        About Me
+                                    </a>
+                                </li>
+                                <li id="write-review" class="header-nav_item">
+                                    <a class="header-nav_link" href="http://www.yelp.com/writeareview">
+                                        Write a Review
+                                    </a>
+                                </li>
+                                <li id="find-friends" class="header-nav_item">
+                                    <a class="header-nav_link" href="http://www.yelp.com/find_friends">
+                                        Find Friends
+                                    </a>
+                                </li>
+                                <li id="messaging" class="header-nav_item">
+                                    <a class="header-nav_link" href="http://www.yelp.com/mail">
+                                        Messages
+                                    </a>
+                                </li>
+                                <li id="talk" class="header-nav_item">
+                                    <!-- active -->
+                                    <a class="header-nav_link tabon" href="http://www.yelp.com/talk">
+                                        Talk
+                                    </a>
+                                </li>
+                                <li id="events" class="header-nav_item">
+                                    <a class="header-nav_link" href="#{request.contextPath}/pages/static/about.jsf">
+                                        About us
+                                    </a>
+                                </li>
+                                <li id="events" class="header-nav_item">
+                                    <a class="header-nav_link" href="#{request.contextPath}/pages/user/profile.jsf">
+                                        Profile
+                                    </a>
+                                </li>
+                            </ul>
+
+
+                        </div>
+                        <!--...-->
+                    </div>
+                    <!--...-->
+
+                    <div class="arrange_unit main-header--full_arrange_unit">
+                        <div class="arrange arrange--6">
+                            <div class="arrange_unit nowrap">
+                                <div class="main-header_account webview-hidden">
+                                    <ul class="header-nav">
+                                        <li class="header-nav_item responsive-hidden-small">
+                                            <a href="#{request.contextPath}/pages/auth/register.jsf" id="header-sign-up" class="ybtn ybtn-primary main-header_button header-nav_button--sign-up">Sign Up</a>
+                                        </li>
+                                        <li class="header-nav_item text-centered">
+                                            <a class="header-nav_link header-nav_link--log-in" href="#{request.contextPath}/pages/auth/login.jsf">
+                                                Log In
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <div id="topbar-account-item" class="user-account clearfix drop-menu-origin hidden-non-responsive-block responsive-visible-small-block">
+
+                                        <a href="javascript:;" id="topbar-account-link" class="drop-menu-link inline-block clearfix user-account_button">
+                                            <i  class="i ig-common_sprite i-dropdown-arrow-light-common_sprite user-account_button-arrow responsive-visible-large-inline-block"></i>
+                                            <i  class="i ig-common_sprite i-28x28_more_nav-common_sprite drop-menu-link_open"></i>
+                                            <i  class="i ig-common_sprite i-28x28_close_nav-common_sprite drop-menu-link_close"></i>
+                                        </a>
+                                        <div id="topbar-account-wrap" class="drop-menu drop-menu-has-arrow">
+                                            <div class="drop-menu-arrow responsive-hidden-small"></div>
+
+                                            <div class="arrange arrange--6 arrange--equal drop-menu_auth-buttons">
+                                                <div class="arrange_unit">
+                                                    <a href="#{request.contextPath}/pages/auth/login.jsf" class="ybtn ybtn-full">Login</a>
+                                                </div>
+                                                <div class="arrange_unit">
+                                                    <a href="#{request.contextPath}/pages/auth/register.jsf" class="ybtn ybtn-primary ybtn-full">Sign Up</a>
+                                                </div>
+                                            </div>
+
+                                            <ul class="drop-menu-group--nav drop-menu-group">
+                                                <li class="drop-down-menu-link">
+                                                    <div class="arrange arrange--middle arrange--6">
+                                                        <strong class="arrange_unit arrange_unit--fill">
+                                                            <a href="http://www.yelp.com/user_details">
+                                                                <span  class="i-wrap ig-wrap-common_sprite i-24x24_aboutme-common_sprite-wrap"><i  class="i ig-common_sprite i-24x24_aboutme-common_sprite"></i> About Me</span>
+                                                            </a>
+                                                        </strong>
+                                                        <span class="arrange_unit">
+                                                            <i  class="i ig-common_sprite i-24x24_ios_chevron-common_sprite hidden-non-responsive-block responsive-visible-medium-block"></i>
+                                                        </span>
+                                                    </div>
+                                                </li>
+
+
+
+                                                <li class="drop-down-menu-link hidden-non-responsive-block responsive-visible-medium-block">
+                                                    <div class="arrange arrange--middle arrange--6">
+                                                        <strong class="arrange_unit arrange_unit--fill">
+                                                            <a href="http://www.yelp.com/talk">
+                                                                <span  class="i-wrap ig-wrap-common_sprite i-24x24_talk-common_sprite-wrap"><i  class="i ig-common_sprite i-24x24_talk-common_sprite"></i> Talk</span>
+                                                            </a>
+                                                        </strong>
+                                                        <span class="arrange_unit">
+                                                            <i  class="i ig-common_sprite i-24x24_ios_chevron-common_sprite hidden-non-responsive-block responsive-visible-medium-block"></i>
+                                                        </span>
+                                                    </div>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--...-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="print-masthead">
+        <img src="#{request.contextPath}/resources/img/header_print.gif" class="print-bkg-img" alt="Yelp"/>
+    </div>
+    <!-- top end -->
+
+
+</html>
+

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"     
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+    <div class="ywidget">
+        <div class="talk-search-bar">
+            <form class="yform yform--continuous yform--small arrange" name="talk_form" action="http://www.yelp.com/message_board_search" method="GET">
+                <label for="talk_form" class="offscreen">Search Talk</label>
+                <div class="arrange_unit arrange_unit--fill">
+                    <input type="text" placeholder="Search Talk" name="talk_query" value="" autocomplete="on"/>
+                </div>
+                <div class="arrange_unit">
+                    <button type="submit" value="submit" class="ybtn ybtn-primary ybtn-small"><span><i  class="i ig-common_sprite i-search-common_sprite"></i></span></button>
+                </div>
+
+                <input name="location" type="hidden" value="New York, NY"/>
+            </form>
+
+            <fieldset class="hr-line"></fieldset>
+            <a href="#{request.contextPath}/pages/talk/newtalk.jsf" class="ybtn ybtn-primary ybtn-small ybtn-full">New Conversation</a>
+        </div>
+    </div>
+
+</html>
+

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">    
+    <h:head>
+        <ui:include src="/WEB-INF/layout/header_main.xhtml"/>     
+    </h:head>
+    <body id="yelp_main_body" class="country-us logged-out jquery">
+        <div id="fb-root"></div>
+        <div id="wrap" class="lang-en">
+            <ui:insert name="top"></ui:insert> 
+            <ui:include src="/WEB-INF/layout/topauth.xhtml"/>   
+            <span id="page-content" class="offscreen">&nbsp;</span>
+            <div class="main-content-wrap main-content-wrap--full">
+                <div id="super-container" class="content-container">
+                    <div class="container ytype">
+                        <div id="alert-container">
+                        </div>
+                        <ui:insert name="auth"></ui:insert> 
+                       
+                        <div class="clearfix layout-block layout-n row--responsive">
+                            <div class="column column-alpha column--responsive">
+                              
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ui:insert name="footer"></ui:insert> 
+            <ui:include src="/WEB-INF/layout/footer.xhtml"/> 
+        </div>
+    </body>
+</html>
+

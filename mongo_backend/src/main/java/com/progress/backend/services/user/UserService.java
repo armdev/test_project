@@ -1,7 +1,7 @@
 package com.progress.backend.services.user;
 
 import com.mongodb.*;
-import com.progress.backend.connections.DbInitBean;
+import com.progress.backend.connections.MongoCoreService;
 
 import com.progress.backend.entities.UserEntity;
 import com.progress.backend.entities.UserFacebookEntity;
@@ -29,7 +29,7 @@ public class UserService implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Autowired
-    private DbInitBean initDatabase;
+    private MongoCoreService mongoCoreService;
     
     @Autowired
     private UserFacebookService userFacebookService;
@@ -37,20 +37,20 @@ public class UserService implements Serializable {
     public UserEntity save(UserEntity userEntity, UserFacebookEntity userFacebookEntity) {
         try {
             UUID profileId = UUID.randomUUID();
-            userEntity.setId(CommonUtils.longValue(DbInitBean.getNextId(initDatabase.getDatabase(), "userSeqGen")));
+            userEntity.setId(CommonUtils.longValue(MongoCoreService.getNextId(mongoCoreService.getDatabase(), "userSeqGen")));
             userEntity.setRegisteredDate(new Date(System.currentTimeMillis()));
             //userEntity.setPasswd(CommonUtils.hashPassword(userEntity.getPasswd().trim()));
             userEntity.setStatus(StatusTypeConstants.ACTIVE);
             userEntity.setProfileId(profileId.toString());
             DBObject dbObject = Converter.toDBObject(userEntity);
-            WriteResult result = initDatabase.getUserCollection().save(dbObject, WriteConcern.SAFE);
+            WriteResult result = mongoCoreService.getUserCollection().save(dbObject, WriteConcern.SAFE);
            userFacebookService.save(userFacebookEntity, userEntity.getId());
             System.out.println("Saving Facebook data from user Service");
-//            userFacebookEntity.setId(CommonUtils.longValue(DbInitBean.getNextId(initDatabase.getDatabase(), "fbSeqGen")));
+//            userFacebookEntity.setId(CommonUtils.longValue(MongoCoreService.getNextId(mongoCoreService.getDatabase(), "fbSeqGen")));
 //            userFacebookEntity.setUserId(userEntity.getId());
 //            userFacebookEntity.setRegisteredDate(new Date(System.currentTimeMillis()));
 //            DBObject dbObjectnew = Converter.toDBObject(userFacebookEntity);
-//            WriteResult resultNew = initDatabase.getFacebookCollection().save(dbObjectnew, WriteConcern.SAFE);
+//            WriteResult resultNew = mongoCoreService.getFacebookCollection().save(dbObjectnew, WriteConcern.SAFE);
           
         } catch (Exception e) {
             e.printStackTrace();
@@ -77,7 +77,7 @@ public class UserService implements Serializable {
                     .append("skype", entity.getSkype())
                     .append("imageId", entity.getImageId())
                     .append("about", entity.getAbout()));
-            initDatabase.getUserCollection().update(new BasicDBObject().append("id", userId), document);
+            mongoCoreService.getUserCollection().update(new BasicDBObject().append("id", userId), document);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -90,7 +90,7 @@ public class UserService implements Serializable {
         String order = "desc";
         DBObject sortCriteria = new BasicDBObject(sort, "desc".equals(order) ? -1 : 1);
         BasicDBObject query = new BasicDBObject();
-        DBCursor cursor = initDatabase.getUserCollection().find(query).sort(sortCriteria);
+        DBCursor cursor = mongoCoreService.getUserCollection().find(query).sort(sortCriteria);
         try {
             while (cursor.hasNext()) {
                 DBObject document = cursor.next();
@@ -108,7 +108,7 @@ public class UserService implements Serializable {
         UserEntity entity = null;
         BasicDBObject query = new BasicDBObject();
         query.put("id", id);
-        DBCursor cursor = initDatabase.getUserCollection().find(query);
+        DBCursor cursor = mongoCoreService.getUserCollection().find(query);
         try {
             if (cursor.count() > 0) {
                 DBObject document = cursor.next();
@@ -130,7 +130,7 @@ public class UserService implements Serializable {
         query.put("email", email.trim());
         query.put("status", StatusTypeConstants.ACTIVE);
         query.put("passwd", CommonUtils.hashPassword(passwd.trim()));
-        DBCursor cursor = initDatabase.getUserCollection().find(query);
+        DBCursor cursor = mongoCoreService.getUserCollection().find(query);
         try {
             if (cursor.count() > 0) {
                 DBObject document = cursor.next();
@@ -150,7 +150,7 @@ public class UserService implements Serializable {
         Integer listCount = 0;
         try {
             BasicDBObject query = new BasicDBObject();
-            DBCursor cursor = initDatabase.getUserCollection().find(query);
+            DBCursor cursor = mongoCoreService.getUserCollection().find(query);
             listCount = cursor.count();
         } catch (Exception e) {
             e.printStackTrace();
@@ -162,7 +162,7 @@ public class UserService implements Serializable {
         try {
             BasicDBObject document = new BasicDBObject();
             document.append("$set", new BasicDBObject().append("imageId", imageId));
-            initDatabase.getUserCollection().update(new BasicDBObject().append("id", userId), document);
+            mongoCoreService.getUserCollection().update(new BasicDBObject().append("id", userId), document);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -173,14 +173,14 @@ public class UserService implements Serializable {
         BasicDBObject document = new BasicDBObject();
         document.append("$set", new BasicDBObject()
                 .append("passwd", CommonUtils.hashPassword(password)));
-        initDatabase.getUserCollection().update(new BasicDBObject().append("id", id), document);
+        mongoCoreService.getUserCollection().update(new BasicDBObject().append("id", id), document);
     }
 
     public UserEntity getUserByEmail(String email) {
         UserEntity entity = null;
         BasicDBObject query = new BasicDBObject();
         query.put("email", email);
-        DBCursor cursor = initDatabase.getUserCollection().find(query);
+        DBCursor cursor = mongoCoreService.getUserCollection().find(query);
         try {
             if (cursor.count() > 0) {
                 DBObject document = cursor.next();
@@ -197,7 +197,7 @@ public class UserService implements Serializable {
         UserEntity entity = null;
         BasicDBObject query = new BasicDBObject();
         query.put("profileId", profileId);
-        DBCursor cursor = initDatabase.getUserCollection().find(query);
+        DBCursor cursor = mongoCoreService.getUserCollection().find(query);
         try {
             if (cursor.count() > 0) {
                 DBObject document = cursor.next();
@@ -214,7 +214,7 @@ public class UserService implements Serializable {
         boolean retValue = false;
         BasicDBObject query = new BasicDBObject();
         query.put("email", email);
-        DBCursor cursor = initDatabase.getUserCollection().find(query);
+        DBCursor cursor = mongoCoreService.getUserCollection().find(query);
         try {
             if (cursor == null) {
                 return false;

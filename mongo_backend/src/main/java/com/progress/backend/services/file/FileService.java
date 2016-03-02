@@ -7,7 +7,7 @@ import com.mongodb.DBObject;
 import com.mongodb.gridfs.GridFS;
 import com.mongodb.gridfs.GridFSDBFile;
 import com.mongodb.gridfs.GridFSInputFile;
-import com.progress.backend.connections.DbInitBean;
+import com.progress.backend.connections.MongoCoreService;
 import com.progress.backend.entities.FileEntity;
 import com.progress.backend.utils.CommonUtils;
 
@@ -39,13 +39,13 @@ import javax.imageio.ImageIO;
  */
 @Service("fileService")
 @Component
-public class FileService extends DbInitBean implements Serializable {
+public class FileService  implements Serializable {
 
     private static final Logger log = Logger.getLogger(FileService.class);
     private static final long serialVersionUID = 1L;
     private final SecureRandom random = new SecureRandom();
     @Autowired
-    private DbInitBean initDatabase;
+    private MongoCoreService mongoCoreService;
     private GridFS gfsPhoto;
 
     public FileService() {
@@ -59,7 +59,7 @@ public class FileService extends DbInitBean implements Serializable {
     public String addFile(FileEntity file) {
         String fileName = file.getTitle() + "-" + this.getFileName();
         try {
-            gfsPhoto = new GridFS(initDatabase.getDatabase(), "filestorage");
+            gfsPhoto = new GridFS(mongoCoreService.getDatabase(), "filestorage");
 
             InputStream in = new ByteArrayInputStream(file.getContent());
             BufferedImage originalImage = ImageIO.read(in);
@@ -78,7 +78,7 @@ public class FileService extends DbInitBean implements Serializable {
             baos.close();
 
             GridFSInputFile gfsFile = gfsPhoto.createFile(imageInByte);
-            Long fileId = (CommonUtils.longValue(getNextId(initDatabase.getDatabase(), "filesGenSeq")));
+            Long fileId = (CommonUtils.longValue(mongoCoreService.getNextId(mongoCoreService.getDatabase(), "filesGenSeq")));
 
             gfsFile.setId(fileId);
             gfsFile.setContentType(file.getMimetype());
@@ -93,7 +93,7 @@ public class FileService extends DbInitBean implements Serializable {
 
     public GridFSDBFile getFile(String fileName) {
         try {
-            gfsPhoto = new GridFS(getDatabase(), "younetdb");
+            gfsPhoto = new GridFS(mongoCoreService.getDatabase(), "younetdb");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -107,13 +107,13 @@ public class FileService extends DbInitBean implements Serializable {
         }
         BasicDBObject document = new BasicDBObject();
         document.put("filename", imageName);
-        initDatabase.getFileCollection().remove(document);
+        mongoCoreService.getFileCollection().remove(document);
     }
 
     public void removeFile(Long fileId) {
         BasicDBObject document = new BasicDBObject();
         document.put("id", fileId);
-        initDatabase.getFileCollection().remove(document);
+        mongoCoreService.getFileCollection().remove(document);
     }
 
 }

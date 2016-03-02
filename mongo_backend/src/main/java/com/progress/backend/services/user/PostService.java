@@ -1,7 +1,7 @@
 package com.progress.backend.services.user;
 
 import com.mongodb.*;
-import com.progress.backend.connections.DbInitBean;
+import com.progress.backend.connections.MongoCoreService;
 import com.progress.backend.entities.PostBody;
 
 import com.progress.backend.entities.UserEntity;
@@ -29,16 +29,16 @@ public class PostService implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Autowired
-    private DbInitBean initDatabase;
+    private MongoCoreService mongoCoreService;
 
     public PostBody save(PostBody entity) {
         try {
 
-            entity.setId(CommonUtils.longValue(DbInitBean.getNextId(initDatabase.getDatabase(), "postSeqGen")));
+            entity.setId(CommonUtils.longValue(MongoCoreService.getNextId(mongoCoreService.getDatabase(), "postSeqGen")));
             entity.setPostDate(new Date(System.currentTimeMillis()));
 
             DBObject dbObject = Converter.toDBObject(entity);
-            WriteResult result = initDatabase.getPostCollection().save(dbObject, WriteConcern.SAFE);
+            WriteResult result = mongoCoreService.getPostCollection().save(dbObject, WriteConcern.SAFE);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -52,7 +52,7 @@ public class PostService implements Serializable {
         String order = "desc";
         DBObject sortCriteria = new BasicDBObject(sort, "desc".equals(order) ? -1 : 1);
         BasicDBObject query = new BasicDBObject();
-        DBCursor cursor = initDatabase.getPostCollection().find(query).sort(sortCriteria);
+        DBCursor cursor = mongoCoreService.getPostCollection().find(query).sort(sortCriteria);
         try {
             while (cursor.hasNext()) {
                 DBObject document = cursor.next();
@@ -73,7 +73,7 @@ public class PostService implements Serializable {
         DBObject sortCriteria = new BasicDBObject(sort, "desc".equals(order) ? -1 : 1);
         BasicDBObject query = new BasicDBObject();
         query.put("userId", userId);
-        DBCursor cursor = initDatabase.getPostCollection().find(query).sort(sortCriteria);
+        DBCursor cursor = mongoCoreService.getPostCollection().find(query).sort(sortCriteria);
         try {
             while (cursor.hasNext()) {
                 DBObject document = cursor.next();
@@ -92,7 +92,7 @@ public class PostService implements Serializable {
             BasicDBObject document = new BasicDBObject();
             document.put("id", id);
             document.put("userId", userId);
-            initDatabase.getPostCollection().remove(document);
+            mongoCoreService.getPostCollection().remove(document);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -103,7 +103,7 @@ public class PostService implements Serializable {
         Integer listCount = 0;
         try {
             BasicDBObject query = new BasicDBObject();
-            DBCursor cursor = initDatabase.getPostCollection().find(query);
+            DBCursor cursor = mongoCoreService.getPostCollection().find(query);
             listCount = cursor.count();
         } catch (Exception e) {
             e.printStackTrace();

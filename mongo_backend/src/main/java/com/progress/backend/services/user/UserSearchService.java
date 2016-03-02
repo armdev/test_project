@@ -1,7 +1,7 @@
 package com.progress.backend.services.user;
 
 import com.mongodb.*;
-import com.progress.backend.connections.DbInitBean;
+import com.progress.backend.connections.MongoCoreService;
 import com.progress.backend.entities.UserEntity;
 import com.progress.backend.utils.StatusTypeConstants;
 
@@ -23,7 +23,7 @@ import org.springframework.stereotype.Service;
 public class UserSearchService {
 
     @Autowired
-    private DbInitBean initDatabase;
+    private MongoCoreService mongoCoreService;
 
     public List<UserEntity> doAdvancedSearch(String searchString) {
         CommandResult result = executeFullTextSearch(searchString);
@@ -37,7 +37,7 @@ public class UserSearchService {
         textSearch.put("search", searchString);
         textSearch.put("limit", 100); // override default of 100
         //textSearch.put("project", new BasicDBObject("_id", 1));
-        return initDatabase.getDatabase().command(textSearch);
+        return mongoCoreService.getDatabase().command(textSearch);
     }
 
     private List<UserEntity> extractSearchResultIds(CommandResult result) {

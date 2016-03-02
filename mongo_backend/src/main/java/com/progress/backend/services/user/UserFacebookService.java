@@ -1,7 +1,7 @@
 package com.progress.backend.services.user;
 
 import com.mongodb.*;
-import com.progress.backend.connections.DbInitBean;
+import com.progress.backend.connections.MongoCoreService;
 
 import com.progress.backend.entities.UserEntity;
 import com.progress.backend.entities.UserFacebookEntity;
@@ -28,16 +28,16 @@ public class UserFacebookService implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Autowired
-    private DbInitBean initDatabase;
+    private MongoCoreService mongoCoreService;
 
     public UserFacebookEntity save(UserFacebookEntity entity, Long userId) {
         try {
             System.out.println("Save or update facebook data");
-            entity.setId(CommonUtils.longValue(DbInitBean.getNextId(initDatabase.getDatabase(), "fbSeqGen")));
+            entity.setId(CommonUtils.longValue(MongoCoreService.getNextId(mongoCoreService.getDatabase(), "fbSeqGen")));
             entity.setUserId(userId);
             entity.setRegisteredDate(new Date(System.currentTimeMillis()));
             DBObject dbObject = Converter.toDBObject(entity);
-            WriteResult result = initDatabase.getFacebookCollection().save(dbObject, WriteConcern.SAFE);
+            WriteResult result = mongoCoreService.getFacebookCollection().save(dbObject, WriteConcern.SAFE);
            
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,7 +51,7 @@ public class UserFacebookService implements Serializable {
         String order = "desc";
         DBObject sortCriteria = new BasicDBObject(sort, "desc".equals(order) ? -1 : 1);
         BasicDBObject query = new BasicDBObject();
-        DBCursor cursor = initDatabase.getFacebookCollection().find(query).sort(sortCriteria);
+        DBCursor cursor = mongoCoreService.getFacebookCollection().find(query).sort(sortCriteria);
         try {
             while (cursor.hasNext()) {
                 DBObject document = cursor.next();
@@ -69,7 +69,7 @@ public class UserFacebookService implements Serializable {
         UserFacebookEntity entity = null;
         BasicDBObject query = new BasicDBObject();
         query.put("userId", userId);
-        DBCursor cursor = initDatabase.getFacebookCollection().find(query);
+        DBCursor cursor = mongoCoreService.getFacebookCollection().find(query);
         try {
             if (cursor.count() > 0) {
                 DBObject document = cursor.next();
@@ -88,7 +88,7 @@ public class UserFacebookService implements Serializable {
         Integer listCount = 0;
         try {
             BasicDBObject query = new BasicDBObject();
-            DBCursor cursor = initDatabase.getFacebookCollection().find(query);
+            DBCursor cursor = mongoCoreService.getFacebookCollection().find(query);
             listCount = cursor.count();
         } catch (Exception e) {
             e.printStackTrace();
@@ -101,7 +101,7 @@ public class UserFacebookService implements Serializable {
         UserFacebookEntity entity = null;
         BasicDBObject query = new BasicDBObject();
         query.put("email", email);
-        DBCursor cursor = initDatabase.getFacebookCollection().find(query);
+        DBCursor cursor = mongoCoreService.getFacebookCollection().find(query);
         try {
             if (cursor.count() > 0) {
                 DBObject document = cursor.next();

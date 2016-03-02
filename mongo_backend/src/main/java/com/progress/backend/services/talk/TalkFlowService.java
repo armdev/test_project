@@ -1,7 +1,7 @@
 package com.progress.backend.services.talk;
 
 import com.mongodb.*;
-import com.progress.backend.connections.DbInitBean;
+import com.progress.backend.connections.MongoCoreService;
 import com.progress.backend.entities.TalkFlowEntity;
 
 import com.progress.backend.entities.UserEntity;
@@ -27,13 +27,13 @@ import org.springframework.stereotype.Service;
 public class TalkFlowService implements Serializable {
 
     @Autowired
-    private DbInitBean mongoCoreService;
+    private MongoCoreService mongoCoreService;
 
     public void save(TalkFlowEntity entity) {
         try {
 
             BasicDBObject document = new BasicDBObject();
-            entity.setId(CommonUtils.longValue(DbInitBean.getNextId(mongoCoreService.getDatabase(), "talkflowSeqGen")));
+            entity.setId(CommonUtils.longValue(MongoCoreService.getNextId(mongoCoreService.getDatabase(), "talkflowSeqGen")));
             entity.setDateCreated(new Date(System.currentTimeMillis()));
             DBObject dbObject = Converter.toDBObject(entity);
             mongoCoreService.getTalkFlowCollection().save(dbObject, WriteConcern.SAFE);

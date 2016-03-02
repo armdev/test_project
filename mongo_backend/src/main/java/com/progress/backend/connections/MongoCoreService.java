@@ -14,8 +14,8 @@ import org.springframework.stereotype.Service;
  *
  * @author armen.arzumanyan@gmail.com
  */
-@Service("initDatabase")
-public class DbInitBean implements Serializable {
+@Service("mongoCoreService")
+public class MongoCoreService implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Autowired
@@ -29,7 +29,7 @@ public class DbInitBean implements Serializable {
     private transient DBCollection talkCollection;
     private transient DBCollection talkFlowCollection;
 
-    public DbInitBean() {
+    public MongoCoreService() {
         Mongo mongo;
         try {
             mongoFactory = new MongoConnectionFactory();

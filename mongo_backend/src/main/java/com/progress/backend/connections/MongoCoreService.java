@@ -21,13 +21,13 @@ public class MongoCoreService implements Serializable {
     @Autowired
     private MongoConnectionFactory mongoFactory;
     private transient DB database = null;
-    private transient DBCollection userCollection;
-    private transient DBCollection facebookCollection;
-    private transient DBCollection fileCollection;
-    private transient DBCollection postCollection;
-    private transient DBCollection talkCategoryCollection;
-    private transient DBCollection talkCollection;
-    private transient DBCollection talkFlowCollection;
+    private transient DBCollection userCollection = null;
+    private transient DBCollection facebookCollection = null;
+    private transient DBCollection fileCollection = null;
+    private transient DBCollection postCollection = null;
+    private transient DBCollection talkCategoryCollection = null;
+    private transient DBCollection talkCollection = null;
+    private transient DBCollection talkFlowCollection = null;
 
     public MongoCoreService() {
         Mongo mongo;

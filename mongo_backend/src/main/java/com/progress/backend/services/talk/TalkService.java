@@ -37,6 +37,8 @@ public class TalkService implements Serializable {
             entity.setId(CommonUtils.longValue(MongoCoreService.getNextId(mongoCoreService.getDatabase(), "talkSeqGen")));
             entity.setDateCreated(new Date(System.currentTimeMillis()));
             DBObject dbObject = Converter.toDBObject(entity);
+            System.out.println("Title::::: " + entity.getTitle());
+            System.out.println("Message::::: " + entity.getMessage());
             mongoCoreService.getTalkCollection().save(dbObject, WriteConcern.SAFE);
         } catch (Exception e) {
             e.printStackTrace();

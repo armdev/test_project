@@ -11,18 +11,18 @@ import org.springframework.stereotype.Service;
 @Service("mongoConnectionFactory")
 public class MongoConnectionFactory implements Serializable {
 
-    private transient MongoOptions mongoOptions;
-    private transient MongoOptionsFactory factory;
+    private static final long serialVersionUID = 1L;
+    private transient MongoOptions mongoOptions = null;
+    private transient MongoOptionsFactory factory = null;
 
     public MongoConnectionFactory() {
+        
         mongoOptions = new MongoOptions();
         factory = new MongoOptionsFactory();
         factory.setAutoConnectRetry(true);
         factory.setConnectionsPerHost(10000);
         factory.setConnectionTimeout(11);
-        //factory.setMaxWaitTime(10);
-       // factory.setSocketTimeOut(23);
-       // factory.setThreadsAllowedToBlockForConnectionMultiplier(31);
+     
         mongoOptions = factory.createMongoOptions();
 
     }

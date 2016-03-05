@@ -15,7 +15,7 @@ import javax.faces.bean.SessionScoped;
 public class SessionController implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private UserEntity user = null;
+    private UserEntity user = new UserEntity();
 
     public SessionController() {
 

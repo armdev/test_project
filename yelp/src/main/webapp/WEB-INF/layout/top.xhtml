@@ -169,16 +169,16 @@
                                 <div class="main-header_account webview-hidden">
                                     <ul class="header-nav">
                                         <li class="header-nav_item responsive-hidden-small">
-                                            <h:form rendered="#{sessionController.user == null}">
+                                            <h:form rendered="#{sessionController.user.id == null}">
                                                 <a href="#{request.contextPath}/pages/auth/register.jsf" id="header-sign-up" class="ybtn ybtn-primary main-header_button header-nav_button--sign-up">Sign Up</a>
                                             </h:form>
                                         </li>
                                         <li class="header-nav_item text-centered">
-                                            <h:form rendered="#{sessionController.user != null}">
+                                            <h:form rendered="#{sessionController.user.id != null}">
                                                 <h:commandLink value="#{i18n.logout}" class="header-nav_link header-nav_link--log-in"  action="#{userLogout.doLogout}"
-                                                               immediate="true" rendered="#{sessionController.user != null}"/>
+                                                               immediate="true" rendered="#{sessionController.user.id != null}"/>
                                             </h:form>
-                                            <h:form rendered="#{sessionController.user == null}">
+                                            <h:form rendered="#{sessionController.user.id == null}">
                                                 <a class="header-nav_link header-nav_link--log-in" href="#{request.contextPath}/pages/auth/login.jsf">
                                                     Log In
                                                 </a>

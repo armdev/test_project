@@ -8,7 +8,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html">     
 
-    <f:view contracts="static" transient="true">
+    <f:view contracts="static" transient="false">
         <ui:composition template="/template.xhtml">    
             <ui:define name="toplinks">
                 <div class="container talk">
@@ -18,13 +18,12 @@
                                 <h2 class="arrange_unit arrange_unit--fill">Start a New Conversation</h2>
                                 <a data-component-bound="true" href="#{request.contextPath}/pages/static/guidelines.jsf" class="arrange_unit nowrap guidelines-pop-link talk-pop">Read our Talk Guidelines</a>
                             </div>
-                            <form data-component-bound="true" action="#{request.contextPath}/index.jsf" class="yform clearfix js-captcha-form" method="POST" name="new_talk_topic">
-                                <input name="csrftok" class="csrftok" value="41b1e54bed61a2c95962e3f4917b96e6135e949ebbfb49c06273a76ba6988ba3" type="hidden"/>
-                                <input name="context" value="" type="hidden"/>
-                                <input name="previous_url" value="/talk/new_topic" type="hidden"/>
+                            <h:form  class="yform clearfix js-captcha-form" prependId="false">
+                                
+                               
 
                                 <label for="new-conversation-topic">    Topic Name</label>
-                                <input id="new-conversation-topic" name="topic" maxlength="128" type="text"/>
+                                <h:inputText id="new-conversation-topic"  value="#{userTalk.talkEntity.title}" maxlength="128" />
 
                                 <label>    Category</label>
                                 <span class="help-inline">Help others find your Talk Thread faster - categorize it!</span>
@@ -92,12 +91,12 @@
                                 </div>
                                 <label for="dropperText_ABS">    Location</label>
                                 <div class="input-with-dropper">
-                                    <input autocomplete="off" id="js-dropper-text" name="location" value="New York, NY" type="text"/>
+                                    <h:inputText autocomplete="off"  id="location" value="#{userTalk.talkEntity.location}" />
                                     <a href="#" id="js-dropper-btn" class="i-wrap ig-wrap-common i-location-picker-arrow-common-wrap location-dropper"><i class="i ig-common i-location-picker-arrow-common"></i> Select Location</a>
                                 </div>
                                 <div data-component-bound="true" class="char-counted-field clearfix">
                                     <label for="new-conversation-message">    Message</label>
-                                    <textarea id="new-conversation-message" name="message"></textarea>
+                                    <h:inputTextarea id="new-conversation-message" value="#{userTalk.talkEntity.message}"  ></h:inputTextarea>
                                     <fieldset class="pull-left">
                                         <label>
                                             <input name="subscribe" id="subscribe_cb" class="alignmid" value="1" checked="checked" type="checkbox"/>
@@ -107,16 +106,17 @@
                                     <span class="info-field pull-right"></span>
                                 </div>
                                 <div class="form-footer topic-footer arrange arrange--middle arrange--stack arrange--12">
-                                    <input name="action_create_topic" value="submit" type="hidden"/>
+                               
                                     <div class="arrange_unit arrange_unit--fill">
-                                        <button id="action_create_topic" type="submit" class="ybtn ybtn-primary disable-on-submit ytype topic-post-action" value="Submit"><span>Post</span></button>
+                                        <h:commandButton id="action_create_topic"  action="#{userTalk.makeTalk()}" 
+                                                class="ybtn ybtn-primary disable-on-submit ytype topic-post-action" value="Post"><span>Post</span></h:commandButton>
                                         <a href="#{request.contextPath}/pages/static/index.jsf">Cancel</a>
                                     </div>
                                     <div class="arrange_unit nowrap">
                                         <a data-component-bound="true" href="#{request.contextPath}/pages/static/guidelines.jsf" class="guidelines-pop-link talk-pop">Read our Talk Guidelines</a>
                                     </div>
                                 </div>
-                            </form>
+                            </h:form>
 
                         </div>
                     </div>

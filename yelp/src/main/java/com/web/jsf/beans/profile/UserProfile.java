@@ -8,6 +8,7 @@ import com.progress.backend.services.file.FileService;
 import com.progress.backend.services.user.UserFacebookService;
 
 import com.progress.backend.services.user.UserService;
+import com.web.jsf.beans.handlers.ApplicationManager;
 import com.web.jsf.beans.handlers.SessionController;
 import java.io.InputStream;
 import org.apache.log4j.Logger;
@@ -36,15 +37,11 @@ public class UserProfile implements Serializable {
 
     private static Logger log = Logger.getLogger(UserProfile.class);
     private static final long serialVersionUID = 1L;
-    //@Inject
-    @ManagedProperty("#{userService}")
-    private UserService userService = null;
-    @ManagedProperty("#{fileService}")
-    private FileService fileService = null;
+
+    @ManagedProperty("#{applicationManager}")
+    private ApplicationManager applicationManager;
     @ManagedProperty("#{sessionController}")
     private SessionController sessionController = null;
-    @ManagedProperty("#{userFacebookService}")
-    private UserFacebookService userFacebookService;
     @ManagedProperty("#{i18n}")
     private ResourceBundle bundle = null;
 
@@ -60,9 +57,9 @@ public class UserProfile implements Serializable {
     public void init() {
         System.out.println("called : init: ");
         if (sessionController.getUser() != null && sessionController.getUser().getId() != null) {
-            user = userService.findById(sessionController.getUser().getId());
+            user = applicationManager.getUserService().findById(sessionController.getUser().getId());
             System.out.println("image id!!!!  " + user.getImageId());
-            userFacebookEntity = userFacebookService.findByUserId(sessionController.getUser().getId());
+            userFacebookEntity = applicationManager.getUserFacebookService().findByUserId(sessionController.getUser().getId());
         }
     }
 
@@ -101,7 +98,7 @@ public class UserProfile implements Serializable {
                         || content.equalsIgnoreCase("image/jpg") || content.equalsIgnoreCase("image/gif")
                         || content.equalsIgnoreCase("image/x-png") || content.equalsIgnoreCase("image/png")) {
                     try {
-                        imageId = fileService.addFile(file);
+                        imageId = applicationManager.getFileService().addFile(file);
 
                         System.out.println("Saving file  " + imageId);
                     } catch (Exception e) {
@@ -120,22 +117,13 @@ public class UserProfile implements Serializable {
         }
         try {
             //System.out.println("Skiil tags size frontend " + user.getSkillTags().size());
-            userService.updateProfile(sessionController.getUser().getId(), user);
+            applicationManager.getUserService().updateProfile(sessionController.getUser().getId(), user);
         } catch (Exception e) {
             e.printStackTrace();
         }
         facesSuccess(bundle.getString("success"));
         return null;
 
-    }
-
-    public void setUserFacebookService(UserFacebookService userFacebookService) {
-        this.userFacebookService = userFacebookService;
-    }
-
-    public void handleSelect(SelectEvent event) {
-        Object selectedObject = event.getObject();
-        //   MessageUtil.addInfoMessage("selected.object", selectedObject);
     }
 
     public Part getUploadedFile() {
@@ -164,12 +152,8 @@ public class UserProfile implements Serializable {
         this.user = user;
     }
 
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
-
-    public void setFileService(FileService fileService) {
-        this.fileService = fileService;
+    public void setApplicationManager(ApplicationManager applicationManager) {
+        this.applicationManager = applicationManager;
     }
 
     public void setSessionController(SessionController sessionController) {
@@ -187,7 +171,5 @@ public class UserProfile implements Serializable {
     public void setUserFacebookEntity(UserFacebookEntity userFacebookEntity) {
         this.userFacebookEntity = userFacebookEntity;
     }
-    
-    
 
 }

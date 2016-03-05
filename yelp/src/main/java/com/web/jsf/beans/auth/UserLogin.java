@@ -2,6 +2,7 @@ package com.web.jsf.beans.auth;
 
 import com.progress.backend.entities.UserEntity;
 import com.progress.backend.services.user.UserService;
+import com.web.jsf.beans.handlers.ApplicationManager;
 import com.web.jsf.beans.handlers.SessionController;
 import java.io.Serializable;
 import java.util.Map;
@@ -26,8 +27,8 @@ import javax.faces.context.FacesContext;
 public class UserLogin implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @ManagedProperty("#{userService}")
-    private UserService userService = null;
+    @ManagedProperty("#{applicationManager}")
+    private ApplicationManager applicationManager;
     @ManagedProperty("#{sessionController}")
     private SessionController sessionController = null;
     @ManagedProperty("#{i18n}")
@@ -45,7 +46,7 @@ public class UserLogin implements Serializable {
         sessionMap.remove("expired");
         String navigation = "index";
         try {
-            UserEntity user = userService.userLogin(email, password);
+            UserEntity user = applicationManager.getUserService().userLogin(email, password);
 
             if (user == null) {
                 FacesMessage msg = new FacesMessage(bundle.getString("notuser"), bundle.getString("notuser"));
@@ -93,10 +94,11 @@ public class UserLogin implements Serializable {
         this.rememberMe = rememberMe;
     }
 
-    public void setUserService(UserService userService) {
-        this.userService = userService;
+    public void setApplicationManager(ApplicationManager applicationManager) {
+        this.applicationManager = applicationManager;
     }
 
+  
     public void setSessionController(SessionController sessionController) {
         this.sessionController = sessionController;
     }

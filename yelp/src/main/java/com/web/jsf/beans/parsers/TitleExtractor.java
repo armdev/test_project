@@ -7,6 +7,7 @@ package com.web.jsf.beans.parsers;
 
 import com.progress.backend.entities.PostBody;
 import com.progress.backend.services.user.PostService;
+import com.web.jsf.beans.handlers.ApplicationManager;
 import com.web.jsf.beans.handlers.SessionController;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,13 +36,12 @@ import org.jsoup.select.Elements;
 public class TitleExtractor implements Serializable {
 
     private static final long serialVersionUID = -414896421767187247L;
-
-    private String inputUrl;
-    private List<PostBody> postList = new ArrayList();
+    @ManagedProperty("#{applicationManager}")
+    private ApplicationManager applicationManager;
     @ManagedProperty("#{sessionController}")
     private SessionController sessionController = null;
-    @ManagedProperty("#{postService}")
-    private PostService postService = null;
+    private String inputUrl;
+    private List<PostBody> postList = new ArrayList();
 
     public void doParse() {
         try {
@@ -70,11 +70,11 @@ public class TitleExtractor implements Serializable {
 
             if (metalinks != null) {
                 String data = metalinks.attr("content");
-               // System.out.println(" description " + data);
+                // System.out.println(" description " + data);
                 postBody.setKeywords(data);
             }
             postBody.setUserId(sessionController.getUser().getId());
-            postService.save(postBody);
+            applicationManager.getPostService().save(postBody);
             //getPostList().add(postBody);
             inputUrl = null;
         } catch (IOException ex) {
@@ -217,7 +217,7 @@ public class TitleExtractor implements Serializable {
     }
 
     public List<PostBody> getPostList() {
-        postList = postService.findAll();
+        postList = applicationManager.getPostService().findAll();
         return postList;
     }
 
@@ -229,10 +229,12 @@ public class TitleExtractor implements Serializable {
         this.sessionController = sessionController;
     }
 
-    public void setPostService(PostService postService) {
-        this.postService = postService;
+    public void setApplicationManager(ApplicationManager applicationManager) {
+        this.applicationManager = applicationManager;
     }
-    
+
+   
+
     public String getInputUrl() {
         return inputUrl;
     }

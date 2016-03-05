@@ -4,6 +4,7 @@ import com.progress.backend.entities.UserEntity;
 import com.progress.backend.entities.UserFacebookEntity;
 import com.progress.backend.services.user.UserFacebookService;
 import com.progress.backend.services.user.UserService;
+import com.web.jsf.beans.handlers.ApplicationManager;
 import com.web.jsf.beans.handlers.SessionController;
 import com.web.jsf.utils.HttpJSFUtil;
 import java.io.Serializable;
@@ -31,20 +32,17 @@ public class Authenticator implements Serializable {
 
     private static final Logger log = Logger.getLogger(Authenticator.class);
 
-    @ManagedProperty("#{userService}")
-    private UserService userService;
-    @ManagedProperty("#{userFacebookService}")
-    private UserFacebookService userFacebookService;
-
-    @ManagedProperty("#{facebookAuthManagerBean}")
-    private FacebookAuthManagerBean facebookAuthManagerBean;
-
-    @ManagedProperty("#{mailProps}")
-    private ResourceBundle mailBundle = null;
+    @ManagedProperty("#{applicationManager}")
+    private ApplicationManager applicationManager;
     @ManagedProperty("#{sessionController}")
     private SessionController sessionController;
+    @ManagedProperty("#{facebookAuthManagerBean}")
+    private FacebookAuthManagerBean facebookAuthManagerBean;
+    @ManagedProperty("#{mailProps}")
+    private ResourceBundle mailBundle = null;
     @ManagedProperty("#{i18n}")
     private ResourceBundle bundle = null;
+    
     private UserFacebookEntity userFacebook;
     private UserEntity user;
     private boolean checkEmail = false;
@@ -172,35 +170,35 @@ public class Authenticator implements Serializable {
                 }
                 System.out.println("user.getEmail() " + user.getEmail());
                 if (user.getEmail() != null) {
-                    UserEntity checkUser = userService.getUserByEmail(user.getEmail());
+                    UserEntity checkUser = applicationManager.getUserService().getUserByEmail(user.getEmail());
                     System.out.println("checkUser " + checkUser);
                     if (checkUser == null) {
                         System.out.println("checkUser is null " + checkUser);
-                        checkUser = userService.save(user, userFacebook);
+                        checkUser = applicationManager.getUserService().save(user, userFacebook);
                         //userFacebookService.save(userFacebook, checkUser.getId());                       
                         System.out.println("New User created");
                         sessionController.setUser(checkUser);
                         FacesContext.getCurrentInstance().getExternalContext().redirect("pages/user/profile.jsf?success");
                     } else {
                         System.out.println("Old user, just login");
-                        
-                        UserFacebookEntity uf = userFacebookService.findByUserId(checkUser.getId());
+
+                        UserFacebookEntity uf = applicationManager.getUserFacebookService().findByUserId(checkUser.getId());
                         System.out.println("uf " + uf);
                         userFacebook.set_id(uf.get_id());
                         System.out.println("uf update " + uf.get_id());
-                        userFacebookService.save(userFacebook, checkUser.getId());
+                        applicationManager.getUserFacebookService().save(userFacebook, checkUser.getId());
                         sessionController.setUser(checkUser);
                         FacesContext.getCurrentInstance().getExternalContext().redirect("pages/user/profile.jsf?success");
                     }
-                }else {
-                     System.out.println("STOP : user.getEmail() is null ? " +user.getEmail());
+                } else {
+                    System.out.println("STOP : user.getEmail() is null ? " + user.getEmail());
                 }
 
             }
         } catch (Exception e) {
-             e.getLocalizedMessage();
+            e.getLocalizedMessage();
             log.info("Error during facebook init " + e.getLocalizedMessage());
-           
+
         }
         return null;
     }
@@ -443,6 +441,12 @@ public class Authenticator implements Serializable {
         return null;
     }
 
+    public void setApplicationManager(ApplicationManager applicationManager) {
+        this.applicationManager = applicationManager;
+    }
+    
+    
+
     public boolean isCheckFileSize() {
         return checkFileSize;
     }
@@ -487,13 +491,7 @@ public class Authenticator implements Serializable {
         this.facebookAuthManagerBean = facebookAuthManagerBean;
     }
 
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
-
-    public void setUserFacebookService(UserFacebookService userFacebookService) {
-        this.userFacebookService = userFacebookService;
-    }
+   
 
     public void setSessionController(SessionController sessionController) {
         this.sessionController = sessionController;

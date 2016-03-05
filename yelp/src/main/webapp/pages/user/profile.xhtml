@@ -21,13 +21,14 @@
                         <div class="content-container">
                             <div class="user-profile_container">
                                 <div class="user-profile_avatar">                                       
-                                        <img src="#{request.contextPath}/resources/img/ls_002.jpg" width="160px"  alt="Maria B." />                                                                       
+                                         <img alt="User Pic" src="#{userProfile.userFacebookEntity.profileimageurl}"
+                                                     class="img-circle img-responsive"/>                                                                      
                                 </div>
                                 <!-- start -->
                                 <div class="user-profile_content-wrapper arrange arrange--bottom arrange--30">
                                     <div class="user-profile_avatar-dummy arrange_unit" aria-hidden="true"></div>
                                     <div class="user-profile_info arrange_unit">
-                                        <h1>User "UserUser" B.</h1>
+                                        <h1>#{userProfile.user.firstname} #{userProfile.user.lastname}</h1>
                                         <h3 class="user-location alternate">Brooklyn, NY</h3>
                                         <div class="clearfix">
                                             <ul class="user-passport-stats">
@@ -63,7 +64,7 @@
                                                         <i class="i ig-common_sprite i-18x18_addfriends_link-common_sprite align-middle"></i>
                                                     </div>
                                                     <div class="action-link_label arrange_unit arrange_unit--fill">
-                                                        Add friend
+                                                       #{userProfile.userFacebookEntity.country}
                                                     </div>
                                                 </a>
 
@@ -75,7 +76,7 @@
                                                         <i class="i ig-common_sprite i-18x18_compliment_link-common_sprite align-middle"></i>
                                                     </div>
                                                     <div class="action-link_label arrange_unit arrange_unit--fill">
-                                                        Compliment
+                                                     #{userProfile.userFacebookEntity.location}
                                                     </div>
                                                 </a>
 
@@ -87,7 +88,7 @@
                                                         <i class="i ig-common_sprite i-18x18_message_link-common_sprite align-middle"></i>
                                                     </div>
                                                     <div class="action-link_label arrange_unit arrange_unit--fill">
-                                                        Send message
+                                                       #{userProfile.user.email}
                                                     </div>
                                                 </a>
 

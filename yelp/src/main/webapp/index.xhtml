@@ -14,7 +14,13 @@
 
             </ui:define>
             <ui:define name="toplinks">
-
+                <h:form>
+                    <h:commandLink id="facebook"  styleClass="btn btn-facebook btn-info btn-block" 
+                                   action="#{socialauthenticator.facebookLogin}">
+                        <i class="fa fa-facebook"></i>
+                        Join via Facebook
+                    </h:commandLink>
+                </h:form>
             </ui:define>
             <ui:define name="left">
 

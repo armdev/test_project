@@ -7,7 +7,19 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>  
-
+ <context-param>
+        <param-name>contextClass</param-name>
+        <param-value>
+            org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+        </param-value>
+    </context-param>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>com.progress.backend.configs.CommonCoreConfig</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
      <listener>
         <listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>
     </listener>
@@ -26,7 +38,7 @@
         <description>Only applicable if state saving method is "server" (= default).
             Defines the amount (default = 20) of the latest views are stored in session.</description>
         <param-name>org.apache.myfaces.NUMBER_OF_VIEWS_IN_SESSION</param-name>
-        <param-value>10</param-value>
+        <param-value>20</param-value>
     </context-param>
     <context-param>
         <description>Only applicable if state saving method is "server" (= default).
@@ -34,7 +46,7 @@
             is written to the session.
             If false the state will not be serialized to a byte stream.</description>
         <param-name>org.apache.myfaces.SERIALIZE_STATE_IN_SESSION</param-name>
-        <param-value>false</param-value>
+        <param-value>true</param-value>
     </context-param>
     <context-param>
         <description>Only applicable if state saving method is "server" (= default) and if 
@@ -42,7 +54,7 @@
             If true (default) the serialized state will be compressed before it 
             is written to the session. If false the state will not be compressed.</description>
         <param-name>org.apache.myfaces.COMPRESS_STATE_IN_SESSION</param-name>
-        <param-value>false</param-value>
+        <param-value>true</param-value>
     </context-param>
     <context-param>
         <description>This parameter tells MyFaces if javascript code should be allowed in the
@@ -100,10 +112,7 @@
         <param-value>org.apache.myfaces.renderkit.html.util.NonBufferingAddResource</param-value>
         <!--param-value>org.apache.myfaces.component.html.util.StreamingAddResource</param-value -->
     </context-param>
-   <context-param>
-        <param-name>javax.faces.PARTIAL_STATE_SAVING</param-name>
-        <param-value>true</param-value>
-    </context-param>
+  
     <context-param>
         <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
         <param-value>true</param-value>
@@ -137,7 +146,11 @@
         <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
         <param-value>.xhtml</param-value>
     </context-param>  
-
+<!--    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>bootstrap</param-value>
+    </context-param>
+  -->
     
   
     <error-page>

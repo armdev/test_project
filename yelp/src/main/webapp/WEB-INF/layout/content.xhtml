@@ -22,8 +22,8 @@
                     <li class="media-block media-block--12">
                         <div class="media-avatar">
                             <div class="photo-box pb-60s" data-hovercard-id="0QnsnljxpaFdMMEM4y80gg">
-                                <a href="http://www.yelp.com/user_details?userid=hg71CGHy9bwpgY8cGVVg4w" >
-                                    <img alt="Alan W." class="photo-box-img" height="60" src="#{request.contextPath}/resources/img/60s.jpg" width="60"/>
+                                <a href="#">
+                                    <img alt="#{list.userFacebookEntity.firstname}" class="photo-box-img" height="60" src="#{list.userFacebookEntity.profileimageurl}" width="60"/>
                                 </a>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                             <div class="topic-header arrange arrange--stack arrange--baseline arrange--6">
 
                                 <h3 class="arrange_unit arrange_unit--fill topic-title">
-                                    <a href="#{request.contextPath}/pages/talk/talkflow.jsf">#{list.title}</a>
+                                    <a href="#{request.contextPath}/pages/talk/talkflow.jsf?post=#{list.id}">#{list.title}</a>
                                     <small class="topic-title_info subtle-text">#{list.userId}</small>
                                 </h3>
                                 <div class="arrange_unit nowrap">
@@ -43,7 +43,7 @@
                             </div>
                             <div class="talk-display-message" title="Latest Reply">
                                 #{list.message}
-                                EventuallyA
+
                                 <div><small class="subtle-text">6 minutes ago by Lynn S.</small></div>
                             </div>
                         </div>

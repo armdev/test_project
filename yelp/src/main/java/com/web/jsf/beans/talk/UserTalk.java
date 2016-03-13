@@ -54,19 +54,18 @@ public class UserTalk implements Serializable {
 
     public UserTalk() {
         log.info("Constructor called : UserTalk ");
-         talkEntity = new TalkEntity();
+        talkEntity = new TalkEntity();
     }
 
     @PostConstruct
     public void init() {
-       
 
     }
 
     public String makeTalk() {
         try {
             System.out.println("sessionController.getUser().getId() " + sessionController.getUser().getId());
-             System.out.println("TitleFrontend::::: " + talkEntity.getTitle());
+            System.out.println("TitleFrontend::::: " + talkEntity.getTitle());
             System.out.println("MessageFrontend::::: " + talkEntity.getMessage());
             talkEntity.setUserId(sessionController.getUser().getId());
             applicationManager.getTalkService().save(talkEntity);

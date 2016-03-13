@@ -20,9 +20,15 @@
                     <div class="top-shelf top-shelf-grey">
                         <div class="content-container">
                             <div class="user-profile_container">
-                                <div class="user-profile_avatar">                                       
-                                         <img alt="User Pic" src="#{userProfile.userFacebookEntity.profileimageurl}"
-                                                     class="img-circle img-responsive"/>                                                                      
+                                <div class="user-profile_avatar">                      
+                                   
+                                    <h:outputLink value="#">
+                                        <img alt="User Pic" style="width:100px" src="#{userProfile.userFacebookEntity.profileimageurl}"
+                                             class="img-circle img-responsive"/>       
+                                    </h:outputLink>
+
+
+
                                 </div>
                                 <!-- start -->
                                 <div class="user-profile_content-wrapper arrange arrange--bottom arrange--30">
@@ -64,7 +70,7 @@
                                                         <i class="i ig-common_sprite i-18x18_addfriends_link-common_sprite align-middle"></i>
                                                     </div>
                                                     <div class="action-link_label arrange_unit arrange_unit--fill">
-                                                       #{userProfile.userFacebookEntity.country}
+                                                        #{userProfile.userFacebookEntity.country}
                                                     </div>
                                                 </a>
 
@@ -76,7 +82,7 @@
                                                         <i class="i ig-common_sprite i-18x18_compliment_link-common_sprite align-middle"></i>
                                                     </div>
                                                     <div class="action-link_label arrange_unit arrange_unit--fill">
-                                                     #{userProfile.userFacebookEntity.location}
+                                                        #{userProfile.userFacebookEntity.location}
                                                     </div>
                                                 </a>
 
@@ -88,7 +94,7 @@
                                                         <i class="i ig-common_sprite i-18x18_message_link-common_sprite align-middle"></i>
                                                     </div>
                                                     <div class="action-link_label arrange_unit arrange_unit--fill">
-                                                       #{userProfile.user.email}
+                                                        #{userProfile.user.email}
                                                     </div>
                                                 </a>
 
@@ -100,7 +106,7 @@
                                                         <i class="i ig-common_sprite i-18x18_following_link-common_sprite align-middle"></i>
                                                     </div>
                                                     <div class="action-link_label arrange_unit arrange_unit--fill">
-                                                        Follow Maria B.
+                                                        Follow #{userProfile.user.firstname}
                                                     </div>
                                                 </a><div class="saving-msg" data-component-bound="true"></div>
 
@@ -111,7 +117,7 @@
                                                         <i class="i ig-common_sprite i-18x18_unfollow_link-common_sprite align-middle"></i>
                                                     </div>
                                                     <div class="action-link_label arrange_unit arrange_unit--fill">
-                                                        Stop following Maria B.
+                                                        Stop following #{userProfile.user.firstname}
                                                     </div>
                                                 </a>
                                             </li>

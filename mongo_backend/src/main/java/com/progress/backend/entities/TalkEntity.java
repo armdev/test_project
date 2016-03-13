@@ -19,6 +19,8 @@ public class TalkEntity implements Serializable {
     private String location;
     private Integer status;
     private Date dateCreated;
+    private UserEntity user;
+    private UserFacebookEntity userFacebookEntity;
 
     public TalkEntity() {
     }
@@ -94,6 +96,24 @@ public class TalkEntity implements Serializable {
     public void setLocation(String location) {
         this.location = location;
     }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
+
+    public UserFacebookEntity getUserFacebookEntity() {
+        return userFacebookEntity;
+    }
+
+    public void setUserFacebookEntity(UserFacebookEntity userFacebookEntity) {
+        this.userFacebookEntity = userFacebookEntity;
+    }
+    
+    
 
     @Override
     public int hashCode() {

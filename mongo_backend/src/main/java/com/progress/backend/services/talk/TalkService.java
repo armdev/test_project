@@ -6,6 +6,9 @@ import com.progress.backend.connections.MongoCoreService;
 import com.progress.backend.entities.TalkEntity;
 
 import com.progress.backend.entities.UserEntity;
+import com.progress.backend.entities.UserFacebookEntity;
+import com.progress.backend.services.user.UserFacebookService;
+import com.progress.backend.services.user.UserService;
 import com.progress.backend.utils.CommonUtils;
 import com.progress.backend.utils.StatusTypeConstants;
 import java.io.Serializable;
@@ -30,9 +33,15 @@ public class TalkService implements Serializable {
     @Autowired
     private MongoCoreService mongoCoreService;
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private UserFacebookService userFacebookService;
+
     public void save(TalkEntity entity) {
         try {
-            
+
             BasicDBObject document = new BasicDBObject();
             entity.setId(CommonUtils.longValue(MongoCoreService.getNextId(mongoCoreService.getDatabase(), "talkSeqGen")));
             entity.setDateCreated(new Date(System.currentTimeMillis()));
@@ -47,7 +56,7 @@ public class TalkService implements Serializable {
 
     public boolean update(Long id, TalkEntity entity) {
         try {
-            DBObject document = Converter.toDBObject(entity);            
+            DBObject document = Converter.toDBObject(entity);
             mongoCoreService.getTalkCollection().update(new BasicDBObject().append("id", id), document);
         } catch (Exception e) {
             e.printStackTrace();
@@ -79,6 +88,10 @@ public class TalkService implements Serializable {
                 DBObject document = cursor.next();
                 TalkEntity entity = new TalkEntity();
                 entity = Converter.toObject(TalkEntity.class, document);
+                UserEntity user = userService.findById(entity.getUserId());
+                UserFacebookEntity userFacebookEntity = userFacebookService.findByUserId(entity.getUserId());
+                entity.setUser(user);
+                entity.setUserFacebookEntity(userFacebookEntity);
                 list.add(entity);
             }
         } finally {

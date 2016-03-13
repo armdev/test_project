@@ -50,8 +50,8 @@
                         <div class="ypassport media-block">
                             <div class="media-avatar">
                                 <div class="photo-box pb-60s" data-hovercard-id="TjmsAGufMenFu2FHiKXQ7A">
-                                    <a href="http://www.yelp.com/user_details?userid=wm61MbTS5_3DX0vHnlVk_g">
-                                        <img alt="Phoenix X." class="photo-box-img" src="#{request.contextPath}/resources/img/60s.jpg" height="60" width="60"/>
+                                    <a href="#">
+                                        <img alt="#{userTalkView.talkEntity.userFacebookEntity.firstname}" class="photo-box-img" height="60" src="#{userTalkView.talkEntity.userFacebookEntity.profileimageurl}" width="60"/>
 
                                     </a>
 
@@ -63,10 +63,10 @@
                             <div class="media-story">
                                 <ul class="user-passport-info">
                                     <li class="user-name">
-                                        <a class="user-display-name" href="http://www.yelp.com/user_details?userid=wm61MbTS5_3DX0vHnlVk_g" data-hovercard-id="TjmsAGufMenFu2FHiKXQ7A">Phoenix X.</a>
+                                        <a class="user-display-name" href="#" data-hovercard-id="TjmsAGufMenFu2FHiKXQ7A">#{userTalkView.talkEntity.userFacebookEntity.firstname}</a>
                                     </li>
                                     <li class="user-location">
-                                        <b>New York, NY</b>
+                                        <b>#{userTalkView.talkEntity.userFacebookEntity.location}</b>
                                     </li>
                                 </ul>
 
@@ -85,22 +85,18 @@
                     <div class="topic-reply-body">
                         <div class="arrange arrange--12 arrange--top">
                             <div class="arrange_unit arrange_unit--fill">
-                                <p class="message-text u-break-word">Some people can come here when its been a while and want to get FUC'd. Make someone feel important and FUC them! <br/><br/>I take first dibs I don't like seconds.. Let the yelp amusement begin!</p>
+                                <p class="message-text u-break-word">#{userTalkView.talkEntity.message}</p>
                             </div>
                             <div class="arrange_unit">
-
-
                                 <a class="chiclet-link show-tooltip" href="http://www.yelp.com/flag_content?flag_id=WH-ER3n1vMPWWi_YuE2zRg&amp;flag_type=message&amp;previous_url=%2Ftopic%2Fnew-york-fuc-the-yelper-above-you">
                                     <i class="i ig-common_sprite i-18x18_flag-common_sprite"></i>
                                     <span class="tooltip-wrapper tooltip-wrapper--right">
                                         <span class="tooltip">Report as inappropriate</span>
                                     </span>
                                 </a>
-
-
                             </div>
                         </div>
-                        <span class="time-stamp nowrap">1/21/2013</span>
+                        <span class="time-stamp nowrap">#{userTalkView.talkEntity.dateCreated}</span>
                         <div class="message-footer">
                         </div>
                     </div>

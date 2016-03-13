@@ -180,7 +180,10 @@ public class TalkService implements Serializable {
                 DBObject document = cursor.next();
                 entity = new TalkEntity();
                 entity = Converter.toObject(TalkEntity.class, document);
-
+                UserEntity user = userService.findById(entity.getUserId());
+                UserFacebookEntity userFacebookEntity = userFacebookService.findByUserId(entity.getUserId());
+                entity.setUser(user);
+                entity.setUserFacebookEntity(userFacebookEntity);
             }
         } finally {
             cursor.close();

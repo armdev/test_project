@@ -9,14 +9,17 @@ import org.bson.types.ObjectId;
 public class TalkFlowEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    //reply
     private ObjectId _id;
     private Long id;
     private Long categoryId;
     private Long userId;
-    private Long talkId;  
-    private String message;  
+    private Long talkId;
+    private String message;
     private Integer status;
     private Date dateCreated;
+    private UserEntity user;
+    private UserFacebookEntity userFacebookEntity;
 
     public TalkFlowEntity() {
     }
@@ -83,6 +86,22 @@ public class TalkFlowEntity implements Serializable {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
+
+    public UserFacebookEntity getUserFacebookEntity() {
+        return userFacebookEntity;
+    }
+
+    public void setUserFacebookEntity(UserFacebookEntity userFacebookEntity) {
+        this.userFacebookEntity = userFacebookEntity;
     }
 
     @Override

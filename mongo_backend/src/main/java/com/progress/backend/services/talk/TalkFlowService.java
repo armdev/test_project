@@ -5,6 +5,9 @@ import com.progress.backend.connections.MongoCoreService;
 import com.progress.backend.entities.TalkFlowEntity;
 
 import com.progress.backend.entities.UserEntity;
+import com.progress.backend.entities.UserFacebookEntity;
+import com.progress.backend.services.user.UserFacebookService;
+import com.progress.backend.services.user.UserService;
 import com.progress.backend.utils.CommonUtils;
 import com.progress.backend.utils.StatusTypeConstants;
 import java.io.Serializable;
@@ -28,6 +31,11 @@ public class TalkFlowService implements Serializable {
 
     @Autowired
     private MongoCoreService mongoCoreService;
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private UserFacebookService userFacebookService;
 
     public void save(TalkFlowEntity entity) {
         try {
@@ -38,7 +46,6 @@ public class TalkFlowService implements Serializable {
             DBObject dbObject = Converter.toDBObject(entity);
             mongoCoreService.getTalkFlowCollection().save(dbObject, WriteConcern.SAFE);
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -47,7 +54,6 @@ public class TalkFlowService implements Serializable {
             DBObject document = Converter.toDBObject(entity);
             mongoCoreService.getTalkFlowCollection().update(new BasicDBObject().append("id", id), document);
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return true;
     }
@@ -59,16 +65,15 @@ public class TalkFlowService implements Serializable {
             DBCursor cursor = mongoCoreService.getTalkFlowCollection().find(query);
             listCount = cursor.count();
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return listCount;
     }
 
     public List<TalkFlowEntity> findAll() {
-        List<TalkFlowEntity> list = new ArrayList<TalkFlowEntity>();
+        List<TalkFlowEntity> list = new ArrayList<>();
         String sort = "dateCreated";
-        String order = "desc";
-        DBObject sortCriteria = new BasicDBObject(sort, "desc".equals(order) ? -1 : 1);
+        String order = "asc";
+        DBObject sortCriteria = new BasicDBObject(sort, "asc".equals(order) ? 1 : -1);
         BasicDBObject query = new BasicDBObject();
         DBCursor cursor = mongoCoreService.getTalkFlowCollection().find(query).sort(sortCriteria);
         try {
@@ -76,6 +81,10 @@ public class TalkFlowService implements Serializable {
                 DBObject document = cursor.next();
                 TalkFlowEntity entity = new TalkFlowEntity();
                 entity = Converter.toObject(TalkFlowEntity.class, document);
+                UserEntity user = userService.findById(entity.getUserId());
+                UserFacebookEntity userFacebookEntity = userFacebookService.findByUserId(entity.getUserId());
+                entity.setUser(user);
+                entity.setUserFacebookEntity(userFacebookEntity);
                 list.add(entity);
             }
         } finally {
@@ -85,7 +94,7 @@ public class TalkFlowService implements Serializable {
     }
 
     public List<TalkFlowEntity> findAllByTalkId(Long talkId) {
-        List<TalkFlowEntity> list = new ArrayList<TalkFlowEntity>();
+        List<TalkFlowEntity> list = new ArrayList<>();
         String sort = "dateCreated";
         String order = "asc";
         DBObject sortCriteria = new BasicDBObject(sort, "asc".equals(order) ? 1 : -1);
@@ -97,6 +106,10 @@ public class TalkFlowService implements Serializable {
                 DBObject document = cursor.next();
                 TalkFlowEntity entity = new TalkFlowEntity();
                 entity = Converter.toObject(TalkFlowEntity.class, document);
+                UserEntity user = userService.findById(entity.getUserId());
+                UserFacebookEntity userFacebookEntity = userFacebookService.findByUserId(entity.getUserId());
+                entity.setUser(user);
+                entity.setUserFacebookEntity(userFacebookEntity);
                 list.add(entity);
             }
         } finally {

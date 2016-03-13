@@ -9,8 +9,6 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <div data-component-bound="true" class="column column-beta talk-thread column--responsive">
-
-
         <div class="topics-list-header">
             <h3>FUC the Yelper Above You!</h3>
             <p class="category-info">
@@ -18,7 +16,6 @@
             </p>
             <div class="arrange arrange--12">
                 <div class="arrange_unit arrange_unit--fill">
-
                     <form action="/talk/subscribe_confirm" class="email-notify-form js-email-notify-form" method="POST">
                         <input name="csrftok" class="csrftok" value="e133a1cc1c3ca70504bfc1e81682b9f16daa4c93248a310485e86d999583e267" type="hidden"/>
 
@@ -27,9 +24,7 @@
 
                         <a href="http://www.yelp.com/flag_content?flag_id=H6sWpOMBQBCam_JA8wAogA&amp;flag_message=+&amp;flag_type=topic&amp;previous_url=%2Ftopic%2Fnew-york-fuc-the-yelper-above-you" class="i-wrap ig-wrap-common_sprite i-18x18_flag-linked-common_sprite-wrap u-block"><i class="i ig-common_sprite i-18x18_flag-linked-common_sprite"></i> Report conversation as inappropriate</a>
                         <input name="topic_id" value="H6sWpOMBQBCam_JA8wAogA" type="hidden"/>
-
                     </form>
-
                 </div>
                 <div class="arrange_unit">
                     <a class="show-tooltip scroll-to-link" href="#topics-bottom" id="topics-top">
@@ -38,8 +33,6 @@
                             <span class="tooltip">Page Bottom</span>
                         </span>
                     </a>
-
-
                 </div>
             </div>
         </div>
@@ -54,11 +47,7 @@
                                         <img alt="#{userTalkView.talkEntity.userFacebookEntity.firstname}" class="photo-box-img" height="60" src="#{userTalkView.talkEntity.userFacebookEntity.profileimageurl}" width="60"/>
 
                                     </a>
-
                                 </div>
-
-
-
                             </div>
                             <div class="media-story">
                                 <ul class="user-passport-info">
@@ -69,7 +58,6 @@
                                         <b>#{userTalkView.talkEntity.userFacebookEntity.location}</b>
                                     </li>
                                 </ul>
-
                                 <ul class="user-passport-stats">
                                     <li class="friend-count responsive-small-display-inline-block">
                                         <span class="i-wrap ig-wrap-common_sprite i-18x18_friends_c-common_sprite-wrap"><i class="i ig-common_sprite i-18x18_friends_c-common_sprite"></i> <b>344</b> friends</span>
@@ -77,7 +65,6 @@
                                     <li class="review-count responsive-small-display-inline-block">
                                         <span class="i-wrap ig-wrap-common_sprite i-18x18_review_c-common_sprite-wrap"><i class="i ig-common_sprite i-18x18_review_c-common_sprite"></i> <b>210</b> reviews</span>
                                     </li>
-
                                 </ul>
                             </div>
                         </div>
@@ -101,10 +88,79 @@
                         </div>
                     </div>
                 </div>
-
             </li>
-
         </ol>
+
+
+        <ol class="ysection topics-list-messages ylist ylist-bordered ylist-border-top js-hovercards beginning-replies">
+            <ui:repeat value="#{userTalkView.talkFlowList}" var="list">
+                <li>
+                    <div class="topic-reply" id="WH-ER3n1vMPWWi_YuE2zRg">
+                        <div class="ypassport-wrapper">
+                            <div class="ypassport media-block">
+                                <div class="media-avatar">
+                                    <div class="photo-box pb-60s" data-hovercard-id="TjmsAGufMenFu2FHiKXQ7A">
+                                        <a href="#">
+                                            <img alt="#{list.userFacebookEntity.firstname}" class="photo-box-img" height="60" src="#{list.userFacebookEntity.profileimageurl}" width="60"/>
+
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="media-story">
+                                    <ul class="user-passport-info">
+                                        <li class="user-name">
+                                            <a class="user-display-name" href="#" data-hovercard-id="TjmsAGufMenFu2FHiKXQ7A">#{list.userFacebookEntity.firstname}</a>
+                                        </li>
+                                        <li class="user-location">
+                                            <b>#{list.userFacebookEntity.location}</b>
+                                        </li>
+                                    </ul>
+                                    <ul class="user-passport-stats">
+                                        <li class="friend-count responsive-small-display-inline-block">
+                                            <span class="i-wrap ig-wrap-common_sprite i-18x18_friends_c-common_sprite-wrap"><i class="i ig-common_sprite i-18x18_friends_c-common_sprite"></i> <b>344</b> friends</span>
+                                        </li>
+                                        <li class="review-count responsive-small-display-inline-block">
+                                            <span class="i-wrap ig-wrap-common_sprite i-18x18_review_c-common_sprite-wrap"><i class="i ig-common_sprite i-18x18_review_c-common_sprite"></i> <b>210</b> reviews</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="topic-reply-body">
+                            <div class="arrange arrange--12 arrange--top">
+                                <div class="arrange_unit arrange_unit--fill">
+                                    <p class="message-text u-break-word">#{list.message}</p>
+                                </div>
+                                <div class="arrange_unit">
+                                    <a class="chiclet-link show-tooltip" href="http://www.yelp.com/flag_content?flag_id=WH-ER3n1vMPWWi_YuE2zRg&amp;flag_type=message&amp;previous_url=%2Ftopic%2Fnew-york-fuc-the-yelper-above-you">
+                                        <i class="i ig-common_sprite i-18x18_flag-common_sprite"></i>
+                                        <span class="tooltip-wrapper tooltip-wrapper--right">
+                                            <span class="tooltip">Report as inappropriate</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <span class="time-stamp nowrap">#{list.dateCreated}</span>
+                            <div class="message-footer">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ui:repeat>
+        </ol>
+        <h:form>
+            <div data-component-bound="true" class="char-counted-field clearfix">
+                <h3>Reply</h3>
+                <br/>
+                <h:inputTextarea id="new-conversation-message" cols="100" rows="5" value="#{userTalkView.talkFlowEntity.message}"></h:inputTextarea>
+                <span class="info-field pull-right"></span>
+            </div>
+            <div class="arrange_unit arrange_unit--fill">
+                <h:commandButton id="action_create_topic"  action="#{userTalkView.doReply()}" 
+                                 class="ybtn ybtn-primary disable-on-submit ytype topic-post-action" value="Post"></h:commandButton>
+                <a href="#{request.contextPath}/index.jsf"  class="ybtn ybtn-filler disable-on-submit ytype topic-post-action">Cancel</a>
+            </div>
+        </h:form>
     </div>
 
 </html>

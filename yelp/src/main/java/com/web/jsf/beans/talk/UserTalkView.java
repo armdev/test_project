@@ -12,9 +12,11 @@ import com.progress.backend.services.file.FileService;
 import com.progress.backend.services.user.UserFacebookService;
 
 import com.progress.backend.services.user.UserService;
+import com.web.jsf.beans.UserViewBean;
 import com.web.jsf.beans.handlers.ApplicationManager;
 import com.web.jsf.beans.handlers.SessionController;
 import com.web.jsf.utils.ParamUtil;
+import java.io.IOException;
 import java.io.InputStream;
 import org.apache.log4j.Logger;
 import java.io.Serializable;
@@ -22,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
@@ -33,13 +36,13 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.Part;
 import org.primefaces.event.SelectEvent;
 
-
 @ManagedBean
 @ViewScoped
 public class UserTalkView implements Serializable {
 
-    private static Logger log = Logger.getLogger(UserTalkView.class);
+    private static final Logger log = Logger.getLogger(UserTalkView.class);
     private static final long serialVersionUID = 1L;
+
     private FacesContext context = null;
     private ExternalContext externalContext = null;
     @ManagedProperty("#{applicationManager}")
@@ -58,25 +61,58 @@ public class UserTalkView implements Serializable {
         context = FacesContext.getCurrentInstance();
         externalContext = context.getExternalContext();
         talkEntity = new TalkEntity();
+        talkFlowEntity = new TalkFlowEntity();
     }
 
     @PostConstruct
     public void init() {
         postId = ParamUtil.longValue((this.getRequestParameter("post")));
+
+        if (postId == null) {
+            try {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("../../index.jsf?hack==false");
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(UserViewBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
         talkEntity = applicationManager.getTalkService().findById(postId);
+        if (talkEntity == null) {
+            try {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("../../index.jsf?hack==false");
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(UserViewBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
-    public String makeTalk() {
-        try {
-            System.out.println("sessionController.getUser().getId() " + sessionController.getUser().getId());
-            System.out.println("TitleFrontend::::: " + talkEntity.getTitle());
-            System.out.println("MessageFrontend::::: " + talkEntity.getMessage());
-            talkEntity.setUserId(sessionController.getUser().getId());
-            applicationManager.getTalkService().save(talkEntity);
-        } catch (Exception e) {
-            e.printStackTrace();
+    public void check() {
+        postId = ParamUtil.longValue((this.getRequestParameter("post")));
+
+        if (postId == null) {
+            try {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("../../index.jsf?hack==false");
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(UserViewBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        return "index";
+
+    }
+
+    public void doReply() {
+        talkFlowEntity.setTalkId(postId);
+        talkFlowEntity.setUserId(sessionController.getUser().getId());
+        applicationManager.getTalkFlowService().save(talkFlowEntity);
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("talkflow.jsf?post=" + postId);
+        } catch (IOException ex) {
+            java.util.logging.Logger.getLogger(UserTalkView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public List<TalkFlowEntity> getTalkFlowList() {
+        return applicationManager.getTalkFlowService().findAllByTalkId(postId);
     }
 
     @PreDestroy

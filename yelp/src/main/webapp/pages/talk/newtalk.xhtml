@@ -20,11 +20,9 @@
                                 <h2 class="arrange_unit arrange_unit--fill">Start a New Conversation</h2>
                                 <a data-component-bound="true" href="#{request.contextPath}/pages/static/guidelines.jsf" class="arrange_unit nowrap guidelines-pop-link talk-pop">Read our Talk Guidelines</a>
                             </div>
-                            <h:form  class="yform clearfix js-captcha-form" prependId="false">
-
+                            <h:form  class="yform clearfix js-captcha-form" prependId="false" rendered="#{sessionController.user.id != null}">
                                 <label for="new-conversation-topic">    Topic Name</label>
-                                <h:inputText id="new-conversation-topic"  value="#{userTalk.talkEntity.title}" maxlength="128" />
-
+                                <h:inputText id="new-conversation-topic"  value="#{userTalk.talkEntity.title}" maxlength="128"/>
                                 <label>    Category</label>
                                 <span class="help-inline">Help others find your Talk Thread faster - categorize it!</span>
                                 <div class="help-inline">

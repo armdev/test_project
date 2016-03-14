@@ -24,7 +24,9 @@
             </form>
 
             <fieldset class="hr-line"></fieldset>
+            <h:panelGroup rendered="#{sessionController.user.id != null}">
             <a href="#{request.contextPath}/pages/talk/newtalk.jsf" class="ybtn ybtn-primary ybtn-small ybtn-full">New Conversation</a>
+            </h:panelGroup>
         </div>
     </div>
 

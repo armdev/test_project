@@ -32,18 +32,17 @@
 
                                 <h3 class="arrange_unit arrange_unit--fill topic-title">
                                     <a href="#{request.contextPath}/pages/talk/talkflow.jsf?post=#{list.id}">#{list.title}</a>
-                                    <small class="topic-title_info subtle-text">#{list.userId}</small>
+                                   
                                 </h3>
                                 <div class="arrange_unit nowrap">
                                     <small>
-                                        <span class="bullet-after">#{list.categoryId}</span>
+                                        <span class="bullet-after">#{list.talkCategoryEntity.name}</span>
                                         4411 replies
                                     </small>
                                 </div>
                             </div>
                             <div class="talk-display-message" title="Latest Reply">
                                 #{list.message}
-
                                 <div><small class="subtle-text">6 minutes ago by Lynn S.</small></div>
                             </div>
                         </div>

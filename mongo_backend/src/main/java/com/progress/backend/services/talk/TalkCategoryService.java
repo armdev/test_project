@@ -31,14 +31,12 @@ public class TalkCategoryService implements Serializable {
 
     public void save(TalkCategoryEntity entity) {
         try {
-
             BasicDBObject document = new BasicDBObject();
             entity.setId(CommonUtils.longValue(MongoCoreService.getNextId(mongoCoreService.getDatabase(), "categorySeqGen")));
             entity.setDateCreated(new Date(System.currentTimeMillis()));
             DBObject dbObject = Converter.toDBObject(entity);
             mongoCoreService.getTalkCategoryCollection().save(dbObject, WriteConcern.SAFE);
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -47,7 +45,6 @@ public class TalkCategoryService implements Serializable {
             DBObject document = Converter.toDBObject(entity);
             mongoCoreService.getTalkCategoryCollection().update(new BasicDBObject().append("id", id), document);
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return true;
     }
@@ -59,27 +56,23 @@ public class TalkCategoryService implements Serializable {
             DBCursor cursor = mongoCoreService.getTalkCategoryCollection().find(query);
             listCount = cursor.count();
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return listCount;
     }
 
     public List<TalkCategoryEntity> findAll() {
-        List<TalkCategoryEntity> list = new ArrayList<TalkCategoryEntity>();
+        List<TalkCategoryEntity> list = new ArrayList<>();
         String sort = "dateCreated";
         String order = "desc";
         DBObject sortCriteria = new BasicDBObject(sort, "desc".equals(order) ? -1 : 1);
         BasicDBObject query = new BasicDBObject();
-        DBCursor cursor = mongoCoreService.getTalkCategoryCollection().find(query).sort(sortCriteria);
-        try {
+        try (DBCursor cursor = mongoCoreService.getTalkCategoryCollection().find(query).sort(sortCriteria)) {
             while (cursor.hasNext()) {
                 DBObject document = cursor.next();
                 TalkCategoryEntity entity = new TalkCategoryEntity();
                 entity = Converter.toObject(TalkCategoryEntity.class, document);
                 list.add(entity);
             }
-        } finally {
-            cursor.close();
         }
         return list;
     }
@@ -88,16 +81,13 @@ public class TalkCategoryService implements Serializable {
         TalkCategoryEntity entity = null;
         BasicDBObject query = new BasicDBObject();
         query.put("id", id);
-        DBCursor cursor = mongoCoreService.getTalkCategoryCollection().find(query);
-        try {
+        try (DBCursor cursor = mongoCoreService.getTalkCategoryCollection().find(query)) {
             if (cursor.count() > 0) {
                 DBObject document = cursor.next();
                 entity = new TalkCategoryEntity();
                 entity = Converter.toObject(TalkCategoryEntity.class, document);
 
             }
-        } finally {
-            cursor.close();
         }
         return entity;
     }
@@ -108,7 +98,6 @@ public class TalkCategoryService implements Serializable {
             document.put("id", id);
             mongoCoreService.getTalkCategoryCollection().remove(document);
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

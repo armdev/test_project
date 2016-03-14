@@ -39,7 +39,6 @@ public class TalkFlowService implements Serializable {
 
     public void save(TalkFlowEntity entity) {
         try {
-
             BasicDBObject document = new BasicDBObject();
             entity.setId(CommonUtils.longValue(MongoCoreService.getNextId(mongoCoreService.getDatabase(), "talkflowSeqGen")));
             entity.setDateCreated(new Date(System.currentTimeMillis()));
@@ -75,8 +74,7 @@ public class TalkFlowService implements Serializable {
         String order = "asc";
         DBObject sortCriteria = new BasicDBObject(sort, "asc".equals(order) ? 1 : -1);
         BasicDBObject query = new BasicDBObject();
-        DBCursor cursor = mongoCoreService.getTalkFlowCollection().find(query).sort(sortCriteria);
-        try {
+        try (DBCursor cursor = mongoCoreService.getTalkFlowCollection().find(query).sort(sortCriteria)) {
             while (cursor.hasNext()) {
                 DBObject document = cursor.next();
                 TalkFlowEntity entity = new TalkFlowEntity();
@@ -87,8 +85,6 @@ public class TalkFlowService implements Serializable {
                 entity.setUserFacebookEntity(userFacebookEntity);
                 list.add(entity);
             }
-        } finally {
-            cursor.close();
         }
         return list;
     }
@@ -100,8 +96,7 @@ public class TalkFlowService implements Serializable {
         DBObject sortCriteria = new BasicDBObject(sort, "asc".equals(order) ? 1 : -1);
         BasicDBObject query = new BasicDBObject();
         query.put("talkId", talkId);
-        DBCursor cursor = mongoCoreService.getTalkFlowCollection().find(query).sort(sortCriteria);
-        try {
+        try (DBCursor cursor = mongoCoreService.getTalkFlowCollection().find(query).sort(sortCriteria)) {
             while (cursor.hasNext()) {
                 DBObject document = cursor.next();
                 TalkFlowEntity entity = new TalkFlowEntity();
@@ -112,8 +107,6 @@ public class TalkFlowService implements Serializable {
                 entity.setUserFacebookEntity(userFacebookEntity);
                 list.add(entity);
             }
-        } finally {
-            cursor.close();
         }
         return list;
     }
@@ -126,7 +119,6 @@ public class TalkFlowService implements Serializable {
             DBCursor cursor = mongoCoreService.getTalkFlowCollection().find(query);
             listCount = cursor.count();
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return listCount;
     }
@@ -135,16 +127,13 @@ public class TalkFlowService implements Serializable {
         TalkFlowEntity entity = null;
         BasicDBObject query = new BasicDBObject();
         query.put("id", id);
-        DBCursor cursor = mongoCoreService.getTalkFlowCollection().find(query);
-        try {
+        try (DBCursor cursor = mongoCoreService.getTalkFlowCollection().find(query)) {
             if (cursor.count() > 0) {
                 DBObject document = cursor.next();
                 entity = new TalkFlowEntity();
                 entity = Converter.toObject(TalkFlowEntity.class, document);
 
             }
-        } finally {
-            cursor.close();
         }
         return entity;
     }
@@ -155,7 +144,6 @@ public class TalkFlowService implements Serializable {
             document.put("id", id);
             mongoCoreService.getTalkFlowCollection().remove(document);
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

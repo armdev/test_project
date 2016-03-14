@@ -41,13 +41,12 @@ public class TalkService implements Serializable {
 
     public void save(TalkEntity entity) {
         try {
-
             BasicDBObject document = new BasicDBObject();
             entity.setId(CommonUtils.longValue(MongoCoreService.getNextId(mongoCoreService.getDatabase(), "talkSeqGen")));
             entity.setDateCreated(new Date(System.currentTimeMillis()));
             DBObject dbObject = Converter.toDBObject(entity);
-            System.out.println("Title::::: " + entity.getTitle());
-            System.out.println("Message::::: " + entity.getMessage());
+         //   System.out.println("Title::::: " + entity.getTitle());
+            //System.out.println("Message::::: " + entity.getMessage());
             mongoCoreService.getTalkCollection().save(dbObject, WriteConcern.SAFE);
         } catch (Exception e) {
             e.printStackTrace();
@@ -59,7 +58,7 @@ public class TalkService implements Serializable {
             DBObject document = Converter.toDBObject(entity);
             mongoCoreService.getTalkCollection().update(new BasicDBObject().append("id", id), document);
         } catch (Exception e) {
-            e.printStackTrace();
+          
         }
         return true;
     }
@@ -71,19 +70,18 @@ public class TalkService implements Serializable {
             DBCursor cursor = mongoCoreService.getTalkCollection().find(query);
             listCount = cursor.count();
         } catch (Exception e) {
-            e.printStackTrace();
+          ;
         }
         return listCount;
     }
 
     public List<TalkEntity> findAll() {
-        List<TalkEntity> list = new ArrayList<TalkEntity>();
+        List<TalkEntity> list = new ArrayList<>();
         String sort = "dateCreated";
         String order = "desc";
         DBObject sortCriteria = new BasicDBObject(sort, "desc".equals(order) ? -1 : 1);
         BasicDBObject query = new BasicDBObject();
-        DBCursor cursor = mongoCoreService.getTalkCollection().find(query).sort(sortCriteria);
-        try {
+        try (DBCursor cursor = mongoCoreService.getTalkCollection().find(query).sort(sortCriteria)) {
             while (cursor.hasNext()) {
                 DBObject document = cursor.next();
                 TalkEntity entity = new TalkEntity();
@@ -94,29 +92,24 @@ public class TalkService implements Serializable {
                 entity.setUserFacebookEntity(userFacebookEntity);
                 list.add(entity);
             }
-        } finally {
-            cursor.close();
         }
         return list;
     }
 
     public List<TalkEntity> findAllByCategory(Long categoryId) {
-        List<TalkEntity> list = new ArrayList<TalkEntity>();
+        List<TalkEntity> list = new ArrayList<>();
         String sort = "dateCreated";
         String order = "desc";
         DBObject sortCriteria = new BasicDBObject(sort, "desc".equals(order) ? -1 : 1);
         BasicDBObject query = new BasicDBObject();
         query.put("categoryId", categoryId);
-        DBCursor cursor = mongoCoreService.getTalkCollection().find(query).sort(sortCriteria);
-        try {
+        try (DBCursor cursor = mongoCoreService.getTalkCollection().find(query).sort(sortCriteria)) {
             while (cursor.hasNext()) {
                 DBObject document = cursor.next();
                 TalkEntity entity = new TalkEntity();
                 entity = Converter.toObject(TalkEntity.class, document);
                 list.add(entity);
             }
-        } finally {
-            cursor.close();
         }
         return list;
     }
@@ -129,29 +122,26 @@ public class TalkService implements Serializable {
             DBCursor cursor = mongoCoreService.getTalkCollection().find(query);
             listCount = cursor.count();
         } catch (Exception e) {
-            e.printStackTrace();
+       
         }
         return listCount;
     }
 
     public List<TalkEntity> findAllByCategoryAndUserId(Long categoryId, Long userId) {
-        List<TalkEntity> list = new ArrayList<TalkEntity>();
+        List<TalkEntity> list = new ArrayList<>();
         String sort = "dateCreated";
         String order = "desc";
         DBObject sortCriteria = new BasicDBObject(sort, "desc".equals(order) ? -1 : 1);
         BasicDBObject query = new BasicDBObject();
         query.put("categoryId", categoryId);
         query.put("userId", userId);
-        DBCursor cursor = mongoCoreService.getTalkCollection().find(query).sort(sortCriteria);
-        try {
+        try (DBCursor cursor = mongoCoreService.getTalkCollection().find(query).sort(sortCriteria)) {
             while (cursor.hasNext()) {
                 DBObject document = cursor.next();
                 TalkEntity entity = new TalkEntity();
                 entity = Converter.toObject(TalkEntity.class, document);
                 list.add(entity);
             }
-        } finally {
-            cursor.close();
         }
         return list;
     }
@@ -165,7 +155,6 @@ public class TalkService implements Serializable {
             DBCursor cursor = mongoCoreService.getTalkCollection().find(query);
             listCount = cursor.count();
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return listCount;
     }
@@ -174,8 +163,7 @@ public class TalkService implements Serializable {
         TalkEntity entity = null;
         BasicDBObject query = new BasicDBObject();
         query.put("id", id);
-        DBCursor cursor = mongoCoreService.getTalkCollection().find(query);
-        try {
+        try (DBCursor cursor = mongoCoreService.getTalkCollection().find(query)) {
             if (cursor.count() > 0) {
                 DBObject document = cursor.next();
                 entity = new TalkEntity();
@@ -185,8 +173,6 @@ public class TalkService implements Serializable {
                 entity.setUser(user);
                 entity.setUserFacebookEntity(userFacebookEntity);
             }
-        } finally {
-            cursor.close();
         }
         return entity;
     }
@@ -197,7 +183,7 @@ public class TalkService implements Serializable {
             document.put("id", id);
             mongoCoreService.getTalkCollection().remove(document);
         } catch (Exception e) {
-            e.printStackTrace();
+        
         }
     }
 

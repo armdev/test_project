@@ -63,8 +63,8 @@ public class TalkCategoryService implements Serializable {
     public List<TalkCategoryEntity> findAll() {
         List<TalkCategoryEntity> list = new ArrayList<>();
         String sort = "dateCreated";
-        String order = "desc";
-        DBObject sortCriteria = new BasicDBObject(sort, "desc".equals(order) ? -1 : 1);
+        String order = "asc";
+        DBObject sortCriteria = new BasicDBObject(sort, "asc".equals(order) ? 1 : -1);
         BasicDBObject query = new BasicDBObject();
         try (DBCursor cursor = mongoCoreService.getTalkCategoryCollection().find(query).sort(sortCriteria)) {
             while (cursor.hasNext()) {

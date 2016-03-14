@@ -2,6 +2,7 @@ package com.progress.backend.services.talk;
 
 import com.mongodb.*;
 import com.progress.backend.connections.MongoCoreService;
+import com.progress.backend.entities.TalkCategoryEntity;
 
 import com.progress.backend.entities.TalkEntity;
 
@@ -39,13 +40,16 @@ public class TalkService implements Serializable {
     @Autowired
     private UserFacebookService userFacebookService;
 
+    @Autowired
+    private TalkCategoryService talkCategoryService;
+
     public void save(TalkEntity entity) {
         try {
             BasicDBObject document = new BasicDBObject();
             entity.setId(CommonUtils.longValue(MongoCoreService.getNextId(mongoCoreService.getDatabase(), "talkSeqGen")));
             entity.setDateCreated(new Date(System.currentTimeMillis()));
             DBObject dbObject = Converter.toDBObject(entity);
-         //   System.out.println("Title::::: " + entity.getTitle());
+            //   System.out.println("Title::::: " + entity.getTitle());
             //System.out.println("Message::::: " + entity.getMessage());
             mongoCoreService.getTalkCollection().save(dbObject, WriteConcern.SAFE);
         } catch (Exception e) {
@@ -58,7 +62,7 @@ public class TalkService implements Serializable {
             DBObject document = Converter.toDBObject(entity);
             mongoCoreService.getTalkCollection().update(new BasicDBObject().append("id", id), document);
         } catch (Exception e) {
-          
+
         }
         return true;
     }
@@ -70,7 +74,7 @@ public class TalkService implements Serializable {
             DBCursor cursor = mongoCoreService.getTalkCollection().find(query);
             listCount = cursor.count();
         } catch (Exception e) {
-          ;
+            ;
         }
         return listCount;
     }
@@ -88,8 +92,10 @@ public class TalkService implements Serializable {
                 entity = Converter.toObject(TalkEntity.class, document);
                 UserEntity user = userService.findById(entity.getUserId());
                 UserFacebookEntity userFacebookEntity = userFacebookService.findByUserId(entity.getUserId());
+                TalkCategoryEntity talkCategoryEntity = talkCategoryService.findById(entity.getCategoryId());
                 entity.setUser(user);
                 entity.setUserFacebookEntity(userFacebookEntity);
+                entity.setTalkCategoryEntity(talkCategoryEntity);
                 list.add(entity);
             }
         }
@@ -122,7 +128,7 @@ public class TalkService implements Serializable {
             DBCursor cursor = mongoCoreService.getTalkCollection().find(query);
             listCount = cursor.count();
         } catch (Exception e) {
-       
+
         }
         return listCount;
     }
@@ -170,8 +176,10 @@ public class TalkService implements Serializable {
                 entity = Converter.toObject(TalkEntity.class, document);
                 UserEntity user = userService.findById(entity.getUserId());
                 UserFacebookEntity userFacebookEntity = userFacebookService.findByUserId(entity.getUserId());
+                TalkCategoryEntity talkCategoryEntity = talkCategoryService.findById(entity.getCategoryId());
                 entity.setUser(user);
                 entity.setUserFacebookEntity(userFacebookEntity);
+                entity.setTalkCategoryEntity(talkCategoryEntity);
             }
         }
         return entity;
@@ -183,7 +191,7 @@ public class TalkService implements Serializable {
             document.put("id", id);
             mongoCoreService.getTalkCollection().remove(document);
         } catch (Exception e) {
-        
+
         }
     }
 

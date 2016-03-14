@@ -21,6 +21,7 @@ public class TalkEntity implements Serializable {
     private Date dateCreated;
     private UserEntity user;
     private UserFacebookEntity userFacebookEntity;
+    private TalkCategoryEntity talkCategoryEntity;
 
     public TalkEntity() {
     }
@@ -111,6 +112,14 @@ public class TalkEntity implements Serializable {
 
     public void setUserFacebookEntity(UserFacebookEntity userFacebookEntity) {
         this.userFacebookEntity = userFacebookEntity;
+    }
+
+    public TalkCategoryEntity getTalkCategoryEntity() {
+        return talkCategoryEntity;
+    }
+
+    public void setTalkCategoryEntity(TalkCategoryEntity talkCategoryEntity) {
+        this.talkCategoryEntity = talkCategoryEntity;
     }
     
     

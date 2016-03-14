@@ -62,6 +62,79 @@ public class UserTalk implements Serializable {
 
     }
 
+    public String createCategory() {
+        try {
+            talkCategoryEntity = new TalkCategoryEntity();
+            talkCategoryEntity.setDescription("Local Questions & Answers");
+            talkCategoryEntity.setName("Local Questions & Answers");
+            talkCategoryEntity.setStatus(1);
+            applicationManager.getTalkCategoryService().save(talkCategoryEntity);
+
+            talkCategoryEntity = new TalkCategoryEntity();
+            talkCategoryEntity.setDescription("Events");
+            talkCategoryEntity.setName("Events");
+            talkCategoryEntity.setStatus(1);
+            applicationManager.getTalkCategoryService().save(talkCategoryEntity);
+
+            talkCategoryEntity = new TalkCategoryEntity();
+            talkCategoryEntity.setDescription("Food");
+            talkCategoryEntity.setName("Food");
+            talkCategoryEntity.setStatus(1);
+            applicationManager.getTalkCategoryService().save(talkCategoryEntity);
+
+            talkCategoryEntity = new TalkCategoryEntity();
+            talkCategoryEntity.setDescription("Shopping & Products");
+            talkCategoryEntity.setName("Shopping & Products");
+            talkCategoryEntity.setStatus(1);
+            applicationManager.getTalkCategoryService().save(talkCategoryEntity);
+            talkCategoryEntity = new TalkCategoryEntity();
+            talkCategoryEntity.setDescription("Travel");
+            talkCategoryEntity.setName("Travel");
+            talkCategoryEntity.setStatus(1);
+            applicationManager.getTalkCategoryService().save(talkCategoryEntity);
+
+            talkCategoryEntity = new TalkCategoryEntity();
+            talkCategoryEntity.setDescription("Relationships & Dating");
+            talkCategoryEntity.setName("Relationships & Dating");
+            talkCategoryEntity.setStatus(1);
+            applicationManager.getTalkCategoryService().save(talkCategoryEntity);
+
+            talkCategoryEntity = new TalkCategoryEntity();
+            talkCategoryEntity.setDescription("Humor & Offbeat");
+            talkCategoryEntity.setName("Humor & Offbeat");
+            talkCategoryEntity.setStatus(1);
+            applicationManager.getTalkCategoryService().save(talkCategoryEntity);
+
+            talkCategoryEntity = new TalkCategoryEntity();
+            talkCategoryEntity.setDescription("Entertainment & Pop Culture");
+            talkCategoryEntity.setName("Entertainment & Pop Culture");
+            talkCategoryEntity.setStatus(1);
+            applicationManager.getTalkCategoryService().save(talkCategoryEntity);
+
+            talkCategoryEntity = new TalkCategoryEntity();
+            talkCategoryEntity.setDescription("Sports");
+            talkCategoryEntity.setName("Sports");
+            talkCategoryEntity.setStatus(1);
+            applicationManager.getTalkCategoryService().save(talkCategoryEntity);
+
+            talkCategoryEntity = new TalkCategoryEntity();
+            talkCategoryEntity.setDescription("News & Politics");
+            talkCategoryEntity.setName("News & Politics");
+            talkCategoryEntity.setStatus(1);
+            applicationManager.getTalkCategoryService().save(talkCategoryEntity);
+
+            talkCategoryEntity = new TalkCategoryEntity();
+            talkCategoryEntity.setDescription("Others");
+            talkCategoryEntity.setName("Others");
+            talkCategoryEntity.setStatus(1);
+            applicationManager.getTalkCategoryService().save(talkCategoryEntity);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "index";
+    }
+
     public String makeTalk() {
         try {
             System.out.println("sessionController.getUser().getId() " + sessionController.getUser().getId());
@@ -70,13 +143,16 @@ public class UserTalk implements Serializable {
             talkEntity.setUserId(sessionController.getUser().getId());
             applicationManager.getTalkService().save(talkEntity);
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "index";
     }
 
     public List<TalkEntity> getTalkList() {
         return applicationManager.getTalkService().findAll();
+    }
+
+    public List<TalkCategoryEntity> getCategoryList() {
+        return applicationManager.getTalkCategoryService().findAll();
     }
 
     @PreDestroy
